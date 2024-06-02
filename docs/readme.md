@@ -5,7 +5,7 @@
 ### Entidades
 Cliente(nome, email, morada, data_nascimento)
 Marca(nome)
-Modelo(nome, Marca)
+Modelo(nome)
 Carro(marca, modelo, ano, preco)
 Reserva(data_inicio, data_fim, preco_total, cliente, carro)
 
