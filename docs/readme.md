@@ -12,3 +12,5 @@ Reserva(data_inicio, data_fim, preco_total, cliente, carro)
 ### Relacionamentos
 Um cliente pode reservar vários carros, mas um carro só pode ser reservado por um cliente por vez.
 reservaCarro(Cliente, Carro) 1:N
+
+![](/docs/Diagram.drawio.png)
