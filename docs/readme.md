@@ -14,3 +14,9 @@ Um cliente pode reservar vários carros, mas um carro só pode ser reservado por
 reservaCarro(Cliente, Carro) 1:N
 
 ![](/docs/Diagram.drawio.png)
+
+install dependencies:
+     $ npm install
+
+   run the app:
+     $ DEBUG=project-car:* npm start
