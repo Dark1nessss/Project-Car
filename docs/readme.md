@@ -14,3 +14,21 @@ Um cliente pode reservar vários carros, mas um carro só pode ser reservado por
 reservaCarro(Cliente, Carro) 1:N
 
 ![](/docs/Diagram.drawio.png)
+
+## Rodar localmente
+
+Instalar as dependencias
+```sh
+npm install
+```
+
+Rodar a aplicacao
+```sh
+DEBUG=project-car:* npm start
+```
+
+Rodar migracoes
+npx sequelize-cli db:migrate
+
+Rodar seeders
+npx sequelize-cli db:seed:all
