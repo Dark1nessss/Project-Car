@@ -15,8 +15,14 @@ reservaCarro(Cliente, Carro) 1:N
 
 ![](/docs/Diagram.drawio.png)
 
-install dependencies:
-     $ npm install
+## Rodar localmente
 
-   run the app:
-     $ DEBUG=project-car:* npm start
+Instalar as dependencias
+```sh
+npm install
+```
+
+Rodar a aplicacao
+```sh
+DEBUG=project-car:* npm start
+```
