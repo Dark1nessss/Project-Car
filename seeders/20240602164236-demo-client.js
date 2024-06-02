@@ -12,6 +12,24 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+
+    await queryInterface.bulkInsert('Cliente', [
+      {
+        nome: 'João Silva',
+        email: 'joaosilva@gmail.com',
+        morada: 'Rua de sao dinis 545 1dt',
+        nif: 123456789,
+        data_nascimento: '2005-04-30',
+      },
+      // estes dois sao irmaos gemeos xd
+      {
+        nome: 'João Manel',
+        email: 'joaomanel@gmail.com',
+        morada: 'Rua de sao dinis 545 1dt',
+        nif: 123456788,
+        data_nascimento: '2005-04-30',
+      },
+    ])
   },
 
   async down (queryInterface, Sequelize) {
