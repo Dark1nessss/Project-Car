@@ -13,13 +13,15 @@ module.exports = {
      * }], {});
     */
 
-    await queryInterface.bulkInsert('Cliente', [
+    await queryInterface.bulkInsert('Clientes', [
       {
         nome: 'João Silva',
         email: 'joaosilva@gmail.com',
         morada: 'Rua de sao dinis 545 1dt',
         nif: 123456789,
         data_nascimento: '2005-04-30',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       // estes dois sao irmaos gemeos xd
       {
@@ -28,6 +30,8 @@ module.exports = {
         morada: 'Rua de sao dinis 545 1dt',
         nif: 123456788,
         data_nascimento: '2005-04-30',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
     ])
   },
