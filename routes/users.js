@@ -8,5 +8,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/criarcliente', clienteController.criarcliente)
+router.post('/verificarcliente', clienteController.verificarCliente)
 
 module.exports = router;

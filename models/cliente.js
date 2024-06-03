@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
 
-    validPassword(models){
+    validPassword(password){
       return bcrypt.compareSync(password, this.password)
     }
   }
