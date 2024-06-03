@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     nome: {type: DataTypes.STRING, allowNull: false, unique: true},
     email: {type: DataTypes.STRING, allowNull: false},
     morada: {type: DataTypes.STRING, allowNull: false},
-    nif: {type: DataTypes.INTEGER, unique: true},
+    nif: {type: DataTypes.INTEGER, unique: true}, // change datatype, Out of range value for column 'nif' at row 1
     data_nascimento: {type: DataTypes.DATE, allowNull: false},
     password: {type: DataTypes.STRING, allowNull: false}
   }, {
