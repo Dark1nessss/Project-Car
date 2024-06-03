@@ -23,7 +23,7 @@ font-family: 'Rufina', serif;
 10. Forms
 11. Contact
 12. Scroll Top
-13. Responsivity
+13. Login
 ==========================================*/
 
 /*-------------------------------------
@@ -766,4 +766,13 @@ textarea:read-only {
 }
 
 
-/*========================Screen Responsivity================= */
+/*-------------------------------------
+		        1.Login
+--------------------------------------*/
+
+.centered-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Adjust if needed */
+}
