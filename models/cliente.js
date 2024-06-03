@@ -16,10 +16,10 @@ module.exports = (sequelize, DataTypes) => {
   Cliente.init({
     nome: {type: DataTypes.STRING, allowNull: false, unique: true},
     email: {type: DataTypes.STRING, allowNull: false},
-    morada: DataTypes.STRING,
-    nif: DataTypes.INTEGER,
-    data_nascimento: DataTypes.DATE,
-    password: DataTypes.STRING
+    morada: {type: DataTypes.STRING, allowNull: false},
+    nif: {type: DataTypes.INTEGER, unique: true},
+    data_nascimento: {type: DataTypes.DATE, allowNull: false},
+    password: {type: DataTypes.STRING, allowNull: false}
   }, {
     sequelize,
     modelName: 'Cliente',
