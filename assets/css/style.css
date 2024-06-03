@@ -765,7 +765,6 @@ textarea:read-only {
     100%  {bottom:7px;}
 }
 
-
 /*-------------------------------------
 		        1.Login
 --------------------------------------*/
@@ -774,5 +773,4 @@ textarea:read-only {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%; /* Adjust if needed */
 }
