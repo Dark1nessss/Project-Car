@@ -1,12 +1,44 @@
-.container1 {
-  max-width: 350px;
-  background: #F8F9FD;
-  background: linear-gradient(0deg, #4e4ffa 0%, rgb(244, 247, 251) 100%);
-  border-radius: 40px;  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #818998;
+  background-image: url(/assets/images/test/wallpaperflare.com_wallpaper.jpg);
+  background-size: cover;
+  text-transform: initial;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand{
+font-size: 30px;
+text-align: right;
+color: white;
+}
+
+.container {
+  max-width: 500px;
+  max-height: 840px;
+  background: #303030;
+  height: 100%;
   padding: 25px 35px;
-  border: 5px solid rgb(255, 255, 255);
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
-  margin: 20px;
+  margin: 0;
+  position: absolute;
 }
 
 .heading {
@@ -16,11 +48,11 @@
   color: rgb(16, 137, 211);
 }
 
-.form1 {
+.form {
   margin-top: 20px;
 }
 
-.form1 .input {
+.form .input {
   width: 100%;
   background: white;
   border: none;
@@ -31,32 +63,32 @@
   border-inline: 2px solid transparent;
 }
 
-.form1 .input::-moz-placeholder {
+.form .input::-moz-placeholder {
   color: rgb(170, 170, 170);
 }
 
-.form1 .input::placeholder {
+.form .input::placeholder {
   color: rgb(170, 170, 170);
 }
 
-.form1 .input:focus {
+.form .input:focus {
   outline: none;
   border-inline: 2px solid #12B1D1;
 }
 
-.form1 .forgot-password {
+.form .forgot-password {
   display: block;
   margin-top: 10px;
   margin-left: 10px;
 }
 
-.form1 .forgot-password a {
+.form .forgot-password a {
   font-size: 11px;
   color: #0099ff;
   text-decoration: none;
 }
 
-.form1 .login-button {
+.form .login-button {
   display: block;
   width: 100%;
   font-weight: bold;
@@ -64,18 +96,17 @@
   color: white;
   padding-block: 15px;
   margin: 20px auto;
-  border-radius: 20px;
   box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
   border: none;
   transition: all 0.2s ease-in-out;
 }
 
-.form1 .login-button:hover {
+.form .login-button:hover {
   transform: scale(1.03);
   box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
 }
 
-.form1 .login-button:active {
+.form .login-button:active {
   transform: scale(0.95);
   box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
 }
