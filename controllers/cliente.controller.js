@@ -41,9 +41,29 @@ const autenticarSessao = async(req, res) => {
         res.json("cliente nao encontrado")
     }
 }
+
+const login = async(req, res) => {
+    const data = req.body;
+    const cliente = await Cliente.findOne({where: {nif: data.nif}})
+    if(cliente){
+        if(cliente.validPassword(data.password)){
+            // Flag sessao, user esta autenticado
+            req.session.loggedIn = true
+            req.session.cliente_id = cliente.id
+            res.json(cliente)
+            console.log(req.session)
+        } else {
+            res.json("password errada")
+        }
+    } else {
+        res.json("cliente nao encontrado")
+    }
+}
+
 module.exports = {
     criarcliente,
     verificarCliente,
     autenticarSessao,
+    login
     
 }
