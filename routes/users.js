@@ -11,5 +11,6 @@ router.post('/criarcliente', clienteController.criarcliente)
 router.post('/verificarcliente', clienteController.verificarCliente)
 router.post('/autenticarsessao', clienteController.autenticarSessao)
 router.post('/login', clienteController.login)
+router.post('/register', clienteController.register)
 
 module.exports = router;

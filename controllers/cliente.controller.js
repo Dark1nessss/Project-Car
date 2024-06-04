@@ -61,10 +61,23 @@ const login = async(req, res) => {
     }
 }
 
+const register = async(req, res) => {
+    const data = req.body;
+    const cliente = await Cliente.findOne({where: {nif: data.nif}})
+    if(cliente){
+        res.json("cliente ja existe")
+    } else {
+        cliente_criado = await Cliente.create(data)
+        res.json(cliente_criado)
+    }
+}
+
+
 module.exports = {
     criarcliente,
     verificarCliente,
     autenticarSessao,
-    login
+    login,
+    register
     
 }
