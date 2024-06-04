@@ -50,7 +50,8 @@ const login = async(req, res) => {
             // Flag sessao, user esta autenticado
             req.session.loggedIn = true
             req.session.cliente_id = cliente.id
-            res.json(cliente)
+            req.session.nome_cliente = cliente.nome
+            res.redirect('/')
             console.log(req.session)
         } else {
             res.json("password errada")

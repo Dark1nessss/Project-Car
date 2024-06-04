@@ -93,7 +93,14 @@
 				                    <li class="scroll"><a href="#brand">brands</a></li>
 									<li class="scroll"><a href="#forms">forms</a></li>
 				                    <li class="scroll"><a href="#contact">contact</a></li>
+
+									
+
+									{{#if nome_cliente}}
+									<li class="scroll centered-image"><a href="/login">{{nome_cliente}}</a></li>
+									{{else}}
 									<li class="scroll centered-image"><a href="/login">login</a></li>
+									{{/if}}
 				                </ul><!--/.nav -->
 				            </div><!-- /.navbar-collapse -->
 				        </div><!--/.container-->
@@ -107,7 +114,12 @@
 
 			<div class="container">
 				<div class="welcome-hero-txt">
-					<h2>get your desired car in resonable price</h2>
+					{{#if nome_cliente}}
+					<h2>Bem vindo meu caro {{nome_cliente}}</h2>
+					{{else}}
+					<h2>BLABLABALBA</h2><!--Muda aqui qualquer cena pls-->
+					{{/if}}
+
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore   magna aliqua. 
 					</p>
