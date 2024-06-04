@@ -782,6 +782,8 @@ textarea:read-only {
 
 .loginbody{
     background-image: url(/assets/images/test/wallpaperflare.com_wallpaper.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #joker {
