@@ -46,6 +46,7 @@ img{
 
 body{
     color: var(--text-color);
+    max-width: 1920px;
 }
 
 /* 4. Container Css */
@@ -119,13 +120,13 @@ section{
 /* Section Home */
 
 .home{
-    max-width: 1300px;
+    max-width: 1920px;
     margin: auto;
     width: 100%;
     min-height: 640px;  
     display: flex;
     align-items: center;
-    background: url();
+    background: url(/assets/images/Background-home.png);
     background-size: cover;
     background-position: center left;
 }
@@ -139,7 +140,7 @@ section{
 */
 
 .home-text{
-    padding-left: 100px;
+    padding-left: 300px;
 }
 
 .home-text h1{
@@ -171,6 +172,8 @@ section{
 
 .heading span{
     font-weight: 500;
+    font-weight: bold;
+    font-size: 24px;
     color: var(--main-color);
 }
 
@@ -190,7 +193,7 @@ section{
 
 .cars-container .box{
     flex: 1 1 13rem;
-    padding: 20px;
+    padding: 10px;
     transition: background-color 0.6s;
 }
 
@@ -200,13 +203,13 @@ section{
 }
 
 .cars-container .box span{
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--main-color);
     font-weight: 700;
 }
 
 .cars-container h3{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .cars-container .box p{
@@ -251,6 +254,8 @@ section{
 
 .about-text span {
     font-weight: 500;
+    font-weight: bold;
+    font-size: 24px;
     color: var(--main-color);
 }
 
@@ -265,6 +270,7 @@ section{
 
 /* Forms */
 
+
 .forms {
     padding: 50px 0;
     background-color: #f9f9f9;
@@ -278,6 +284,18 @@ section{
 .forms-area {
     max-width: 800px;
     margin: 0 auto;
+    align-content: center;
+}
+
+.forms-above-text{
+    text-align: center;
+}
+
+.forms-above-text span {
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--main-color);
 }
 
 form {
@@ -366,4 +384,61 @@ textarea:read-only {
     color: var(--main-color);
     column-gap: 0.7rem;
     transition: 0.4s;
+}
+
+/* Footer Section */
+
+.footer{
+    background: var(--text-color);
+    color: #f6f6f6;
+    border-top: 2px solid var(--main-color);
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.footer-container .logo{
+    color: var(--bg-color);
+    margin-bottom: 1rem;
+}
+
+.footer-container .footer-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.social{
+    display: flex;
+    align-items: center;
+}
+
+.social a{
+    font-size: 24px;
+    color: var(--bg-color);
+    margin-right: 1rem;
+    transition: 0.7s;
+}
+
+.social a:hover{
+    transition: 0.7s;
+}
+
+.footer-box h3{
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.footer-box a, .footer p{
+color: #818181;
+margin-bottom: 10px;
+transition: 0.7s;
+}
+
+.footer-box a:hover{
+    color: var(--bg-color);
+    transition: 0.7s;
 }
