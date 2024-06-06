@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+const flash = require('express-flash')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -19,14 +20,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/assets', express.static(path.join(__dirname, 'assets')))
+app.use(flash())
 app.use(session({
   secret: 'sh...!',
   resave: false,
   saveUninitialized: false,
 }))
 
+app.use((req, res, next) => {
+	res.locals.message = req.flash()
+	next();
+})
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

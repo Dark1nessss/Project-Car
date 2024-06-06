@@ -68,7 +68,8 @@ const register = async(req, res) => {
         res.json("cliente ja existe")
     } else {
         cliente_criado = await Cliente.create(data)
-        res.json(cliente_criado)
+        req.flash("success", "Conta criada :D")
+        res.redirect('/login')
     }
 }
 
