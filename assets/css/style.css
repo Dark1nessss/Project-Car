@@ -108,7 +108,7 @@ header{
 
 .navbar a:hover, .navbar .active {
     color: #808080;
-    transition: border-bottom 0.07s ease;
+    transition: color 0.4s ease;
 }
 
 /* User Pic */
