@@ -44,7 +44,7 @@ const autenticarSessao = async(req, res) => {
 
 const login = async(req, res) => {
     const data = req.body;
-    const cliente = await Cliente.findOne({where: {nif: data.nif}})
+    const cliente = await Cliente.findOne({where: {email: data.email}})
     if(cliente){
         if(cliente.validPassword(data.password)){
             // Flag sessao, user esta autenticado
@@ -63,12 +63,13 @@ const login = async(req, res) => {
 
 const register = async(req, res) => {
     const data = req.body;
-    const cliente = await Cliente.findOne({where: {nif: data.nif}})
+    const cliente = await Cliente.findOne({where: {nome: data.nome}})
     if(cliente){
         res.json("cliente ja existe")
     } else {
         cliente_criado = await Cliente.create(data)
-        res.json(cliente_criado)
+        req.flash("success", "Conta criada :D")
+        res.redirect('/login')
     }
 }
 

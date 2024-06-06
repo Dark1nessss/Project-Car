@@ -28,7 +28,14 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#forms">Contact</a></li>
                     <li><a href="#blog">Our Blog</a></li>
-                    <li><a href="/login">Login</a></li>
+                    
+                    
+                    
+                    {{#if nome_cliente}}
+					    <li class="scroll centered-image"><a href="/logout">Log out</a></li>
+                        {{else}}
+                        <li><a href="/login">Login</a></li>
+				    {{/if}}
                 </ul>
             </div>
 
@@ -43,6 +50,10 @@
             </video>
             -->
             <div class="home-text">
+                {{#if nome_cliente}}
+					<h2>Bem vindo meu caro {{nome_cliente}}</h2>
+				{{/if}}
+
                 <h1>Comfort, <span>Performance. </span><br> We have it all. </h1>
                 <p>Project created for educational purposes.<br> By some students in ISTEC</p>
                 <!--Home Button-->
