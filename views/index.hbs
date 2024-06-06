@@ -32,7 +32,36 @@
                     
                     
                     {{#if nome_cliente}}
-					    <li class="scroll centered-image"><a href="/logout">Log out</a></li>
+					    <img src="/assets/images/logo.png" class="user-pic" onclick="toggleMenu()">
+                        <div class="sub-menu-wrap" id="subMenu">
+                            <div class="sub-menu">
+                                <div class="user-info">
+                                    <img src="/assets/images/logo.png">
+                                    <p>{{nome_cliente}}</p>
+                                </div>
+                                <hr>
+                                <a href="#" class="sub-menu-link">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAXhJREFUSEvFldFNBDEMROc6gUqASoBfKAIo4vgFKgEqASqBeygTOd5kL4d0ItIqu1rb4xk7zkZHXpsjx9cMwLkknrOyf+72N0lfZed9uNYATiQ9laBrMQC8kMS+WCOAe0l3xRrHl5AtwDywuizvtsGvWT2AGPxhZ71wChEAugrJLOwzAA4fJQC0V/UNQIAgJ0yuo18GeC3UR5k741zw9yIVsgJyavAI4Cz4Z02fy3uWYlR0/LCt7COAtbfRKAjskI7HwC62faoCEQANYQE99727JTPK4Fk6wGHRHDSKiyEA3Z6eOPVuklqHyKAHsJV0I+lR0m0CGP37Lna/sSOAOyi2p42zLd+9f24UmoN2bQBc5NiihzJYxIgMKCwsmj6e0D2aWAWyh0XDIA63SvEAAHdh7aCernFU1CwmQMwe02bE9IZdPNH7hh0BV4djDyCPBV8wzBsPvzyuAeom828XjmX35cLuCephaEZ/vjInarvfZObS3x9lxeIHRiBpGcajju8AAAAASUVORK5CYII="/>
+                                    <p>Edit Profile</p>
+                                    <span></span>
+                                </a>
+                                <a href="#" class="sub-menu-link">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAXtJREFUSEu1letRAzEMhDedkEqASgiVAJVAJ4FKgEqAL+PNbGyPIwaiPzfOWdqHdMpGF47NheurCnAj6UEST+JV0lN7LjlWAd4lXXWVALk950AFgMIAEL7/1c5bSR8rkBmA7XhriVhDUIiCRCp6CQBy8jz0YCfpecKo97zvSabcJ0ivwNJhYc9XzQQIQhD4bIOAUnpzsC4BzD6tMDPAsIo7vLei3n9bd1QxA6AorFFBgWxyWnHCtCmBAIECSAw9ePxp4F0r6gnBAhJJgBnBb9jjUU0SkKPOIWZTZJl+5/ORVahKO+nfYO8KwApmALDfB0krOAuANM+9AShkO5BPEVtEn7CtZFFeciIkf9NkiHB/OUWzHUMSjWYAiGx4TtZyTHMFYMV1y6x8aNjGmsDekz70Tc4eJDMz9oeFIveh3yzLVcFlrDB7zvY1x9orxR8lT3IGtZV13Y8kxf60rnvJ2Zt8N9tZQ25FgW3Cc2/Yf//LnKkq/VZVUCo2u/QN4bhvGV+cfPUAAAAASUVORK5CYII="/>
+                                    <p>Settings</p>
+                                    <span></span>
+                                </a>
+                                <a href="#" class="sub-menu-link">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAASFJREFUSEvtleERgjAMRj820UnUTXQSdRJ1Et1EnUR5dw0GWkpB+WfuuHJHkpd8bUOlma2aOb9KAGtJPKuwPur1JukZVt57LQdYSDqFpLkcADeSWCPrAxwk7YM3gRdXLWB78OHdfIhrWQrgkx9r7yjIZSD51hUT+XcBBNxDAtrO6utAQJCTTnY+rgu4Bs2HKk/JbZ0DWZqDB1gVfCs5XV2IPxRN9z6RVXAObU65IpajUcAD0JAu0BDIFDMV2Du6aEnB5tIm1tKxkJSM9x28Co5wjpWM/wO8ZIMS2SVL3ZGSffaA5pD4PWAkM7xYm2NWkjn4GKA1Lqbc2BSTolAgmgJjAH3H2I+IaAp8A+h2kvzx/AJgv1BGTGRjACP2++M6O+AN2oBFGYW5esQAAAAASUVORK5CYII="/>
+                                    <p>Customer Support</p>
+                                    <span></span>
+                                </a>
+                                <a href="#" class="sub-menu-link">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAL9JREFUSEvVld0NwjAMhL9uQjeBTegkwCSMApvAJpSrEhSQSuwqltq85CH2nX3+SUfw6YLxWQ3BHjgBumvnDlzetrrNGTyAXQ25eBf4wUPwSs4WSb9sLQ7C3ibBFRiSNE0zUDEFro6xSljW/28NBHorrJsSHFPkjm6cTH+DmM3gnIYpjEDA0l8S5aFqKlGOvCQJIciZqCaSbbuDNtvblS5Y5y7yrusn0HvWtSZc68PyJyz6cLzD97Ff0ucusnCCEbZMKBk6shPfAAAAAElFTkSuQmCC"/>
+                                    <p>Log Out</p>
+                                    <span></span>
+                                </a>
+                            </div>
+                        </div>
                         {{else}}
                         <li><a href="/login">Login</a></li>
 				    {{/if}}
@@ -277,6 +306,12 @@
             }
             lastScrollY = window.scrollY
         });
+        }
+
+        let subMenu = document.getElementById("subMenu");
+        
+        function toggleMenu(){
+            subMenu.classList.toggle("open-menu");
         }
         </script>
     </body>
