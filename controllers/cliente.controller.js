@@ -44,7 +44,7 @@ const autenticarSessao = async(req, res) => {
 
 const login = async(req, res) => {
     const data = req.body;
-    const cliente = await Cliente.findOne({where: {nif: data.nif}})
+    const cliente = await Cliente.findOne({where: {email: data.email}})
     if(cliente){
         if(cliente.validPassword(data.password)){
             // Flag sessao, user esta autenticado

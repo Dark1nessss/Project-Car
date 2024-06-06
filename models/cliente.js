@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Cliente.init({
     nome: {type: DataTypes.STRING, allowNull: false, unique: true},
-    email: {type: DataTypes.STRING, allowNull: false},
+    email: {type: DataTypes.STRING, allowNull: false, unique: true},
     morada: {type: DataTypes.STRING},
     nif: {type: DataTypes.STRING, unique: true},
     data_nascimento: {type: DataTypes.DATE, },
