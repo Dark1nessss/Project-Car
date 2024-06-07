@@ -20,6 +20,9 @@ router.get('/logout', function(req,res,next){
 })
 
 router.get('/profile', function(req, res, next){
-  res.render('profile', {nome_cliente: req.session.nome_cliente})
+  res.render('profile', {
+    nome_cliente: req.session.nome_cliente,
+    email_cliente: req.session.email_cliente
+  })
 })
 module.exports = router;
