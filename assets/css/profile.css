@@ -200,3 +200,13 @@ textarea:read-only {
     border-radius: 50%;
     padding: 8px;
 }
+
+/* btn */
+
+.btn {
+    border-radius: 8px;
+    padding: 5px 10px;
+    background: var(--main-color);
+    color: var(--bg-color);
+    font-weight: 400;
+}
