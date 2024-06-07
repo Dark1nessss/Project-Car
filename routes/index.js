@@ -18,4 +18,8 @@ router.get('/logout', function(req,res,next){
   req.session.destroy()
   res.redirect('/')
 })
+
+router.get('/profile', function(req, res, next){
+  res.render('profile', {nome_cliente: req.session.nome_cliente})
+})
 module.exports = router;
