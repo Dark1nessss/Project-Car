@@ -1,0 +1,202 @@
+/* CSS DIVIDED FOR SIMPLICITY
+
+    1. Google Fonts
+    2. Var Color
+    3. IMG & Body
+    4. Containers
+    5. Navbar
+    6. Sections
+*/
+
+/* 1. Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-padding-top: 1rem;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+/* Hyperlinks */
+
+a{
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* 2. Var Color */
+
+:root{
+    --main-color:#d90429 ;
+    --text-color:#020102 ;
+    --bg-color:#fff ;
+}
+
+/* 3. Img and Body */
+
+img{
+    width: 100%;
+}
+
+body{
+    color: var(--text-color);
+    max-width: 1920px;
+}
+
+/* 4. Container Css */
+
+.container{
+    max-width: 1068px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 5. Navbar Css */
+
+header{
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 35px;
+}
+
+#menu-icon{
+    font-size: 24px;
+    cursor: pointer;
+    color:var(--text-color);
+    display: none;
+}
+
+.logo{
+    font-size: 1.6rem;
+    font-weight: 700;
+    color:var(--text-color);
+}
+
+.logo span{
+    color:var(--main-color);
+}
+
+/* Section Forms */
+
+.formu {
+    width: 70%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formu h3 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.forms {
+    padding: 50px 0;
+}
+
+.forms-area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.forms-above-text{
+    text-align: center;
+}
+
+.forms-above-text span {
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--main-color);
+}
+
+form {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+textarea {
+    height: 150px;
+}
+
+input[type="text"]:read-only,
+input[type="email"]:read-only,
+textarea:read-only {
+    background-color: #f0f0f0;
+}
+
+/* Profile Section */
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    padding: 20px;
+    margin: 0;
+}
+
+.profile-photo {
+    width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: 8px;
+}
+
+.profile-name {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.profile-section img{
+    width: 150px;
+    border-radius: 50%;
+    padding: 8px;
+}
