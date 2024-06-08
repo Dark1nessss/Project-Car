@@ -196,13 +196,27 @@ section{
     padding: 4rem 0 2rem;
 }
 
+.bruh {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    margin: 70px auto;
+}
+
+.bruh h1{
+    text-align: center;
+}
+
 /* Search Bars */
 
 .wrapper{
     width: 370px;
     margin: 85px auto 0;
     flex-wrap: wrap;
-    justify-content: center; 
 
 }
 
@@ -213,7 +227,6 @@ section{
     font-size: 15px;
     background: #fff;
     border-radius: 7px;
-    justify-content: space-between;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
