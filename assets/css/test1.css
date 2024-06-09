@@ -59,11 +59,6 @@ body{
 
 /* 5. Navbar Css */
 
-.nav1.visible{
-    top: 0;
-    translate: 0;
-}
-
 header{
     display: block;
     width: 100%;
@@ -71,8 +66,6 @@ header{
     top: 0;
     left: 0;
     z-index: 100;
-    transition: 0.3s;
-    translate: 0 -72px;
 }
 
 .nav{
@@ -527,4 +520,53 @@ transition: 0.7s;
 .footer-box a:hover{
     color: var(--bg-color);
     transition: 0.7s;
+}
+
+
+/* Search Section */
+
+.search {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 70px auto;
+}
+
+.search h1 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.form-group {
+    display: inline-block;
+    margin: 10px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group select {
+    width: 150px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    width: calc(100% - 600px);
+    padding: 10px;
+    margin-top: 20px;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
 }

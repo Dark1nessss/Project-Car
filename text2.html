@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="=en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" conten="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Car Seller</title>
+        <!--CSS-->
+        <link rel="stylesheet" href="/assets/css/test2.css">
+        <!-- Responsive -->
+        <link rel="stylesheet" href="/assets/css/responsive.css">
+        <!--Icons-->
+        <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <!--Navbar-->
+        <header>
+            <div class="nav container">
+
+                <i class="bx bx-menu" id="menu-icon"></i>
+
+                <a href="#" class="logo">Car<span>Ville</span></a>
+
+            </div>
+
+        </header>
+
+        <!-- Forms Section -->
+
+        <section class="bruh">
+          <h1> Search Tab </h1>
+        <div class="wrapper">
+          <label for="company">Car Company:</label>
+            <div class="select-btn">
+              <span>Select Country</span>
+              <i class='bx bx-chevron-down'></i>
+            </div>
+            <div class="content">
+              <div class="search">
+                <i class='bx bx-search-alt-2' ></i>
+                <input spellcheck="false" type="text" placeholder="Search">
+              </div>
+              <ul class="options"></ul>
+            </div>
+              <label for="company">Car Company:</label>
+              <div class="select-btn">
+                <span>Select Country</span>
+                <i class='bx bx-chevron-down'></i>
+              </div>
+              <div class="content">
+                <div class="search">
+                  <i class='bx bx-search-alt-2' ></i>
+                  <input spellcheck="false" type="text" placeholder="Search">
+                </div>
+                <ul class="options"></ul>
+              </div>
+          </div>
+
+        </section>
+
+
+
+          <script>
+            const wrapper = document.querySelector(".wrapper"),
+            selectBtn = wrapper.querySelector(".select-btn"),
+            searchInp = wrapper.querySelector("input"),
+            options = wrapper.querySelector(".options");
+            let countries = ["Afghanistan", "Algeria", "Argentina", "Australia", "Bangladesh", "Belgium", "Bhutan",
+                 "Brazil", "Canada", "China", "Denmark", "Ethiopia", "Finland", "France", "Germany",
+                 "Hungary", "Iceland", "India", "Indonesia", "Iran", "Italy", "Japan", "Malaysia",
+                 "Maldives", "Mexico", "Morocco", "Nepal", "Netherlands", "Nigeria", "Norway", "Pakistan",
+                 "Peru", "Russia", "Romania", "South Africa", "Spain", "Sri Lanka", "Sweden", "Switzerland",
+                 "Thailand", "Turkey", "Uganda", "Ukraine", "United States", "United Kingdom", "Vietnam"];
+            function addCountry(selectedCountry) {
+            options.innerHTML = "";
+            countries.forEach(country => {
+            let isSelected = country == selectedCountry ? "selected" : "";
+            let li = `<li onclick="updateName(this)" class="${isSelected}">${country}</li>`;
+            options.insertAdjacentHTML("beforeend", li);
+            });
+}
+            addCountry();
+            function updateName(selectedLi) {
+            searchInp.value = "";
+            addCountry(selectedLi.innerText);
+            wrapper.classList.remove("active");
+            selectBtn.firstElementChild.innerText = selectedLi.innerText;
+}
+            searchInp.addEventListener("keyup", () => {
+            let arr = [];
+            let searchWord = searchInp.value.toLowerCase();
+            arr = countries.filter(data => {
+            return data.toLowerCase().startsWith(searchWord);
+            }).map(data => {
+            let isSelected = data == selectBtn.firstElementChild.innerText ? "selected" : "";
+            return `<li onclick="updateName(this)" class="${isSelected}">${data}</li>`;
+            }).join("");
+            options.innerHTML = arr ? arr : `<p style="margin-top: 10px;">Oops! Country not found</p>`;
+            });
+            selectBtn.addEventListener("click", () => wrapper.classList.toggle("active"));
+          </script>
+              
+    </body>
+</html>
