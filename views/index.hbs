@@ -15,7 +15,7 @@
     
     <body>
         <!--Navbar-->
-        <header>
+        <header class="nav1">
             <div class="nav container">
 
                 <i class="bx bx-menu" id="menu-icon"></i>
@@ -284,25 +284,35 @@
         </section>
 
         <script>
-        {
-        const nav = document.querySelector(".nav container")
-        let lastScrollY = window.scrollY;
+        // Navbar Scroll Script
+        const nav1 = document.querySelector(".nav1")
 
-        window.addEventListener("scroll", () =>{
-            if (lastScrollY < window.scrollY){
-                nav.classList.add("nav--hidden");
-            } else {
-                nav.classList.remove("nav--hidden");
-            }
-            lastScrollY = window.scrollY
-        });
-        }
+        let lastScrollTop = 0;
 
+        window.addEventListener(
+            "scroll",
+            () => {
+                console.log("scroll")
+                var { scrollY } = window;
+                if ( scrollY > lastScrollTop ){
+                    // scroll down
+                    nav1.classList.remove("visible");
+                } else if (scrollY < lastScrollTop ){
+                    // scroll up
+                    nav1.classList.add("visible");
+                }
+                lastScrollTop = 
+                scrollY <= 0 ? 0 : scrollY;
+            },
+            { passive: true }
+        );
+
+        // DropdownMenu Script
         let subMenu = document.getElementById("subMenu");
         
         function toggleMenu(){
             subMenu.classList.toggle("open-menu");
-        }
+        };
         </script>
     </body>
 
