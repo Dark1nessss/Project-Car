@@ -74,12 +74,25 @@ const register = async(req, res) => {
     }
 }
 
+const mudar_foto_perfil = async(req, res) => {
+    if(!req.files || Object.keys(req.files).length === 0){
+        return res.status(400).send('Nenhum ficheiro enviado')
+    }
+    console.log(req.files)
+    const foto = req.files.profile_picture
+	const {uploadedFilePath} = req.body
+    const cliente = await Cliente.findByPk(req.session.cliente_id)
+    console.log(foto)
+    console.log(cliente)
+}
+
 
 module.exports = {
     criarcliente,
     verificarCliente,
     autenticarSessao,
     login,
-    register
+    register,
+    mudar_foto_perfil
     
 }

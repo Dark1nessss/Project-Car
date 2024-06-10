@@ -12,5 +12,6 @@ router.post('/verificarcliente', clienteController.verificarCliente)
 router.post('/autenticarsessao', clienteController.autenticarSessao)
 router.post('/login', clienteController.login)
 router.post('/register', clienteController.register)
+router.post('/mudar_foto_perfil', clienteController.mudar_foto_perfil)
 
 module.exports = router;
