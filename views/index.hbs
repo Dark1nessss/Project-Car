@@ -32,11 +32,19 @@
                     
                     
                     {{#if nome_cliente}}
-					    <img src="/assets/images/logo.png" class="user-pic" onclick="toggleMenu()">
+                        {{#if foto_perfil}}
+					    <img src="/uploads/{{foto_perfil}}" class="user-pic" onclick="toggleMenu()">
+                        {{else}}
+                        <img src="/assets/images/base_profile.png" class="user-pic" onclick="toggleMenu()">
+                        {{/if}}
                         <div class="sub-menu-wrap" id="subMenu">
                             <div class="sub-menu">
                                 <div class="user-info">
-                                    <img src="/assets/images/logo.png">
+                                    {{#if foto_perfil}}
+                                    <img src="/uploads/{{foto_perfil}}">
+                                    {{else}}
+                                    <img src="/assets/images/base_profile.png">
+                                    {{/if}}
                                     <p>{{nome_cliente}}</p>
                                 </div>
                                 <hr>
@@ -194,7 +202,7 @@
 						</div>
 						<div class="form-group">
 							<label for="email">Email:</label>
-							<input type="email" id="email" name="email">
+							<input type="email" id="email" name="email" autocomplete="off">
 						</div>
 						<div class="form-group">
 							<label for="message">Message:</label>
