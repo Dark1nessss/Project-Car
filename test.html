@@ -6,25 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
     <title>Dashboard</title>
 </head>
 
 <body>
 
-    <header>
         <!-- {{#if is_admin}}
         Sou administrador: {{nome_cliente}}
         {{else}}
         <p>Idk how you got acess but hf 💀</p>
         {{/if}}
         -->
-        <div class="nav cont">
 
-            <i class="bx bx-menu" id="menu-icon"></i>
-
-        </div>
-
-    </header>
 
         <div class="sidebar">
             <div class="sidebar-brand">
@@ -33,7 +27,7 @@
             <div class="sidebar-menu">
                 <ul>
                     <li>
-                        <a href=""><img src=""><span>Dashboard</span></a>
+                        <a href="" class="active"><img src=""><span>Dashboard</span></a>
                     </li>
                     <li>
                         <a href=""><img src=""><span>Customers Support</span></a>
@@ -58,14 +52,12 @@
             <header>
 
                 <h1>
-                    <label for="">
-                        <span class=""></span>
-                    </label>
+                    <i class='bx bx-menu' ></i>
                     Dashboard
                 </h1>
                 
                 <div class="search-bar">
-                    <span class=""></span>
+                    <i class='bx bx-search-alt-2'></i>
                     <input type="search" placeholder="Search Bar">
                 </div>
 
