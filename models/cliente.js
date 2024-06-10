@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     morada: {type: DataTypes.STRING},
     nif: {type: DataTypes.STRING, unique: true},
     data_nascimento: {type: DataTypes.DATE, },
+    foto_perfil: {type: DataTypes.STRING},
     password: {type: DataTypes.STRING, allowNull: false}
   }, {
     hooks: {
