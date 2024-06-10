@@ -57,6 +57,7 @@ const login = async(req, res) => {
             req.session.nome_cliente = cliente.nome
             req.session.email_cliente = cliente.email
             req.session.foto_perfil = cliente.foto_perfil
+            req.session.is_admin = cliente.is_admin
             res.redirect('/')
             console.log(req.session)
         } else {
