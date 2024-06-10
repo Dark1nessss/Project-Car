@@ -82,8 +82,14 @@ const mudar_foto_perfil = async(req, res) => {
     const foto = req.files.profile_picture
 	const {uploadedFilePath} = req.body
     const cliente = await Cliente.findByPk(req.session.cliente_id)
-    console.log(foto)
-    console.log(cliente)
+    if(cliente){
+        console.log("Nome do ficheiro: " + foto.name)
+        console.log("Nome do cliente: " + cliente.nome)
+        const foto_mudada = await Cliente.update({foto_perfil: foto.name}, {where: {id: req.session.cliente_id}})
+        console.log(foto_mudada)
+    } else {
+        console.log("erro")
+    }
 }
 
 
