@@ -26,11 +26,15 @@ router.get('/dashboard', function(req,res,next){
 router.get('/profile', function(req, res, next){
   if(req.session.loggedIn){
     res.render('profile', {
+      cliente_id: req.session.cliente_id,
       nome_cliente: req.session.nome_cliente,
       email_cliente: req.session.email_cliente,
+      morada_cliente: req.session.morada_cliente,
+      nif_cliente: req.session.nif_cliente,
       foto_perfil: req.session.foto_perfil,
+      data_nascimento: req.session.data_nascimento
     })
-    console.log(foto_perfil)
+    console.log(data_nascimento)
   } else {
     res.redirect("/login");
   }

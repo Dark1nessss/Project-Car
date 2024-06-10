@@ -1,6 +1,7 @@
 const models = require('../models')
 const Cliente = models.Cliente
 
+const bcrypt = require('bcrypt')
 const { v4: uuidv4 } = require('uuid');
 const path = require('path')
 const fs = require('fs');
@@ -37,7 +38,7 @@ const autenticarSessao = async(req, res) => {
             req.session.loggedIn = true
             req.session.cliente_id = cliente.id
             res.json(cliente)
-            console.log(req.session)
+            
         } else {
             res.json("password errada")
         }
@@ -57,9 +58,12 @@ const login = async(req, res) => {
             req.session.nome_cliente = cliente.nome
             req.session.email_cliente = cliente.email
             req.session.foto_perfil = cliente.foto_perfil
+            req.session.morada_cliente = cliente.morada
+            req.session.nif_cliente = cliente.nif
+            req.session.data_nascimento = cliente.data_nascimento
             req.session.is_admin = cliente.is_admin
             res.redirect('/')
-            console.log(req.session)
+            
         } else {
             res.json("password errada")
         }
@@ -121,13 +125,56 @@ const mudar_foto_perfil = async (req, res) => {
     }
 };
 
-const editar_cliente = async(req, res) => {
-    const id = req.params.id
-    const data = req.body
-    await Cliente.update(data, {where: {id: id}, individualHooks: true})
-    const cliente = await Cliente.findOne({where: {id: req.params.id}})
-    res.json(cliente)
-}
+const editar_cliente = async (req, res) => {
+    const id = req.params.id;
+    const data = req.body;
+
+    // Handle optional fields
+    data.morada = data.morada || null;
+    data.nif = data.nif || null;
+    data.email = data.email || null;
+
+    // Handle date of birth formatting
+    if (data.data_nascimento) {
+        const date = new Date(data.data_nascimento);
+        if (isNaN(date.getTime())) {
+            return res.status(400).send('Data de nascimento inválida');
+        }
+        data.data_nascimento = date;
+    } else {
+        data.data_nascimento = null;
+    }
+
+    try {
+        // Fetch the current client data
+        const currentCliente = await Cliente.findOne({ where: { id: id } });
+
+        // If password is not provided, use the current password
+        if (!data.password) {
+            data.password = currentCliente.password;
+        }
+
+        // Update the client data
+        await Cliente.update(data, { where: { id: id }, individualHooks: true });
+
+        // Fetch the updated client data
+        const updatedCliente = await Cliente.findOne({ where: { id: req.params.id } });
+
+        // Update session variables
+        req.session.nome_cliente = updatedCliente.nome;
+        req.session.email_cliente = updatedCliente.email;
+        req.session.password = updatedCliente.password; // Keep this hashed
+        req.session.nif_cliente = updatedCliente.nif;
+        req.session.morada_cliente = updatedCliente.morada;
+        req.session.data_nascimento = updatedCliente.data_nascimento;
+
+        // Redirect to profile
+        res.redirect('/profile');
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+};
+
 
 module.exports = {
     criarcliente,

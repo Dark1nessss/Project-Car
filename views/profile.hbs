@@ -42,37 +42,38 @@
                 </form>
                 <div class="profile-name">{{nome_cliente}}</div>
             </div>
-                <form action="#" class="formu">
-                    <h3>Personal Information</h3>
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" value={{nome_cliente}}> 
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" value={{email_cliente}}>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password">
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Address:</label>
-                        <input type="text" id="address" name="address">
-                    </div>
-                    <div class="form-group">
-                        <label for="nif">NIF:</label>
-                        <input type="text" id="nif" name="nif">
-                    </div>
-                    <div class="form-group">
-                        <label for="dob">Date of Birth:</label>
-                        <input type="date" id="dob" name="dob">
-                    </div>
-                    <div class="form-group">
-                        <!-- Add your button here -->
-                        <button type="submit" class="btn">Update All Camps  </button>
-                    </div>
-                </form>
+                <form action="/users/editar_cliente/{{cliente_id}}" method="post" class="formu">
+    <h3>Personal Information</h3>
+    <div class="form-group">
+        <label for="nome">Name:</label>
+        <input type="text" id="nome" name="nome" value="{{nome_cliente}}" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{email_cliente}}" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+    </div>
+    <div class="form-group">
+        <label for="morada">Address:</label>
+        <input type="text" id="morada" name="morada" value="{{morada_cliente}}">
+    </div>
+    <div class="form-group">
+        <label for="nif">NIF:</label>
+        <input type="text" id="nif" name="nif" value="{{nif_cliente}}">
+    </div>
+    <div class="form-group">
+        <label for="data_nascimento">Date of Birth:</label>
+        <input type="date" id="data_nascimento" name="data_nascimento" value="{{formatDate data_nascimento}}">
+    </div>
+    <div class="form-group">
+        <!-- Add your button here -->
+        <button type="submit" class="btn">Update All Camps</button>
+    </div>
+</form>
+
         </div>
     </section>
         
