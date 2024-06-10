@@ -169,6 +169,7 @@ const editar_cliente = async (req, res) => {
         req.session.data_nascimento = updatedCliente.data_nascimento;
 
         // Redirect to profile
+        req.flash("success", "Informações mudadas! ;DDDDDDDD")
         res.redirect('/profile');
     } catch (error) {
         res.status(500).send(error.message);

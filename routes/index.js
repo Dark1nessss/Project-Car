@@ -32,7 +32,8 @@ router.get('/profile', function(req, res, next){
       morada_cliente: req.session.morada_cliente,
       nif_cliente: req.session.nif_cliente,
       foto_perfil: req.session.foto_perfil,
-      data_nascimento: req.session.data_nascimento
+      data_nascimento: req.session.data_nascimento,
+      success: req.flash("success")
     })
     console.log(data_nascimento)
   } else {

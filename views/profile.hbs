@@ -44,6 +44,9 @@
             </div>
                 <form action="/users/editar_cliente/{{cliente_id}}" method="post" class="formu">
     <h3>Personal Information</h3>
+    {{#if message.success}}
+        <p>{{message.success}}</p>
+    {{/if}}
     <div class="form-group">
         <label for="nome">Name:</label>
         <input type="text" id="nome" name="nome" value="{{nome_cliente}}" required>
