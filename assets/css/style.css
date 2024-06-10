@@ -121,8 +121,8 @@ header{
 /* User Pic */
 
 .user-pic{
-    max-width: 40px;
-    max-height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -157,7 +157,8 @@ header{
 }
 
 .user-info img{
-    width: 30%;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     margin-right: 15px;
 }
