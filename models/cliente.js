@@ -25,7 +25,8 @@ module.exports = (sequelize, DataTypes) => {
     nif: {type: DataTypes.STRING, unique: true},
     data_nascimento: {type: DataTypes.DATE, },
     foto_perfil: {type: DataTypes.STRING},
-    password: {type: DataTypes.STRING, allowNull: false}
+    password: {type: DataTypes.STRING, allowNull: false},
+    is_admin: {type: DataTypes.BOOLEAN, defaultValue: 0},
   }, {
     hooks: {
       beforeCreate: (user) => {
