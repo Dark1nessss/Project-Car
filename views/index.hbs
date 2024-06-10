@@ -32,11 +32,15 @@
                     
                     
                     {{#if nome_cliente}}
-					    <img src="/assets/images/logo.png" class="user-pic" onclick="toggleMenu()">
+					    <img src="/uploads/{{foto_perfil}}" class="user-pic" onclick="toggleMenu()">
                         <div class="sub-menu-wrap" id="subMenu">
                             <div class="sub-menu">
                                 <div class="user-info">
+                                    {{#if foto_perfil}}
+                                    <img src="/uploads/{{foto_perfil}}">
+                                    {{else}}
                                     <img src="/assets/images/logo.png">
+                                    {{/if}}
                                     <p>{{nome_cliente}}</p>
                                 </div>
                                 <hr>
