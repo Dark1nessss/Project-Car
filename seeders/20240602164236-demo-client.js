@@ -33,6 +33,13 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        nome: 'admin',
+        email: 'admin@admin.com',
+        is_admin: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
     ])
   },
 
