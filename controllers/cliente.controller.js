@@ -121,6 +121,13 @@ const mudar_foto_perfil = async (req, res) => {
     }
 };
 
+const editar_cliente = async(req, res) => {
+    const id = req.params.id
+    const data = req.body
+    await Cliente.update(data, {where: {id: id}, individualHooks: true})
+    const cliente = await Cliente.findOne({where: {id: req.params.id}})
+    res.json(cliente)
+}
 
 module.exports = {
     criarcliente,
@@ -128,6 +135,6 @@ module.exports = {
     autenticarSessao,
     login,
     register,
-    mudar_foto_perfil
-    
+    mudar_foto_perfil,
+    editar_cliente,
 }
