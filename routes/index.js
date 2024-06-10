@@ -23,8 +23,10 @@ router.get('/profile', function(req, res, next){
   if(req.session.loggedIn){
     res.render('profile', {
       nome_cliente: req.session.nome_cliente,
-      email_cliente: req.session.email_cliente
+      email_cliente: req.session.email_cliente,
+      foto_perfil: req.session.foto_perfil,
     })
+    console.log(foto_perfil)
   } else {
     res.redirect("/login");
   }

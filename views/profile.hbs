@@ -30,7 +30,11 @@
     <section class="forms">
         <div class="forms-area container">
             <div class="profile-section">
-                <img src="/assets/images/logo.png" alt="Profile Photo" class="profile-photo">
+                {{#if foto_perfil}}
+                <img src="/uploads/{{foto_perfil}}" alt="Profile Photo" class="profile-photo">
+                {{else}}
+                <img src="/assets/images/about us.png" alt="Profile Photo" class="profile-photo">
+                {{/if}}
                  <form action="/users/mudar_foto_perfil" method="post" enctype="multipart/form-data">
                     <p>Mudar foto perfil</p>
                     <input type="file" name="profile_picture">
