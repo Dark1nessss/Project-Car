@@ -1,6 +1,9 @@
 const models = require('../models')
 const Cliente = models.Cliente
 
+const { v4: uuidv4 } = require('uuid');
+const path = require('path')
+
 const criarcliente = async(req, res) => {
     const data = req.body;
     const cliente = await Cliente.create(data);
@@ -80,6 +83,19 @@ const mudar_foto_perfil = async(req, res) => {
     }
     console.log(req.files)
     const foto = req.files.profile_picture
+    
+    // gerar unicos nomes para evitar duplicacao
+    random_letters = uuidv4().substring(0,5);
+    file_extension = path.extname(foto.name)
+
+    foto.name = random_letters + file_extension
+    const uploadDir = path.join(__dirname, '../uploads');
+    let uploadPath = path.join(uploadDir, foto.name);
+
+    foto.mv(uploadPath, function(err){
+        if(err) console.log(err)
+        req.body.uploadedFilePath = uploadPath
+    })
 	const {uploadedFilePath} = req.body
     const cliente = await Cliente.findByPk(req.session.cliente_id)
     if(cliente){
@@ -87,6 +103,7 @@ const mudar_foto_perfil = async(req, res) => {
         console.log("Nome do cliente: " + cliente.nome)
         const foto_mudada = await Cliente.update({foto_perfil: foto.name}, {where: {id: req.session.cliente_id}})
         console.log(foto_mudada)
+        res.redirect('/profile')
     } else {
         console.log("erro")
     }
