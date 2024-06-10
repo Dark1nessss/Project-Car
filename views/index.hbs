@@ -63,6 +63,13 @@
                                     <p>Logout</p>
                                     <span></span>
                                 </a>
+                                {{#if is_admin}}
+                                <a href="/dashboard" class="sub-menu-link">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAL9JREFUSEvVld0NwjAMhL9uQjeBTegkwCSMApvAJpSrEhSQSuwqltq85CH2nX3+SUfw6YLxWQ3BHjgBumvnDlzetrrNGTyAXQ25eBf4wUPwSs4WSb9sLQ7C3ibBFRiSNE0zUDEFro6xSljW/28NBHorrJsSHFPkjm6cTH+DmM3gnIYpjEDA0l8S5aFqKlGOvCQJIciZqCaSbbuDNtvblS5Y5y7yrusn0HvWtSZc68PyJyz6cLzD97Ff0ucusnCCEbZMKBk6shPfAAAAAElFTkSuQmCC"/>
+                                    <p>Admin Dashboard</p>
+                                    <span></span>
+                                </a>
+                                {{/if}}
                             </div>
                         </div>
                         {{else}}
