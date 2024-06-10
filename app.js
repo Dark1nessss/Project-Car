@@ -6,6 +6,13 @@ var logger = require('morgan');
 var session = require('express-session');
 var fileUpload = require('express-fileupload')
 const flash = require('express-flash')
+const handlebars = require('hbs');
+const moment = require('moment');
+
+// Register a helper to format dates
+handlebars.registerHelper('formatDate', function(date) {
+    return moment(date).format('YYYY-MM-DD');
+});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
