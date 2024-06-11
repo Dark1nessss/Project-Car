@@ -203,3 +203,20 @@ header{
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+
+.card-single i{
+    color: var(--main-color);
+}
+
+.card-single:last-child{
+    background-color: var(--main-color);
+}
+
+.card-single:last-child i{
+    color: var(--bg-color);
+}
+
+.card-single:last-child h1, .card-single:last-child span{
+    color: var(--bg-color)
+}
+
