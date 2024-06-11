@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Modelo.init({
-    carro_id: DataTypes.INTEGER,
     marca_id: DataTypes.INTEGER,
     nome: DataTypes.STRING
   }, {

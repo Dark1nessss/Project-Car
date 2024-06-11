@@ -9,9 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      carro_id: {
-        type: Sequelize.INTEGER
-      },
       marca_id: {
         type: Sequelize.INTEGER
       },
