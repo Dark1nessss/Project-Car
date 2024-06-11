@@ -2,6 +2,9 @@
 const {
   Model
 } = require('sequelize');
+const models = require('../models')
+const Marca = models.Marca
+
 module.exports = (sequelize, DataTypes) => {
   class Modelo extends Model {
     /**
@@ -14,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Modelo.init({
-    marca_id: DataTypes.INTEGER,
+    marca_id: {type: DataTypes.INTEGER, references: {model: Marca, key:'id'}},
     nome: DataTypes.STRING
   }, {
     sequelize,

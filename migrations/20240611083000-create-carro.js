@@ -10,10 +10,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       marca_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model: 'Marcas', key: 'id'}
       },
       modelo_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model: 'Modelos', key: 'id'}
       },
       ano: {
         type: Sequelize.INTEGER
