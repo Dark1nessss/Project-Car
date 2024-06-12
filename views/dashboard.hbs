@@ -6,25 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
     <title>Dashboard</title>
 </head>
 
 <body>
 
-    <header>
-        {{#if is_admin}}
+        <!-- {{#if is_admin}}
         Sou administrador: {{nome_cliente}}
         {{else}}
-        <p>Idk how you got acess but hf 💀</p>
+        <p>Idk how you got access but hf 💀</p>
         {{/if}}
+        -->
 
-        <div class="nav cont">
-
-            <i class="bx bx-menu" id="menu-icon"></i>
-
-        </div>
-
-    </header>
 
         <div class="sidebar">
             <div class="sidebar-brand">
@@ -33,22 +27,22 @@
             <div class="sidebar-menu">
                 <ul>
                     <li>
-                        <a href=""><img src=""><span>Dashboard</span></a>
+                        <a href="#" class="active" id="dashboard"><i class='bx bx-clipboard'></i><span>Dashboard</span></a>
                     </li>
                     <li>
-                        <a href=""><img src=""><span>Customers Support</span></a>
+                        <a href="#" class="" id="customer-support"><i class='bx bx-support' ></i><span>Customers Support</span></a>
                     </li>
                     <li>
-                        <a href=""><img src=""><span>Reviews</span></a>
+                        <a href="#" class="" id="reviews"><i class='bx bxs-comment-detail' ></i><span>Reviews</span></a>
                     </li>
                     <li>
-                        <a href=""><img src=""><span>Stock</span></a>
+                        <a href="#" class="" id="stock"><i class='bx bx-store' ></i><span>Stock</span></a>
                     </li>
                     <li>
-                        <a href=""><img src=""><span>Accounts</span></a>
+                        <a href="#" class="" id="accounts"><i class='bx bxs-user-account' ></i><span>Accounts</span></a>
                     </li>
                     <li>
-                        <a href=""><img src=""><span>Settings</span></a>
+                        <a href="#" class="" id="settings"><i class='bx bx-cog' ></i><span>Settings</span></a>
                     </li>
                 </ul>
             </div>
@@ -58,14 +52,12 @@
             <header>
 
                 <h1>
-                    <label for="">
-                        <span class=""></span>
-                    </label>
+                    <i class='bx bx-menu' ></i>
                     Dashboard
                 </h1>
                 
                 <div class="search-bar">
-                    <span class=""></span>
+                    <i class='bx bx-search-alt-2'></i>
                     <input type="search" placeholder="Search Bar">
                 </div>
 
@@ -89,9 +81,8 @@
                             <h1>0</h1>
                             <span>Customers</span>
                         </div>
-
                         <div>
-                            <img src="" alt="">
+                            <i class='bx bxs-user bx-lg'></i>
                         </div>
 
                     </div>
@@ -102,9 +93,8 @@
                             <h1>0</h1>
                             <span>Reviews</span>
                         </div>
-
                         <div>
-                            <img src="" alt="">
+                            <i class='bx bxs-comment-detail bx-lg' ></i>
                         </div>
 
                     </div>
@@ -112,12 +102,12 @@
                     <div class="card-single">
 
                         <div>
+                            
                             <h1>0</h1>
                             <span>Stock</span>
                         </div>
-
                         <div>
-                            <img src="" alt="">
+                            <i class='bx bx-store bx-lg' ></i>
                         </div>
 
                     </div>
@@ -125,23 +115,172 @@
                     <div class="card-single">
 
                         <div>
+                            
                             <h1>0€</h1>
                             <span>Income</span>
                         </div>
-
                         <div>
-                            <img src="" alt="">
+                            <i class='bx bx-trending-up bx-lg'></i>
                         </div>
 
                     </div>
 
+                </div>
+            
+                <div class="dashboard">
+                    <div class="recent-sales">
+                        <div class="header">
+                            <h2>Recent Sales</h2>
+                            <button class="see-all">See all →</button>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Car Brand</th>
+                                    <th>Model</th>
+                                    <th>Buyer</th>
+                                    <th>Earnings</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Toyota</td>
+                                    <td>Corolla</td>
+                                    <td>David Goggins</td>
+                                    <td>21000€</td>
+                                </tr>
+                                <tr>
+                                    <td>Honda</td>
+                                    <td>Civic</td>
+                                    <td>Sarah Johnson</td>
+                                    <td>19500€</td>
+                                </tr>
+                                <tr>
+                                    <td>Ford</td>
+                                    <td>Focus</td>
+                                    <td>Michael Smith</td>
+                                    <td>18000€</td>
+                                </tr>
+                                <tr>
+                                    <td>Chevrolet</td>
+                                    <td>Malibu</td>
+                                    <td>Emily Davis</td>
+                                    <td>23000€</td>
+                                </tr>
+                                <tr>
+                                    <td>BMW</td>
+                                    <td>3 Series</td>
+                                    <td>John Doe</td>
+                                    <td>35000€</td>
+                                </tr>
+                                <tr>
+                                    <td>Toyota</td>
+                                    <td>Corolla</td>
+                                    <td>David Goggins</td>
+                                    <td>21000€</td>
+                                </tr>
+                                <tr>
+                                    <td>Honda</td>
+                                    <td>Civic</td>
+                                    <td>Sarah Johnson</td>
+                                    <td>19500€</td>
+                                </tr>
+                                <tr>
+                                    <td>Ford</td>
+                                    <td>Focus</td>
+                                    <td>Michael Smith</td>
+                                    <td>18000€</td>
+                                </tr>
+                                <tr>
+                                    <td>Chevrolet</td>
+                                    <td>Malibu</td>
+                                    <td>Emily Davis</td>
+                                    <td>23000€</td>
+                                </tr>
+                                <tr>
+                                    <td>BMW</td>
+                                    <td>3 Series</td>
+                                    <td>John Doe</td>
+                                    <td>35000€</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="new-customer">
+                        <div class="header">
+                            <h2>New Customer</h2>
+                            <button class="see-all">See all →</button>
+                        </div>
+                        <div class="customer-list">
+                            <div class="customer-item">
+                                <img src="customer.jpg" alt="Customer">
+                                <div class="customer-info">
+                                    <p>David Goggins</p>
+                                    <span>Contacts</span>
+                                    <div class="customer-info-icons">
+                                        <i class='bx bx-face'></i>
+                                        <i class='bx bx-user'></i>
+                                        <i class='bx bx-phone'></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="customer-item">
+                                <img src="customer.jpg" alt="Customer">
+                                <div class="customer-info">
+                                    <p>Sarah Johnson</p>
+                                    <span>Contacts</span>
+                                    <div class="customer-info-icons">
+                                        <i class='bx bx-face'></i>
+                                        <i class='bx bx-user'></i>
+                                        <i class='bx bx-phone'></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="customer-item">
+                                <img src="customer.jpg" alt="Customer">
+                                <div class="customer-info">
+                                    <p>Michael Smith</p>
+                                    <span>Contacts</span>
+                                    <div class="customer-info-icons">
+                                        <i class='bx bx-face'></i>
+                                        <i class='bx bx-user'></i>
+                                        <i class='bx bx-phone'></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="customer-item">
+                                <img src="customer.jpg" alt="Customer">
+                                <div class="customer-info">
+                                    <p>Emily Davis</p>
+                                    <span>Contacts</span>
+                                    <div class="customer-info-icons">
+                                        <i class='bx bx-face'></i>
+                                        <i class='bx bx-user'></i>
+                                        <i class='bx bx-phone'></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="customer-item">
+                                <img src="customer.jpg" alt="Customer">
+                                <div class="customer-info">
+                                    <p>John Doe</p>
+                                    <span>Customer</span>
+                                    <div class="customer-info-icons">
+                                        <i class='bx bx-face'></i>
+                                        <i class='bx bx-user'></i>
+                                        <i class='bx bx-phone'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </main>
 
         </div>
 
-    <script></script>
+        <script></script>
 </body>
 
 </html>
