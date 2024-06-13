@@ -19,7 +19,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       nif: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       data_nascimento: {
         type: Sequelize.DATE

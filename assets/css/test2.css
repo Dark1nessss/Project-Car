@@ -1,0 +1,328 @@
+/* CSS DIVIDED FOR SIMPLICITY
+
+    1. Google Fonts
+    2. Var Color
+    3. IMG & Body
+    4. Containers
+    5. Navbar
+    6. Sections
+*/
+
+/* 1. Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-padding-top: 1rem;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+/* Hyperlinks */
+
+a{
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* 2. Var Color */
+
+:root{
+    --main-color:#d90429 ;
+    --text-color:#020102 ;
+    --bg-color:#fff ;
+}
+
+/* 3. Img and Body */
+
+img{
+    width: 100%;
+}
+
+body{
+    color: var(--text-color);
+    max-width: 1920px;
+}
+
+/* 4. Container Css */
+
+.container{
+    max-width: 1068px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 5. Navbar Css */
+
+header{
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 35px;
+}
+
+#menu-icon{
+    font-size: 24px;
+    cursor: pointer;
+    color:var(--text-color);
+    display: none;
+}
+
+.logo{
+    font-size: 1.6rem;
+    font-weight: 700;
+    color:var(--text-color);
+}
+
+.logo span{
+    color:var(--main-color);
+}
+
+.navbar{
+    display: flex;
+    column-gap: 2rem;
+
+}
+
+.navbar a{
+    color: var(--text-color);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 1s ease;
+}
+
+.navbar a:hover, .navbar .active {
+    color: #808080;
+    transition: color 0.4s ease;
+}
+
+/* User Pic */
+
+.user-pic{
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.sub-menu-wrap{
+    position: absolute;
+    top: 100%;
+    right: 320px;
+    max-width: 250px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+}
+
+.sub-menu{
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+}
+
+.user-info p{
+    font-weight: 500;
+}
+
+.user-info img{
+    width: 30%;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #ccc;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+}
+
+.sub-menu-link P{
+    width: 100%;
+    padding-left: 3px;
+    font-size: 15px;
+}
+
+.sub-menu-link img{
+    width: 40px;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin: 12px 0;
+}
+
+.sub-menu-link span{
+    font-size: 22px;
+    transition: transform 0.5;
+}
+
+
+/* 6. Sections */
+
+section{
+    padding: 4rem 0 2rem;
+}
+
+.bruh {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    margin: 70px auto;
+}
+
+.bruh h1{
+    text-align: center;
+}
+
+/* Search Bars */
+
+.wrapper{
+    width: 370px;
+    margin: 85px auto 0;
+    flex-wrap: wrap;
+
+}
+
+.select-btn{
+    width: 170px;
+    height: 50px;
+    padding: 0 20px;
+    font-size: 15px;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.select-btn, li{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.select-btn i{
+    font-size: 15px;
+    transition: transform 0.3s linear;
+}
+
+.wrapper.active .select-btn i{
+    transform: rotate(-180deg);
+}
+
+.content{
+    display: none;
+    padding: 20px;
+    margin-top: 15px;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.wrapper.active .content{
+    display: block;
+}
+
+.content .search{
+    position: relative;
+}
+
+.search i{
+    top: 50%;
+    left: 15px;
+    color: #999;
+    font-size: 20px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    position: absolute;
+}
+  
+.search input{
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 0 20px 0 43px;
+    border: 1px solid #B3B3B3;
+}
+  
+.search input:focus{
+    padding-left: 42px;
+    border: 2px solid #4285f4;
+  }
+
+.search input::placeholder{
+    color: #bfbfbf;
+}
+  
+.content .options{
+    margin-top: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 7px;
+}
+  
+.options::-webkit-scrollbar{
+    width: 7px;
+}
+  
+.options::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 25px;
+}
+  
+.options::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 25px;
+}
+  
+.options::-webkit-scrollbar-thumb:hover{
+    background: #b3b3b3;
+}
+  
+.options li{
+    height: 50px;
+    padding: 0 13px;
+    font-size: 15px;
+}
+  
+.options li:hover, li.selected{
+    border-radius: 5px;
+    background: #f2f2f2;
+}
