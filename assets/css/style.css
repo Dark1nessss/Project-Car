@@ -422,6 +422,11 @@ textarea:read-only {
     background-color: #f0f0f0;
 }
 
+.forms-area .btn{
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
 /* Blog Section */
 
 .blog-container{
