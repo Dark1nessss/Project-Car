@@ -11,11 +11,11 @@ module.exports = {
       },
       cliente_id: {
         type: Sequelize.INTEGER,
-        references: {model: 'ReservaCarro', key: 'id'}
+        references: {model: 'Clientes', key: 'id'}
       },
       carro_id: {
         type: Sequelize.INTEGER,
-        references: {model: 'Carro', key: 'id'}
+        references: {model: 'Carros', key: 'id'}
       },
       data_inicio: {
         type: Sequelize.DATE
