@@ -6,6 +6,13 @@ const getCarros = async(req, res) => {
     res.json(carros)
 }
 
+const viewCarro = async(req, res) => {
+    const id = req.params.id
+    const carro = await Carro.findByPk(id)
+    res.json(carro)
+}
+
 module.exports = {
-    getCarros
+    getCarros,
+    viewCarro
 }
