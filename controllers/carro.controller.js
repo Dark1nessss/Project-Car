@@ -12,7 +12,14 @@ const viewCarro = async(req, res) => {
     res.json(carro)
 }
 
+const createCarro = async(req, res) => {
+    const data = req.body
+    const carro = await Carro.create(data)
+    res.json(carro)
+}
+
 module.exports = {
     getCarros,
-    viewCarro
+    viewCarro,
+    createCarro
 }
