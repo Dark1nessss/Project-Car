@@ -3,3 +3,5 @@ var router = express.Router()
 const carroController = require('../controllers/carro.controller')
 
 router.get('/', carroController.getCarros)
+
+module.exports = router
