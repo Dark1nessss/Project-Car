@@ -30,9 +30,18 @@ const updateCarro = async(req, res) => {
     res.json(carroAtualizado)
 }
 
+const deleteCarro = async(req, res) => {
+    const id = req.params.id
+    await Carro.destroy({
+        where: {id: id}
+    })
+    res.json({message: 'Carro apagado com sucesso!'})
+}
+
 module.exports = {
     getCarros,
     viewCarro,
     createCarro,
-    updateCarro
+    updateCarro,
+    deleteCarro
 }

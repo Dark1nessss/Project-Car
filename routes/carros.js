@@ -6,5 +6,6 @@ router.get('/', carroController.getCarros)
 router.get('/:id', carroController.viewCarro)
 router.post('/', carroController.createCarro)
 router.put('/:id', carroController.updateCarro)
+router.delete('/:id', carroController.deleteCarro)
 
 module.exports = router
