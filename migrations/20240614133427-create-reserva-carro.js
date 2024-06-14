@@ -10,10 +10,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       cliente_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model: 'ReservaCarro', key: 'id'}
       },
       carro_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model: 'Carro', key: 'id'}
       },
       data_inicio: {
         type: Sequelize.DATE
