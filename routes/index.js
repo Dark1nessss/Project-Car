@@ -20,7 +20,7 @@ router.get('/logout', function(req,res,next){
 })
 
 router.get('/dashboard', function(req,res,next){
-  res.render('dashboard', {is_admin: req.session.is_admin, nome_cliente: req.session.nome_cliente})
+  res.render('dashboard', {is_admin: req.session.is_admin, nome_cliente: req.session.nome_cliente, foto_perfil: req.session.foto_perfil})
 })
 
 router.get('/profile', function(req, res, next){
