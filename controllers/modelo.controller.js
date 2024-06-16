@@ -6,6 +6,13 @@ const getModelos = async(req, res) => {
     res.json(modelos)
 }
 
+const viewModelo = async(req, res) => {
+    const id = req.params.id
+    const modelo = await Modelo.findByPk(id)
+    res.json(modelo)
+}
+
 module.exports = {
-    getModelos
+    getModelos,
+    viewModelo
 }
