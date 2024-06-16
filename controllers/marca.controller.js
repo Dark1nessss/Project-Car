@@ -12,7 +12,14 @@ const viewMarca = async(req, res) => {
     res.json(marca)
 }
 
+const createMarca = async(req, res) => {
+    const data = req.body
+    const marca = await Marca.create(data)
+    res.json(marca)
+}
+
 module.exports = {
     getMarcas,
-    viewMarca
+    viewMarca,
+    createMarca
 }
