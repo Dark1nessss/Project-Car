@@ -2,7 +2,9 @@ const models = require('../../models')
 const Cliente = models.Cliente
 
 const getClientes = async(req, res) => {
-    const clientes = await Cliente.findAll()
+    const clientes = await Cliente.findAll({
+        limit: 10
+    })
     return clientes
 }
 
