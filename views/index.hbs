@@ -5,6 +5,8 @@
         <meta http-equiv="X-UA-Compatible" conten="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Car Seller</title>
+        <!-- Corrected meta tag -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!--CSS-->
         <link rel="stylesheet" href="/assets/css/style.css">
         <!-- Responsive -->
@@ -58,18 +60,18 @@
                                     <p>Customer Support</p>
                                     <span></span>
                                 </a>
+                                {{#if is_admin}}
+                                <a href="/dashboard" class="sub-menu-link">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAIJJREFUSEvtlbENgDAMBC+jsAlswmaMAqOwCTRAAYo4WXIaSOtPPufk5ULyKsnn09xgBvoK1Qp0R83qHgTbS8tOYqv7DaoNvT7P/RfZ3lpd+A0mYKzcfwGGsxYl0PlsbmDRw0Gz6OFHTjew6GECu9Hqwjn4sIHNgdW1H5k2B1qXPvR3ZX0oGaTI0DoAAAAASUVORK5CYII="/>
+                                    <p>Admin Dashboard</p>
+                                    <span></span>
+                                </a>
+                                {{/if}}
                                 <a href="/logout" class="sub-menu-link">
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAL9JREFUSEvVld0NwjAMhL9uQjeBTegkwCSMApvAJpSrEhSQSuwqltq85CH2nX3+SUfw6YLxWQ3BHjgBumvnDlzetrrNGTyAXQ25eBf4wUPwSs4WSb9sLQ7C3ibBFRiSNE0zUDEFro6xSljW/28NBHorrJsSHFPkjm6cTH+DmM3gnIYpjEDA0l8S5aFqKlGOvCQJIciZqCaSbbuDNtvblS5Y5y7yrusn0HvWtSZc68PyJyz6cLzD97Ff0ucusnCCEbZMKBk6shPfAAAAAElFTkSuQmCC"/>
                                     <p>Logout</p>
                                     <span></span>
                                 </a>
-                                {{#if is_admin}}
-                                <a href="/dashboard" class="sub-menu-link">
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAL9JREFUSEvVld0NwjAMhL9uQjeBTegkwCSMApvAJpSrEhSQSuwqltq85CH2nX3+SUfw6YLxWQ3BHjgBumvnDlzetrrNGTyAXQ25eBf4wUPwSs4WSb9sLQ7C3ibBFRiSNE0zUDEFro6xSljW/28NBHorrJsSHFPkjm6cTH+DmM3gnIYpjEDA0l8S5aFqKlGOvCQJIciZqCaSbbuDNtvblS5Y5y7yrusn0HvWtSZc68PyJyz6cLzD97Ff0ucusnCCEbZMKBk6shPfAAAAAElFTkSuQmCC"/>
-                                    <p>Admin Dashboard</p>
-                                    <span></span>
-                                </a>
-                                {{/if}}
                             </div>
                         </div>
                         {{else}}

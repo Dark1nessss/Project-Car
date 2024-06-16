@@ -249,6 +249,12 @@ header {
     padding: 10px 20px;
     border-radius: 20px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.see-all:hover {
+    background-color: #4CAF50;
 }
 
 table {
@@ -345,4 +351,132 @@ tr:nth-child(even) {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 100%;
+}
+
+
+/* Customer Support Section */
+
+.tickets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.ticket-item {
+    background-color: #ffffff;
+    border: 1px solid #e1e5eb;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(50% - 20px); 
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ticket-header h3 {
+    margin: 0;
+}
+
+.ticket-status {
+    padding: 6px 12px;
+    background-color: #f0f4f9;
+    border-radius: 20px;
+    color: #596080;
+    font-size: 0.85rem;
+}
+
+.ticket-description {
+    color: #596080;
+}
+
+.ticket-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.ticket-date {
+    color: #adb5bd;
+}
+
+.btn {
+    padding: 8px 16px;
+    background-color: #f0f4f9;
+    border: none;
+    border-radius: 20px;
+    color: #596080;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    border: 1px solid #adb5bd;
+    color: #596080;
+}
+
+/* Account Section */
+
+.accounts {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.account-overview {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+}
+
+.account-overview .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.account-overview .header h2 {
+    margin: 0;
+}
+
+.account-overview table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.account-overview th,
+.account-overview td {
+    text-align: left;
+    padding: 12px;
+}
+
+.account-overview th {
+    background: #f4f6f8;
+}
+
+.account-overview tbody tr:nth-child(even) {
+    background: #f9fafc;
+}
+
+.account-overview .view-details {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.account-overview .view-details:hover {
+    background-color: #0056b3;
 }

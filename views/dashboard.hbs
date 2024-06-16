@@ -264,9 +264,40 @@
         </main>
 
         <main id="customer-support-section" class="hidden">
-            <h2>Customer Support Section</h2>
+    <div class="tickets">
+        <div class="ticket-item">
+            <div class="ticket-header">
+                <h3>Issue with Payment</h3>
+                <span class="ticket-status">Open</span>
+            </div>
+            <p class="ticket-description">Customer is unable to complete payment process.</p>
+            <div class="ticket-footer">
+                <span class="ticket-customer">
+                    <i class="bx bx-user"></i> Customer ID:
+                </span>
+                <span class="ticket-contact">
+                    <a href=""><i class="bx bx-phone"></i></a>
+                </span>
+            </div>
+        </div>
 
-        </main>
+        <div class="ticket-item">
+            <div class="ticket-header">
+                <h3>Technical Support Needed</h3>
+                <span class="ticket-status">Pending</span>
+            </div>
+            <p class="ticket-description">Customer reports issues with car navigation system.</p>
+            <div class="ticket-footer">
+                <span class="ticket-customer">
+                    <i class="bx bx-user"></i> Customer ID:
+                </span>
+                <span class="ticket-contact">
+                    <a href=""><i class="bx bx-phone"></i></a>
+                </span>
+            </div>
+        </div>
+    </div>
+</main>
 
         <main id="reviews-section" class="hidden">
             <div class="reviews">
@@ -435,10 +466,58 @@
 
         </main>
 
-        <main id="accounts-section" class="hidden">
-            <h2>Accounts Section</h2>
-
-        </main>
+<main id="accounts-section" class="hidden">
+    <div class="accounts">
+        <div class="account-overview">
+            <div class="header">
+                <h2>Account Overview</h2>
+                <button class="see-all" onclick="redirectToNewPage()">See all →</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>John Doe</td>
+                        <td>johndoe@example.com</td>
+                        <td><button class="view-details" onclick="redirectToDetailsPage('001')">View Details</button></td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Sarah Johnson</td>
+                        <td>sarah.j@example.com</td>
+                        <td><button class="view-details" onclick="redirectToDetailsPage('002')">View Details</button></td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Michael Smith</td>
+                        <td>m.smith@example.com</td>
+                        <td><button class="view-details" onclick="redirectToDetailsPage('003')">View Details</button></td>
+                    </tr>
+                    <tr>
+                        <td>004</td>
+                        <td>Emily Davis</td>
+                        <td>emily.d@example.com</td>
+                        <td><button class="view-details" onclick="redirectToDetailsPage('004')">View Details</button></td>
+                    </tr>
+                    <tr>
+                        <td>005</td>
+                        <td>David Goggins</td>
+                        <td>david.g@example.com</td>
+                        <td><button class="view-details" onclick="redirectToDetailsPage('005')">View Details</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
 
         <main id="settings-section" class="hidden">
             <h2>Settings Section</h2>
@@ -480,6 +559,18 @@
             document.querySelector('#dashboard').classList.add('active');
             document.querySelector('#dashboard-section').classList.remove('hidden');
         });
+
+
+        // REDIRECTS TESTING NEEDED
+
+
+        function redirectToNewPage() {
+        window.location.href = 'new-page-url';
+}
+
+        function redirectToDetailsPage(customerId) {
+        window.location.href = 'details-page-url?customerId=' + encodeURIComponent(customerId);
+}
     </script>
 </body>
 
