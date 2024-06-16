@@ -482,48 +482,29 @@ tr:nth-child(even) {
 }
 
 
-/* Reservations */
 
-/* Reserve Section */
 #reserve-section {
-    padding: 2rem 1.5rem;
-    background-color: #f1f5f0;
-    min-height: calc(100vh - 90px);
+    padding: 20px;
 }
 
-#reserve-section .header {
+.reserved-cars,
+.reservation-requests {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-#reserve-section .header h2 {
+.header h2 {
     margin: 0;
-}
-
-#reserve-section .see-all {
-    background: var(--main-color);
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-#reserve-section .see-all:hover {
-    background-color: #4CAF50;
-}
-
-.reserved-cars,
-.reservation-requests {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
 }
 
 .car-list,
@@ -535,66 +516,63 @@ tr:nth-child(even) {
 
 .car-item,
 .request-item {
-    background-color: #ffffff;
-    border: 1px solid #e1e5eb;
+    background: white;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .car-item img,
 .request-item img {
     width: 100%;
-    height: auto;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .car-info h3,
 .request-info h3 {
-    margin: 0 0 10px;
-    font-size: 1.2rem;
-    font-weight: 600;
+    margin: 0 0 10px 0;
+    font-size: 18px;
 }
 
 .car-info p,
 .request-info p {
     margin: 0;
-    color: #777;
+    color: #666;
+    font-size: 14px;
 }
 
 .request-actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: auto;
+    margin-top: 10px;
 }
 
-.request-actions button {
-    margin-left: 10px;
-}
-
-.request-actions button {
+.approve-btn,
+.reject-btn,
+.pending-btn, 
+.approved-btn {
     padding: 8px 16px;
+    margin-right: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-.request-actions .approve-btn {
-    background-color: #28a745;
+.approve-btn {
+    background-color: #4CAF50;
     color: white;
 }
 
-.request-actions .reject-btn {
-    background-color:var(--main-color);
+.reject-btn {
+    background-color: #d90429;
     color: white;
 }
 
-@media (max-width: 768px) {
-    .car-list,
-    .request-list {
-        grid-template-columns: 1fr;
-    }
+.pending-btn {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.approved-btn {
+    background-color: #007bff;
+    color: white;
 }
