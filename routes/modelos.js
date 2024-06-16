@@ -6,5 +6,6 @@ router.get('/', modeloController.getModelos)
 router.get('/:id', modeloController.viewModelo)
 router.post('/', modeloController.createModelo)
 router.put('/:id', modeloController.updateModelo)
+router.delete('/:id', modeloController.deleteModelo)
 
 module.exports = router

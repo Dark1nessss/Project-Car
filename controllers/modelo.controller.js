@@ -28,9 +28,16 @@ const updateModelo = async(req, res) => {
     res.json(modeloAtualizado)
 }
 
+const deleteModelo = async(req, res) => {
+    const id = req.params.id
+    await Modelo.destroy({where: {id: id}})
+    res.json({message: 'Modelo apagado com sucesso!'})
+}
+
 module.exports = {
     getModelos,
     viewModelo,
     createModelo,
-    updateModelo
+    updateModelo,
+    deleteModelo
 }
