@@ -27,9 +27,18 @@ const updateMarca = async(req, res) => {
     res.json(marcaAtualizado)
 }
 
+const deleteMarca = async(req, res) => {
+    const id = req.params.id
+    await Marca.destroy({
+        where: {id: id}
+    })
+    res.json({message: 'Marca apagada com sucesso!'})
+}
+
 module.exports = {
     getMarcas,
     viewMarca,
     createMarca,
-    updateMarca
+    updateMarca,
+    deleteMarca
 }
