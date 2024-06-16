@@ -1,14 +1,42 @@
 const models = require('../models')
 const Carro = models.Carro
+const Marca = models.Marca
+const Modelo = models.Modelo
 
 const getCarros = async(req, res) => {
-    const carros = await Carro.findAll()
+    const carros = await Carro.findAll({
+        include: [
+            {
+                model: Marca,
+                as: 'marca',
+                attributes: ['nome']
+            },
+            {
+                model: Modelo,
+                as: 'modelo',
+                attributes: ['nome']
+            }
+        ]
+    })
     res.json(carros)
 }
 
 const viewCarro = async(req, res) => {
     const id = req.params.id
-    const carro = await Carro.findByPk(id)
+    const carro = await Carro.findByPk(id, {
+        include: [
+            {
+                model: Marca,
+                as: 'marca',
+                attributes: ['nome']
+            },
+            {
+                model: Modelo,
+                as: 'modelo',
+                attributes: ['nome']
+            }
+        ]
+    })
     res.json(carro)
 }
 
