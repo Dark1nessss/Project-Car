@@ -480,3 +480,100 @@ tr:nth-child(even) {
 .account-overview .view-details:hover {
     background-color: #0056b3;
 }
+
+
+/* Reserve Section */
+
+#reserve-section {
+    padding: 20px;
+}
+
+.reserved-cars,
+.reservation-requests {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    margin: 0;
+}
+
+.car-list,
+.request-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.car-item,
+.request-item {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.car-item img,
+.request-item img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.car-info h3,
+.request-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.car-info p,
+.request-info p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.request-actions {
+    margin-top: 10px;
+}
+
+.approve-btn,
+.reject-btn,
+.pending-btn, 
+.approved-btn {
+    padding: 8px 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.approve-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.reject-btn {
+    background-color: #d90429;
+    color: white;
+}
+
+.pending-btn {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.approved-btn {
+    background-color: #ccc;
+    color: white;
+}

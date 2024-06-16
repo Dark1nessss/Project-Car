@@ -30,8 +30,10 @@
                     <a href="#" class="active" id="dashboard"><i class='bx bx-clipboard'></i><span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="#" class="" id="customer-support"><i class='bx bx-support'></i><span>Customers
-                            Support</span></a>
+                    <a href="#" class="" id="reserve"><i class='bx bxs-car'></i></i><span>Reservations</span></a>
+                </li>
+                <li>
+                    <a href="#" class="" id="customer-support"><i class='bx bx-support'></i><span>Customers Support</span></a>
                 </li>
                 <li>
                     <a href="#" class="" id="reviews"><i class='bx bxs-comment-detail'></i><span>Reviews</span></a>
@@ -263,6 +265,88 @@
             </div>
         </main>
 
+        <main id="reserve-section" class="hidden">
+            <section class="reserved-cars">
+                <div class="header">
+                    <h2>Reserved Cars</h2>
+                    <button class="see-all">See all →</button>
+                </div>
+                <div class="car-list">
+                    <div class="car-item">
+                        <img src="car1.jpg" alt="Car 1">
+                        <div class="car-info">
+                            <h3>Toyota Corolla</h3>
+                            <p>Reserved by: David Goggins</p>
+                            <p>Reservation Date: 2023-06-15</p>
+                        </div>
+                    </div>
+                    <div class="car-item">
+                        <img src="car2.jpg" alt="Car 2">
+                        <div class="car-info">
+                            <h3>Honda Civic</h3>
+                            <p>Reserved by: Sarah Johnson</p>
+                            <p>Reservation Date: 2023-06-14</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="reservation-requests">
+                <div class="header">
+                    <h2>Reservation Requests</h2>
+                    <button class="see-all">See all →</button>
+                </div>
+                <div class="request-list">
+                    <div class="request-item">
+                        <img src="car3.jpg" alt="Car 3">
+                        <div class="request-info">
+                            <h3>Ford Focus</h3>
+                            <p>Requested by: Michael Smith</p>
+                            <p>Request Date: 2023-06-16</p>
+                            <div class="request-actions">
+                                <button class="approve-btn">Approve</button>
+                                <button class="reject-btn">Reject</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="request-item">
+                        <img src="car4.jpg" alt="Car 4">
+                        <div class="request-info">
+                            <h3>Chevrolet Malibu</h3>
+                            <p>Requested by: Emily Davis</p>
+                            <p>Request Date: 2023-06-15</p>
+                            <div class="request-actions">
+                                <button class="approve-btn">Approve</button>
+                                <button class="reject-btn">Reject</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="request-item">
+                        <img src="car4.jpg" alt="Car 4">
+                        <div class="request-info">
+                            <h3>Chevrolet Malibu</h3>
+                            <p>Requested by: Emily Davis</p>
+                            <p>Request Date: 2023-06-15</p>
+                            <div class="request-actions">
+                                <button class="pending-btn">Pending</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="request-item">
+                        <img src="car5.jpg" alt="Car 5">
+                        <div class="request-info">
+                            <h3>BMW 3 Series</h3>
+                            <p>Requested by: John Doe</p>
+                            <p>Request Date: 2023-06-14</p>
+                            <div class="request-actions">
+                                <button class="approved-btn">Approved</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
         <main id="customer-support-section" class="hidden">
             <div class="tickets">
                 <div class="ticket-item">
@@ -279,25 +363,25 @@
                             <a href=""><i class="bx bx-phone"></i></a>
                         </span>
                     </div>
-            </div>
+                </div>
 
-        <div class="ticket-item">
-            <div class="ticket-header">
-                <h3>Technical Support Needed</h3>
-                <span class="ticket-status">Pending</span>
+                <div class="ticket-item">
+                    <div class="ticket-header">
+                        <h3>Technical Support Needed</h3>
+                        <span class="ticket-status">Pending</span>
+                    </div>
+                    <p class="ticket-description">Customer reports issues with car navigation system.</p>
+                    <div class="ticket-footer">
+                        <span class="ticket-customer">
+                            <i class="bx bx-user"></i> Customer ID:
+                        </span>
+                        <span class="ticket-contact">
+                            <a href=""><i class="bx bx-phone"></i></a>
+                        </span>
+                    </div>
+                </div>
             </div>
-            <p class="ticket-description">Customer reports issues with car navigation system.</p>
-            <div class="ticket-footer">
-                <span class="ticket-customer">
-                    <i class="bx bx-user"></i> Customer ID:
-                </span>
-                <span class="ticket-contact">
-                    <a href=""><i class="bx bx-phone"></i></a>
-                </span>
-            </div>
-        </div>
-    </div>
-</main>
+        </main>
 
         <main id="reviews-section" class="hidden">
             <div class="reviews">
@@ -410,45 +494,95 @@
                 </table>
             </div>
         </div>
-
-
         </main>
 
-<main id="accounts-section" class="hidden">
-    <div class="accounts">
-        <div class="account-overview">
-            <div class="header">
-                <h2>Account Overview</h2>
-                <button class="see-all" onclick="redirectToNewPage()">See all →</button>
+        <main id="accounts-section" class="hidden">
+            <div class="accounts">
+                <div class="account-overview">
+                    <div class="header">
+                        <h2>Account Overview</h2>
+                        <button class="see-all" onclick="redirectToNewPage()">See all →</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Customer ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            {{#each clientes}}
+                            <tr>
+                                <td>{{this.id}}</td>
+                                <td>{{this.nome}}</td>
+                                <td>{{this.email}}</td>
+                                <td><button class="view-details" onclick="redirectToDetailsPage('001')">View Details</button></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Customer ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    {{#each clientes}}
-                    <tr>
-                        <td>{{this.id}}</td>
-                        <td>{{this.nome}}</td>
-                        <td>{{this.email}}</td>
-                        <td><button class="view-details" onclick="redirectToDetailsPage('001')">View Details</button></td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
-    </div>
-</main>
+        </main>
+        
+        <main id="accounts-section" class="hidden">
+            <div class="accounts">
+                <div class="account-overview">
+                    <div class="header">
+                        <h2>Account Overview</h2>
+                        <button class="see-all" onclick="redirectToNewPage()">See all →</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Customer ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>John Doe</td>
+                                <td>johndoe@example.com</td>
+                                <td><button class="view-details" onclick="redirectToDetailsPage('001')">View Details</button></td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>Sarah Johnson</td>
+                                <td>sarah.j@example.com</td>
+                                <td><button class="view-details" onclick="redirectToDetailsPage('002')">View Details</button></td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>Michael Smith</td>
+                                <td>m.smith@example.com</td>
+                                <td><button class="view-details" onclick="redirectToDetailsPage('003')">View Details</button></td>
+                            </tr>
+                            <tr>
+                                <td>004</td>
+                                <td>Emily Davis</td>
+                                <td>emily.d@example.com</td>
+                                <td><button class="view-details" onclick="redirectToDetailsPage('004')">View Details</button></td>
+                            </tr>
+                            <tr>
+                                <td>005</td>
+                                <td>David Goggins</td>
+                                <td>david.g@example.com</td>
+                                <td><button class="view-details" onclick="redirectToDetailsPage('005')">View Details</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
 
         <main id="settings-section" class="hidden">
             <h2>Settings Section</h2>
-
         </main>
 
     </div>
