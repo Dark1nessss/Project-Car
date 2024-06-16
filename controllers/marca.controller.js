@@ -6,6 +6,13 @@ const getMarcas = async(req, res) => {
     res.json(marcas)
 }
 
+const viewMarca = async(req, res) => {
+    const id = req.params.id
+    const marca = await Marca.findByPk(id)
+    res.json(marca)
+}
+
 module.exports = {
-    getMarcas
+    getMarcas,
+    viewMarca
 }

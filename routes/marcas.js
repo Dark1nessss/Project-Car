@@ -3,5 +3,6 @@ var router = express.Router()
 const marcaController = require('../controllers/marca.controller')
 
 router.get('/', marcaController.getMarcas)
+router.get('/:id', marcaController.viewMarca)
 
 module.exports = router
