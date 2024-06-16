@@ -12,7 +12,14 @@ const viewModelo = async(req, res) => {
     res.json(modelo)
 }
 
+const createModelo = async(req, res) => {
+    const data = req.body
+    const modelo = await Modelo.create(data)
+    res.json(modelo)
+}
+
 module.exports = {
     getModelos,
-    viewModelo
+    viewModelo,
+    createModelo
 }
