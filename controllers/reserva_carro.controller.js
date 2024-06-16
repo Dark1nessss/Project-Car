@@ -12,7 +12,20 @@ const createReserva = async(req, res) => {
     res.json(reserva)
 }
 
+const updateReserva = async(req, res) => {
+    const data = req.body
+    await ReservaCarro.update({
+        "cliente_id": data.cliente_id,
+        "carro_id": data.carro_id,
+        "data_inicio": data.data_inicio,
+        "data_fim": data.data_fim
+    }, {where: {id: req.params.id}})
+    const reservaAtualizado = await ReservaCarro.findOne({where: {id: req.params.id}})
+    res.json(reservaAtualizado)
+}
+
 module.exports = {
     getReservas,
-    createReserva
+    createReserva,
+    updateReserva
 }
