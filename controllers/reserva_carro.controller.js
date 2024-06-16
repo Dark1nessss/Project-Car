@@ -6,6 +6,12 @@ const getReservas = async(req, res) => {
     res.json(reservas)
 }
 
+const viewReserva = async(req, res) => {
+    const id = req.params.id
+    const reserva = await ReservaCarro.findByPk(id)
+    res.json(reserva)
+}
+
 const createReserva = async(req, res) => {
     const data = req.body
     const reserva = await ReservaCarro.create(data)
@@ -32,6 +38,7 @@ const deleteReserva = async(req, res) => {
 
 module.exports = {
     getReservas,
+    viewReserva,
     createReserva,
     updateReserva,
     deleteReserva,
