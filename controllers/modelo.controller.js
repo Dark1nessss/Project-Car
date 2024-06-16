@@ -18,8 +18,19 @@ const createModelo = async(req, res) => {
     res.json(modelo)
 }
 
+const updateModelo = async(req, res) => {
+    const data = req.body
+    await Modelo.update({
+        "marca_id": data.marca_id,
+        "nome": data.nome
+    }, {where: {id: req.params.id}})
+    const modeloAtualizado = await Modelo.findOne({where: {id: req.params.id}})
+    res.json(modeloAtualizado)
+}
+
 module.exports = {
     getModelos,
     viewModelo,
-    createModelo
+    createModelo,
+    updateModelo
 }
