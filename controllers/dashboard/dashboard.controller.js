@@ -5,7 +5,7 @@ const renderDashboard = async(req, res) => {
     if(req.session.is_admin){
         res.render('dashboard', {is_admin: req.session.is_admin, nome_cliente: req.session.nome_cliente, foto_perfil: req.session.foto_perfil})
     } else {
-        res.redirect('/login')
+        res.json('NOT AUTHORIZED!')
     }
     
 }
