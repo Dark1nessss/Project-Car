@@ -23,7 +23,20 @@ const getCarros = async(req, res) => {
 
 const viewCarro = async(req, res) => {
     const id = req.params.id
-    const carro = await Carro.findByPk(id)
+    const carro = await Carro.findByPk(id, {
+        include: [
+            {
+                model: Marca,
+                as: 'marca',
+                attributes: ['nome']
+            },
+            {
+                model: Modelo,
+                as: 'modelo',
+                attributes: ['nome']
+            }
+        ]
+    })
     res.json(carro)
 }
 
