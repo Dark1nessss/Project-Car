@@ -573,6 +573,6 @@ tr:nth-child(even) {
 }
 
 .approved-btn {
-    background-color: #007bff;
+    background-color: #ccc;
     color: white;
 }
