@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const dashboardController = require('../controllers/dashboard/dashboard.controller')
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { nome_cliente: req.session.nome_cliente, foto_perfil: req.session.foto_perfil, is_admin: req.session.is_admin});
@@ -19,9 +21,8 @@ router.get('/logout', function(req,res,next){
   res.redirect('/')
 })
 
-router.get('/dashboard', function(req,res,next){
-  res.render('dashboard', {is_admin: req.session.is_admin, nome_cliente: req.session.nome_cliente, foto_perfil: req.session.foto_perfil})
-})
+// DASHBOARD
+router.get('/dashboard', dashboardController.renderDashboard)
 
 router.get('/profile', function(req, res, next){
   if(req.session.loggedIn){
