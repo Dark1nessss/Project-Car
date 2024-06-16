@@ -18,8 +18,18 @@ const createMarca = async(req, res) => {
     res.json(marca)
 }
 
+const updateMarca = async(req, res) => {
+    const data = req.body
+    await Marca.update({
+        "nome": data.nome
+    }, {where: {id: req.params.id}})
+    const marcaAtualizado = await Marca.findOne({where: {id: req.params.id}})
+    res.json(marcaAtualizado)
+}
+
 module.exports = {
     getMarcas,
     viewMarca,
-    createMarca
+    createMarca,
+    updateMarca
 }
