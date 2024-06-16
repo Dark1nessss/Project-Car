@@ -24,8 +24,15 @@ const updateReserva = async(req, res) => {
     res.json(reservaAtualizado)
 }
 
+const deleteReserva = async(req, res) => {
+    const id = req.params.id
+    await ReservaCarro.destroy({where: {id: id}})
+    res.json({message: 'Carro apagado com sucesso!'})
+}
+
 module.exports = {
     getReservas,
     createReserva,
-    updateReserva
+    updateReserva,
+    deleteReserva,
 }
