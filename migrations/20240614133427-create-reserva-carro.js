@@ -26,6 +26,10 @@ module.exports = {
       preco: {
         type: Sequelize.NUMERIC
       },
+      is_accepted: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: 0
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
