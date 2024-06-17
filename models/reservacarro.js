@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     carro_id: {type: DataTypes.INTEGER, references: {model: Carro, key:'id'}},
     data_inicio: DataTypes.DATE,
     data_fim: DataTypes.DATE,
-    preco: DataTypes.NUMERIC
+    preco: DataTypes.NUMERIC,
+    is_accepted: {type: DataTypes.BOOLEAN, defaultValue: 0},
   }, {
     sequelize,
     modelName: 'ReservaCarro',
