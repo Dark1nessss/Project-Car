@@ -1,286 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/dashboard.css">
-    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
-    <title>Dashboard</title>
+    <title>Dynamic Tables</title>
+    <link rel="stylesheet" href="/assets/css/test1.css">
 </head>
-
 <body>
-
-        <!-- {{#if is_admin}}
-        Sou administrador: {{nome_cliente}}
-        {{else}}
-        <p>Idk how you got access but hf 💀</p>
-        {{/if}}
-        -->
-
-
-        <div class="sidebar">
-            <div class="sidebar-brand">
-                <a href="/" class="logo">Car<span>Ville</span></a>
-            </div>
-            <div class="sidebar-menu">
-                <ul>
-                    <li>
-                        <a href="#" class="active" id="dashboard"><i class='bx bx-clipboard'></i><span>Dashboard</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="" id="customer-support"><i class='bx bx-support' ></i><span>Customers Support</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="" id="reviews"><i class='bx bxs-comment-detail' ></i><span>Reviews</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="" id="stock"><i class='bx bx-store' ></i><span>Stock</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="" id="accounts"><i class='bx bxs-user-account' ></i><span>Accounts</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="" id="settings"><i class='bx bx-cog' ></i><span>Settings</span></a>
-                    </li>
-                </ul>
-            </div>
+    <header>
+        <h1>Dynamic Tables</h1>
+    </header>
+    <main>
+        <div class="categories">
+            <button onclick="fetchData('dashboard')">See All Dashboard</button>
+            <button onclick="fetchData('reservations')">See All Reservations</button>
+            <button onclick="fetchData('customer-support')">See All Customer Support</button>
+            <button onclick="fetchData('reviews')">See All Reviews</button>
+            <button onclick="fetchData('stock')">See All Stock</button>
+            <button onclick="fetchData('accounts')">See All Accounts</button>
+            <button onclick="fetchData('settings')">See All Settings</button>
+            <!-- Add more buttons as needed -->
         </div>
-
-        <div class="main-content">
-            <header>
-
-                <h1>
-                    <i class='bx bx-menu' ></i>
-                    Dashboard
-                </h1>
-                
-                <div class="search-bar">
-                    <i class='bx bx-search-alt-2'></i>
-                    <input type="search" placeholder="Search Bar">
-                </div>
-
-                <div class="user">
-                    <img src="">
-                    <div>
-                        <h4>{{nome_cliente}}</h4>
-                        <small>Admin</small>
-                    </div>
-                </div>
-
-            </header>
-
-            <main>
-
-                <div class="cards">
-
-                    <div class="card-single">
-
-                        <div>
-                            <h1>0</h1>
-                            <span>Customers</span>
-                        </div>
-                        <div>
-                            <i class='bx bxs-user bx-lg'></i>
-                        </div>
-
-                    </div>
-
-                    <div class="card-single">
-
-                        <div>
-                            <h1>0</h1>
-                            <span>Reviews</span>
-                        </div>
-                        <div>
-                            <i class='bx bxs-comment-detail bx-lg' ></i>
-                        </div>
-
-                    </div>
-
-                    <div class="card-single">
-
-                        <div>
-                            
-                            <h1>0</h1>
-                            <span>Stock</span>
-                        </div>
-                        <div>
-                            <i class='bx bx-store bx-lg' ></i>
-                        </div>
-
-                    </div>
-
-                    <div class="card-single">
-
-                        <div>
-                            
-                            <h1>0€</h1>
-                            <span>Income</span>
-                        </div>
-                        <div>
-                            <i class='bx bx-trending-up bx-lg'></i>
-                        </div>
-
-                    </div>
-
-                </div>
-            
-                <div class="dashboard">
-                    <div class="recent-sales">
-                        <div class="header">
-                            <h2>Recent Sales</h2>
-                            <button class="see-all">See all →</button>
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Car Brand</th>
-                                    <th>Model</th>
-                                    <th>Buyer</th>
-                                    <th>Earnings</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Toyota</td>
-                                    <td>Corolla</td>
-                                    <td>David Goggins</td>
-                                    <td>21000€</td>
-                                </tr>
-                                <tr>
-                                    <td>Honda</td>
-                                    <td>Civic</td>
-                                    <td>Sarah Johnson</td>
-                                    <td>19500€</td>
-                                </tr>
-                                <tr>
-                                    <td>Ford</td>
-                                    <td>Focus</td>
-                                    <td>Michael Smith</td>
-                                    <td>18000€</td>
-                                </tr>
-                                <tr>
-                                    <td>Chevrolet</td>
-                                    <td>Malibu</td>
-                                    <td>Emily Davis</td>
-                                    <td>23000€</td>
-                                </tr>
-                                <tr>
-                                    <td>BMW</td>
-                                    <td>3 Series</td>
-                                    <td>John Doe</td>
-                                    <td>35000€</td>
-                                </tr>
-                                <tr>
-                                    <td>Toyota</td>
-                                    <td>Corolla</td>
-                                    <td>David Goggins</td>
-                                    <td>21000€</td>
-                                </tr>
-                                <tr>
-                                    <td>Honda</td>
-                                    <td>Civic</td>
-                                    <td>Sarah Johnson</td>
-                                    <td>19500€</td>
-                                </tr>
-                                <tr>
-                                    <td>Ford</td>
-                                    <td>Focus</td>
-                                    <td>Michael Smith</td>
-                                    <td>18000€</td>
-                                </tr>
-                                <tr>
-                                    <td>Chevrolet</td>
-                                    <td>Malibu</td>
-                                    <td>Emily Davis</td>
-                                    <td>23000€</td>
-                                </tr>
-                                <tr>
-                                    <td>BMW</td>
-                                    <td>3 Series</td>
-                                    <td>John Doe</td>
-                                    <td>35000€</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="new-customer">
-                        <div class="header">
-                            <h2>New Customer</h2>
-                            <button class="see-all">See all →</button>
-                        </div>
-                        <div class="customer-list">
-                            <div class="customer-item">
-                                <img src="customer.jpg" alt="Customer">
-                                <div class="customer-info">
-                                    <p>David Goggins</p>
-                                    <span>Contacts</span>
-                                    <div class="customer-info-icons">
-                                        <i class='bx bx-face'></i>
-                                        <i class='bx bx-user'></i>
-                                        <i class='bx bx-phone'></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="customer-item">
-                                <img src="customer.jpg" alt="Customer">
-                                <div class="customer-info">
-                                    <p>Sarah Johnson</p>
-                                    <span>Contacts</span>
-                                    <div class="customer-info-icons">
-                                        <i class='bx bx-face'></i>
-                                        <i class='bx bx-user'></i>
-                                        <i class='bx bx-phone'></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="customer-item">
-                                <img src="customer.jpg" alt="Customer">
-                                <div class="customer-info">
-                                    <p>Michael Smith</p>
-                                    <span>Contacts</span>
-                                    <div class="customer-info-icons">
-                                        <i class='bx bx-face'></i>
-                                        <i class='bx bx-user'></i>
-                                        <i class='bx bx-phone'></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="customer-item">
-                                <img src="customer.jpg" alt="Customer">
-                                <div class="customer-info">
-                                    <p>Emily Davis</p>
-                                    <span>Contacts</span>
-                                    <div class="customer-info-icons">
-                                        <i class='bx bx-face'></i>
-                                        <i class='bx bx-user'></i>
-                                        <i class='bx bx-phone'></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="customer-item">
-                                <img src="customer.jpg" alt="Customer">
-                                <div class="customer-info">
-                                    <p>John Doe</p>
-                                    <span>Customer</span>
-                                    <div class="customer-info-icons">
-                                        <i class='bx bx-face'></i>
-                                        <i class='bx bx-user'></i>
-                                        <i class='bx bx-phone'></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </main>
-
+        <div id="tableContainer">
+            <!-- Tables will be dynamically inserted here -->
         </div>
+    </main>
 
-        <script></script>
+    <script src=>
+        document.addEventListener('DOMContentLoaded', function() {
+    const tableContainer = document.getElementById('tableContainer');
+
+    // Function to fetch data based on category
+    async function fetchData(category) {
+        try {
+            const response = await fetch(`/api/${category}`); // Replace with your API endpoint
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            renderTable(data, category);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
+    // Function to render table
+    function renderTable(data, category) {
+        const table = generateTable(data);
+        tableContainer.innerHTML = ''; // Clear previous content
+        const header = document.createElement('h2');
+        header.textContent = `All ${formatCategoryName(category)}`;
+        tableContainer.appendChild(header);
+        tableContainer.appendChild(table);
+    }
+
+    // Function to generate table HTML
+    function generateTable(data) {
+        const table = document.createElement('table');
+        const thead = table.createTHead();
+        const headerRow = thead.insertRow();
+        Object.keys(data[0]).forEach(key => {
+            const th = document.createElement('th');
+            th.textContent = key.charAt(0).toUpperCase() + key.slice(1); // Capitalize first letter
+            headerRow.appendChild(th);
+        });
+
+        const tbody = table.createTBody();
+        data.forEach(item => {
+            const row = tbody.insertRow();
+            Object.values(item).forEach(value => {
+                const cell = row.insertCell();
+                cell.textContent = value;
+            });
+        });
+
+        return table;
+    }
+
+    // Function to format category name
+    function formatCategoryName(category) {
+        return category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    }
+});
+
+    </script>
 </body>
-
 </html>
