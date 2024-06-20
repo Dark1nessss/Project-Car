@@ -230,22 +230,40 @@
             <div class="slider">
                 <ul class="brands">
                     <li class="brand-logo">
-                        <svg src="/assets/images/logos/audi-11-logo-svgrepo-com.svg"></svg>
+                        <img src="/assets/images/logos/audi-logo.png">
                     </li>
                     <li class="brand-logo">
-                        <svg src="/assets/images/logos/bmw-logo-logo-svgrepo-com.svg"></svg>
+                        <img src="/assets/images/logos/calvin-klein-logo.png">
                     </li>
                     <li class="brand-logo">
-                        <svg src="/assets/images/logos/fiat-alt-svgrepo-com.svg"></svg>
+                        <img src="/assets/images/logos/chanel-logo.png">
                     </li>
                     <li class="brand-logo">
-                        <svg src="/assets/images/logos/mercedes-benz-2-logo-svgrepo-com.svg"></svg>
+                        <img src="/assets/images/logos/chrysler-logo.png">
                     </li>
                     <li class="brand-logo">
-                        <svg src="/assets/images/logos/renault-2-logo-svgrepo-com.svg"></svg>
+                       <img src="/assets/images/logos/coca-cola-logo.png">
                     </li>
                     <li class="brand-logo">
-                        <svg src="/assets/images/logos/skoda-6-logo-svgrepo-com.svg"></svg>
+                        <img src="/assets/images/logos/mustang-logo.png">
+                    </li>
+                    <li class="brand-logo">
+                        <img src="/assets/images/logos/audi-logo.png">
+                    </li>
+                    <li class="brand-logo">
+                        <img src="/assets/images/logos/calvin-klein-logo.png">
+                    </li>
+                    <li class="brand-logo">
+                        <img src="/assets/images/logos/chanel-logo.png">
+                    </li>
+                    <li class="brand-logo">
+                        <img src="/assets/images/logos/chrysler-logo.png">
+                    </li>
+                    <li class="brand-logo">
+                       <img src="/assets/images/logos/coca-cola-logo.png">
+                    </li>
+                    <li class="brand-logo">
+                        <img src="/assets/images/logos/mustang-logo.png">
                     </li>
                 </ul>
             </div>
@@ -360,41 +378,15 @@
         };
 
 
-        // TESTING FOR LOGO SLIDER "UPDATE: Utilizando isto funciona em termos de loop infinito mas existe uma overplacemente q tem de ser resolvida"
-         // var copy = document.querySelector(".slider-items").cloneNode(true);
-         // document.querySelector(".slider").appendChild(copy);
 
+        const brand = document.querySelector('ul.brands'),
+            total_brand = brands.children.lenght;
 
-        window.addEventListener('load', () => {
-            const sliderItems = document.querySelector('.slider-items');
-            const items = Array.from(sliderItems.children);
-            const totalItems = items.length;
+            document.documentElement.style.setProperty('--total-brand, total_brand');
 
-            // Clone items
-            items.forEach(item => {
-                const clone = item.cloneNode(true);
-                sliderItems.appendChild(clone);
-            });
-
-            // Calculate the width of all items including clones
-            const itemWidth = items[0].clientWidth + 20; // 20 is the gap between items
-            const totalWidth = itemWidth * totalItems;
-
-            // Update scroll position
-            let scrollPosition = 0;
-            const updateScroll = () => {
-                scrollPosition += 1;
-                if (scrollPosition >= totalWidth) {
-                    scrollPosition = 0;
-                }
-                sliderItems.style.transform = `translateX(${-scrollPosition}px)`;
-                requestAnimationFrame(updateScroll);
-            };
-
-            // Start the scroll
-            updateScroll();
-        });
-
+            for(let i = 0; i< total_brand; i++){
+                brands.appendChild(brands.children[i].cloneNode(true))
+            }
 
         </script>
     </body>

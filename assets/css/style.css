@@ -568,6 +568,7 @@ transition: 0.7s;
     list-style: none;
     width: var(--total-logo-widht);
     display: flex;
+    animation: slideleft 14s linear infinite
 }
 
 ul.brands li.brand-logo{
@@ -577,11 +578,7 @@ ul.brands li.brand-logo{
     margin-left: 3rem;
 }
 
-.slider::before{
-
-
-}
-
+.slider::before
 .slider::after{
     position: absolute;
     content: "";
@@ -590,6 +587,17 @@ ul.brands li.brand-logo{
 }
 
 .slider::before{
+    left: 0;
+    background: linear-gradient(to right,#fff 0%, #fff0 100%);
+}
+
+.slider::after{
     right: 0;
-    background: linear-gradient(to left,#000 0%, #0000 100%);
+    background: linear-gradient(to left,#fff 0%, #fff0 100%);
+}
+
+@keyframes slideleft {
+    100%{
+        transform: translateX(-100%);
+    }
 }
