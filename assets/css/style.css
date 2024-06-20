@@ -554,19 +554,42 @@ transition: 0.7s;
 }
 
 .slider {
+    position: relative;
     width: 100vw;
     height: 12rem;
-}
-
-.slider-items {
+    background-color:#fff;
+    box-shadow: 0.8rem 1.4rem -.2rem #0001;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 20px;
+    overflow: hidden;
 }
 
-.slider-items img {
-    width: 150px; /* Adjusted to make sure images are the same size */
-    height: auto;
-    margin: 20px;
+.slider ul.brands {
+    list-style: none;
+    width: var(--total-logo-widht);
+    display: flex;
+}
+
+ul.brands li.brand-logo{
+    width: var(--logo-width);
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 3rem;
+}
+
+.slider::before{
+
+
+}
+
+.slider::after{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: var(--logo-width);
+}
+
+.slider::before{
+    right: 0;
+    background: linear-gradient(to left,#000 0%, #0000 100%);
 }
