@@ -433,53 +433,53 @@ textarea:read-only {
 
 /* Blog Section */
 
-.blog-container{
+.blog-container {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 2rem;
 }
 
-.blog-container .box{
+.blog-container .box {
     flex: 1 1 13rem;
     padding: 20px;
     transition: background-color 0.6s;
 }
 
-.blog-container .box:hover{
+.blog-container .box:hover {
     background-color: #ccc;
-    transition: 0.6s ;
+    transition: background-color 0.6s;
 }
 
-.blog-container .box span{
+.blog-container .box span {
     font-size: 0.8rem;
     color: var(--main-color);
 }
 
-.blog-container h3{
+.blog-container h3 {
     font-size: 1.2rem;
 }
 
-.blog-container .box p{
+.blog-container .box p {
     font-size: 0.938rem;
     margin: 4px 0;
 }
 
-.blog-container .box .blog-btn{
+.blog-container .box .blog-btn {
     display: flex;
     align-items: center;
     column-gap: 4px;
     color: var(--text-color);
+    transition: color 0.4s ease-in-out, column-gap 0.4s ease-in-out;
 }
 
-.blog-container .box .blog-btn .bx{
+.blog-container .box .blog-btn .bx {
     font-size: 20px;
 }
 
-.blog-container .box .blog-btn:hover{
+.blog-container .box .blog-btn:hover {
     color: var(--main-color);
     column-gap: 0.7rem;
-    transition: 0.4s;
 }
 
 /* Footer Section */
