@@ -36,6 +36,9 @@ a{
     --main-color:#d90429 ;
     --text-color:#020102 ;
     --bg-color:#fff ;
+    --total-brand: 6;
+    --logo-width: 12rem;
+    --total-logo-widht: calc(var(--total-brand) * var(var(--logo-width)));
 }
 
 /* 3. Img and Body */
@@ -551,18 +554,8 @@ transition: 0.7s;
 }
 
 .slider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 80%;
-    overflow: hidden;
-    background: rgb(255, 255, 255);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(7.4px);
-    -webkit-backdrop-filter: blur(7.4px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    width: 100vw;
+    height: 12rem;
 }
 
 .slider-items {
@@ -570,22 +563,10 @@ transition: 0.7s;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    animation: scrolling 20s linear infinite;
-
-}
-
-@keyframes scrolling {
-
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
 }
 
 .slider-items img {
-    width: 12%;
+    width: 150px; /* Adjusted to make sure images are the same size */
+    height: auto;
     margin: 20px;
-
 }
