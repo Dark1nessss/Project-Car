@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="test.css" />
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="sidebar">
+      <div class="sidebar-inner">
+        <header class="sidebar-header">
+          <button
+            type="button"
+            class="sidebar-burger"
+            onclick="toggleSidebar()"
+          ></button>
+          <img src="./assets/blocklord-logo.png" class="sidebar-logo" />
+        </header>
+        <nav class="sidebar-menu">
+          <button type="button">
+            <a href="#" class="active" id="dashboard"><i class='bx bx-clipboard'></i><span>Dashboard</span></a>
+          </button>
+          <button type="button" class="has-border">
+            <a href="#" class="" id="reserve"><i class='bx bxs-car'></i></i><span>Reservations</span></a>
+          </button>
+          <button type="button">
+            <a href="#" class="" id="customer-support"><i class='bx bx-support'></i><span>Customers Support</span></a>
+          </button>
+          <button type="button">
+            <a href="#" class="" id="reviews"><i class='bx bxs-comment-detail'></i><span>Reviews</span></a>
+          </button>
+          <button type="button">
+            <a href="#" class="" id="stock"><i class='bx bx-store'></i><span>Stock</span></a>
+          </button>
+          <button type="button" class="has-border">
+            <a href="#" class="" id="accounts"><i class='bx bxs-user-account'></i><span>Accounts</span></a>
+          </button>
+          <button type="button">
+            <a href="#" class="" id="settings"><i class='bx bx-cog'></i><span>Settings</span></a>
+          </button>
+        </nav>
+      </div>
+    </nav>
+
+    <script type="text/javascript">
+      const toggleSidebar = () => document.body.classList.toggle("open");
+    </script>
+  </body>
+</html>

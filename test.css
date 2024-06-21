@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+  
+:root {
+    --main-color: #d90429;
+    --text-color: #020102;
+    --bg-color: #fff;
+}
+
+body {
+    margin: 0;
+    background: var(--bg-color)
+}
+  
+button {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+  
+.sidebar {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 72px;
+    height: 100%;
+    background: var(--main-color);
+    transition: width 0.4s;
+}
+  
+body.open .sidebar {
+    width: 260px;
+}
+  
+.sidebar-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+}
+  
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    height: 72px;
+    padding: 0 1.25rem 0 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+  
+.sidebar-burger {
+    width: 72px;
+    height: 72px;
+    display: grid;
+    place-items: center;
+    background: url(./assets/icon-burger.svg) no-repeat center center;
+}
+  
+body.open .sidebar-burger {
+    background: url(./assets/icon-close.svg) no-repeat no-repeat center center;
+}
+  
+.sidebar-logo {
+    height: 20px;
+}
+  
+.sidebar-menu {
+    display: grid;
+}
+  
+.sidebar-menu > button {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    height: 60px;
+    font-family: "Poppins";
+    font-size: 16px;
+    font-weight: 200;
+    letter-spacing: 2px;
+    line-height: 1;
+    padding: 0 25px;
+}
+  
+.sidebar-menu > button.has-border {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    margin-bottom: 1rem;
+}
+  
+.sidebar-menu > button > img {
+    width: 24px;
+    height: 24px;
+}
+  
+.sidebar-menu > button > a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--bg-color);
+}
+
+.sidebar-menu > button > a > i {
+    padding-right: 10px;
+}
+  
+.sidebar-menu > button > a > span {
+    color: var(--bg-color)
+}
