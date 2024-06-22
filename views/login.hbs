@@ -50,7 +50,11 @@
                 </div>
                 <span>or use your email password</span>
                 {{#if message.success}}
-                {{message.success}}
+               <span>{{message.success}}</span> 
+                {{/if}}
+
+                {{#if message.error}}
+                <span>{{message.error}}</span>
                 {{/if}}
                 <input type="email" name="email" placeholder="Email" autocomplete="off">
                 <input type="password" name="password" placeholder="Password">
