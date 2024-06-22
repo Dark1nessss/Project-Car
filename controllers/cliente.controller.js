@@ -65,10 +65,12 @@ const login = async(req, res) => {
             res.redirect('/')
             
         } else {
-            res.json("password errada")
+            req.flash("error", "Email ou a palavra passe est]a errada!")
+            res.redirect('/login')
         }
     } else {
-        res.json("cliente nao encontrado")
+        req.flash("error", "Falha ao encontrar a conta!")
+        res.redirect('/login')
     }
 }
 
