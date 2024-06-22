@@ -65,18 +65,21 @@ const login = async(req, res) => {
             res.redirect('/')
             
         } else {
-            res.json("password errada")
+            req.flash("error", "Email ou a palavra passe est]a errada!")
+            res.redirect('/login')
         }
     } else {
-        res.json("cliente nao encontrado")
+        req.flash("error", "Falha ao encontrar a conta!")
+        res.redirect('/login')
     }
 }
 
 const register = async(req, res) => {
     const data = req.body;
-    const cliente = await Cliente.findOne({where: {nome: data.nome}})
+    const cliente = await Cliente.findOne({where: {email: data.email}})
     if(cliente){
-        res.json("cliente ja existe")
+        req.flash("error", "Falha ao criar conta. Ja existe uma conta com esse email!")
+        res.redirect('/login')
     } else {
         cliente_criado = await Cliente.create(data)
         req.flash("success", "Conta criada :D")
