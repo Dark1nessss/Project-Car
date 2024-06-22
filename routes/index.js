@@ -18,6 +18,7 @@ router.get('/register', function(req, res, next){
 })
 
 router.get('/reservarcarro', reservacarroController.renderReservaCarro)
+router.get('/minhasreservas', reservacarroController.renderReservasCliente)
 
 router.get('/logout', function(req,res,next){
   req.session.destroy()

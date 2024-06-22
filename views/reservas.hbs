@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Reservas</title>
+</head>
+<body>
+  <h1>Minhas Reservas</h1>
+
+  {{#if reservas.length}}
+    <table>
+      <thead>
+        <tr>
+          <th>Car Brand</th>
+          <th>Model</th>
+          <th>Year</th>
+          <th>Price per Unit</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Accepted</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each reservas}}
+        <tr>
+          <td>{{this.carro.marca.nome}}</td>
+          <td>{{this.carro.modelo.nome}}</td>
+          <td>{{this.carro.ano}}</td>
+          <td>{{this.carro.preco}},000€</td>
+          <td>{{this.data_inicio}}</td>
+          <td>{{this.data_fim}}</td>
+          <td>{{#if this.is_accepted}}Yes{{else}}No{{/if}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <p>Você não tem reservas.</p>
+  {{/if}}
+</body>
+</html>

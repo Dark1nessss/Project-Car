@@ -2,6 +2,7 @@ const models = require('../../models')
 const Carro = models.Carro
 const Marca = models.Marca
 const Modelo = models.Modelo
+const ReservaCarro = models.ReservaCarro
 
 const getCarros = async(req, res) => {
     const carros = await Carro.findAll({
@@ -40,6 +41,43 @@ const renderReservaCarro = async(req, res) => {
     }
 }
 
+const renderReservasCliente = async(req, res) => {
+const clienteId = req.session.cliente_id;
+
+  if (!clienteId) {
+    return res.status(401).json({ error: 'Not authorized' });
+  }
+
+  try {
+    const reservas = await ReservaCarro.findAll({
+      where: { cliente_id: clienteId },
+      include: [
+        {
+          model: Carro,
+          as: 'carro',
+          include: [
+            {
+              model: Marca,
+              as: 'marca',
+              attributes: ['nome']
+            },
+            {
+              model: Modelo,
+              as: 'modelo',
+              attributes: ['nome']
+            }
+          ]
+        }
+      ]
+    });
+
+    res.render('reservas', { reservas });
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao buscar reservas', details: error.message });
+  }
+}
+
 module.exports = {
-    renderReservaCarro
+    renderReservaCarro,
+    renderReservasCliente
 }
