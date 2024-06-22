@@ -76,9 +76,9 @@ const login = async(req, res) => {
 
 const register = async(req, res) => {
     const data = req.body;
-    const cliente = await Cliente.findOne({where: {nome: data.nome}})
+    const cliente = await Cliente.findOne({where: {email: data.email}})
     if(cliente){
-        req.flash("error", "Falha ao criar conta. Ja existe esse utilizador!")
+        req.flash("error", "Falha ao criar conta. Ja existe uma conta com esse email!")
         res.redirect('/login')
     } else {
         cliente_criado = await Cliente.create(data)
