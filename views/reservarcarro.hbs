@@ -1,0 +1,60 @@
+<table>
+  <thead>
+    <tr>
+      <th>Car Brand</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Price per Unit</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each carros}}
+    <tr>
+      <td>{{this.marca}}</td>
+      <td>{{this.modelo}}</td>
+      <td>{{this.ano}}</td>
+      <td>{{this.preco}},000€</td>
+      <td><button class="reserve-button" onclick="reserveCar('{{this.id}}')">Reservar</button></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<script>
+  // Pegando o cliente_id da variável passada pelo servidor
+  const clienteId = {{cliente_id}};
+
+  async function reserveCar(carId) {
+    const dataInicio = new Date(); // Exemplo de data de início
+    const dataFim = new Date(); // Exemplo de data de fim (ajuste conforme necessário)
+
+    const reservaData = {
+      cliente_id: clienteId,
+      carro_id: carId,
+      data_inicio: dataInicio,
+      data_fim: dataFim,
+      preco: 100, // Exemplo de preço (ajuste conforme necessário)
+      is_accepted: false
+    };
+
+    try {
+      const response = await fetch('/reservas', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(reservaData),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert('Reserva criada com sucesso!');
+      } else {
+        alert('Erro ao criar reserva: ' + result.error);
+      }
+    } catch (error) {
+      console.error('Erro:', error);
+    }
+  }
+</script>
