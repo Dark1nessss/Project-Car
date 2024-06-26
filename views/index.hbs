@@ -98,6 +98,37 @@
 
         </section>
 
+        <section class="search">
+            <div class="heading">
+                <span>Find your Car</span>
+            </div>
+            <div class="search-container">
+                <div class="dropdown">
+                    <button id="brandButton" onclick="toggleDropdown('brand')">
+                        <span id="brandText">Car Brand</span>
+                        <i class='bx bx-chevron-down'></i>
+                    </button>
+                </div>
+                <div class="dropdown">
+                    <button id="modelButton" onclick="toggleDropdown('model')" disabled>
+                        <span id="modelText">Model</span>
+                        <i class='bx bx-chevron-down'></i>
+                    </button>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="postalCodeInput" placeholder="Postal Code">
+                    <button onclick="search()">
+                        <span id="Find Car">Find my Car</span>
+                    </button>
+                </div>
+            </div>
+            <div id="dropdown" class="dropdown-content" onclick="event.stopPropagation()">
+                <input type="text" id="dropdownSearch" placeholder="Search" oninput="filterDropdown()">
+                <div id="dropdownItems"></div>
+            </div>
+        </section>
+
+
         <!-- Section Cars -->
 
         <section class="cars" id="cars">
@@ -223,6 +254,57 @@
 			</div>
 		</section>
 
+        <!-- Logos Section -->
+        <section class="logos">
+            <span>Our Partners</span>
+            <h2>Our Partners helps us out, check them out</h2>
+            <div class="slider">
+                <div class="slide-track">
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Blog Section -->
 
@@ -301,37 +383,8 @@
             
         </section>
 
-        <script>
-        // Navbar Scroll Script
-        const nav1 = document.querySelector(".nav1")
-
-        let lastScrollTop = 0;
-
-        window.addEventListener(
-            "scroll",
-            () => {
-                console.log("scroll")
-                var { scrollY } = window;
-                if ( scrollY > lastScrollTop ){
-                    // scroll down
-                    nav1.classList.remove("visible");
-                } else if (scrollY < lastScrollTop ){
-                    // scroll up
-                    nav1.classList.add("visible");
-                }
-                lastScrollTop = 
-                scrollY <= 0 ? 0 : scrollY;
-            },
-            { passive: true }
-        );
-
-        // DropdownMenu Script
-        let subMenu = document.getElementById("subMenu");
-        
-        function toggleMenu(){
-            subMenu.classList.toggle("open-menu");
-        };
-        </script>
+        <script src="/assets/js/nav.js"></script>
+        <script src="/assets/js/search.js"></script>
     </body>
 
 </html>
