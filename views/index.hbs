@@ -98,6 +98,34 @@
 
         </section>
 
+        <section class="search">
+            <div class="search-container">
+                <div class="dropdown">
+                    <button id="brandButton" onclick="toggleDropdown('brand')">
+                        <span id="brandText">Car Brand</span>
+                        <i class='bx bx-chevron-down'></i>
+                    </button>
+                </div>
+                <div class="dropdown">
+                    <button id="modelButton" onclick="toggleDropdown('model')" disabled>
+                        <span id="modelText">Model</span>
+                        <i class='bx bx-chevron-down'></i>
+                    </button>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="postalCodeInput" placeholder="Postal Code">
+                    <button onclick="search()">
+                        <i class='bx bx-search'></i>
+                    </button>
+                </div>
+            </div>
+            <div id="dropdown" class="dropdown-content" onclick="event.stopPropagation()">
+                <input type="text" id="dropdownSearch" placeholder="Search" oninput="filterDropdown()">
+                <div id="dropdownItems"></div>
+            </div>
+        </section>
+
+
         <!-- Section Cars -->
 
         <section class="cars" id="cars">
@@ -352,38 +380,8 @@
             
         </section>
 
-        <script>
-        // Navbar Scroll Script
-        const nav1 = document.querySelector(".nav1")
-
-        let lastScrollTop = 0;
-
-        window.addEventListener(
-            "scroll",
-            () => {
-                console.log("scroll")
-                var { scrollY } = window;
-                if ( scrollY > lastScrollTop ){
-                    // scroll down
-                    nav1.classList.remove("visible");
-                } else if (scrollY < lastScrollTop ){
-                    // scroll up
-                    nav1.classList.add("visible");
-                }
-                lastScrollTop = 
-                scrollY <= 0 ? 0 : scrollY;
-            },
-            { passive: true }
-        );
-
-        // DropdownMenu Script
-        let subMenu = document.getElementById("subMenu");
-        
-        function toggleMenu(){
-            subMenu.classList.toggle("open-menu");
-        };
-
-        </script>
+        <script src="/assets/js/nav.js"></script>
+        <script src="/assets/js/search.js"></script>
     </body>
 
 </html>
