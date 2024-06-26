@@ -529,9 +529,9 @@ textarea:read-only {
 }
 
 .footer-box a, .footer p{
-color: #818181;
-margin-bottom: 10px;
-transition: 0.7s;
+    color: #818181;
+    margin-bottom: 10px;
+    transition: 0.7s;
 }
 
 .footer-box a:hover{
@@ -560,22 +560,22 @@ transition: 0.7s;
 @-webkit-keyframes scroll {
     0% {
       -webkit-transform: translateX(0);
-              transform: translateX(0);
+        transform: translateX(0);
     }
     100% {
       -webkit-transform: translateX(calc(-250px * 7));
-              transform: translateX(calc(-250px * 7));
+        transform: translateX(calc(-250px * 7));
     }
 }
   
 @keyframes scroll {
     0% {
       -webkit-transform: translateX(0);
-              transform: translateX(0);
+        transform: translateX(0);
     }
     100% {
       -webkit-transform: translateX(calc(-250px * 7));
-              transform: translateX(calc(-250px * 7));
+        transform: translateX(calc(-250px * 7));
     }
 }
 
@@ -630,6 +630,7 @@ transition: 0.7s;
     margin-top: 2rem;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .search-container {
@@ -675,7 +676,7 @@ transition: 0.7s;
     overflow-y: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    margin-top: 280px;
+    margin-top: 340px;
 }
 
 .dropdown-content input {
