@@ -10,7 +10,6 @@
   </head>
   <body>
 
-<<<<<<< Updated upstream
     <div class="sidebar">
       <div class="logo_content">
         <div class="logo">
@@ -668,46 +667,6 @@
             document.querySelector('#dashboard-section').classList.remove('hidden');
         });
 
-=======
-    
-
-    
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
-        const mainContentSections = document.querySelectorAll('.main-content > main');
-    
-        sidebarLinks.forEach(link => {
-          link.addEventListener('click', function (event) {
-            event.preventDefault();
-    
-            // Remove active class from all links
-            sidebarLinks.forEach(link => link.classList.remove('active'));
-    
-            // Add active class to the clicked link
-            this.classList.add('active');
-    
-            // Hide all sections
-            mainContentSections.forEach(section => section.classList.add('hidden'));
-    
-            // Get the target ID from the clicked link
-            const targetId = this.getAttribute('id') + '-section';
-    
-            // Section Select
-            const targetSection = document.querySelector(`#${targetId}`);
-            if (targetSection) {
-              targetSection.classList.remove('hidden');
-            }
-          });
-        });
-    
-        const toggleSidebar = () => document.body.classList.toggle("open");
-        // Attach toggleSidebar to the burger button
-        document.querySelector('.sidebar-burger').addEventListener('click', toggleSidebar);
-      });
->>>>>>> Stashed changes
     </script>
-    
   </body>
 </html>
