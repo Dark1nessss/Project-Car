@@ -21,6 +21,25 @@ const getCarros = async(req, res) => {
     res.json(carros)
 }
 
+const selectCarro = async(req, res) => {
+    const carros = await Carro.findAll({
+        include: [
+            {
+                model: Marca,
+                as: 'marca',
+                attributes: ['nome']
+            },
+            {
+                model: Modelo,
+                as: 'modelo',
+                attributes: ['nome']
+            }
+        ]
+    })
+    console.log(carros)
+    return carros
+}
+
 const viewCarro = async(req, res) => {
     const id = req.params.id
     const carro = await Carro.findByPk(id, {
@@ -67,6 +86,7 @@ const deleteCarro = async(req, res) => {
 }
 
 module.exports = {
+    selectCarro,
     getCarros,
     viewCarro,
     createCarro,
