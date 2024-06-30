@@ -93,12 +93,9 @@
       <div class="profile_content">
         <div class="profile">
           <div class="profile_details">
-            <!-- <img src="/uploads/{{foto_perfil}}"> -->
-            <img src="/assets/images/Captura de Ecrã (90).png">
+            <img src="/uploads/{{foto_perfil}}">
             <div class="name_job">
-              <!-- <div class="name">{{nome_cliente}}</div> -->
-              <div class="name">Dark1ness</div>
-              <div class="job">Admin</div>
+            <div class="name">{{nome_cliente}}</div>
             </div>
           </div>
           <i class='bx bx-log-out' id="log_out"></i>
@@ -500,66 +497,66 @@
   </main>
 
   <main id="stock-section" class="hidden">     
-  <div class="stocks">
-      <div class="stockpile">
-          <div class="header">
-              <h2>Stock Overview</h2>
-              <button class="see-all">See all →</button>
-          </div>
-          <table>
-              <thead>
-                  <tr>
-                      <th>Car Brand</th>
-                      <th>Model</th>
-                      <th>Year</th>
-                      <th>Price per Unit</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  {{#each carros}}
-                  <tr>
-                      <td>{{this.marca}}</td>
-                      <td>{{this.modelo}}</td>
-                      <td>{{this.ano}}</td>
-                      <td>{{this.preco}},000€</td>
-                  </tr>
-                  {{/each}}
-              </tbody>
-          </table>
-      </div>
-  </div>
+    <div class="stocks">
+        <div class="stockpile">
+            <div class="header">
+                <h2>Stock Overview</h2>
+                <button class="see-all">See all →</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Car Brand</th>
+                        <th>Model</th>
+                        <th>Year</th>
+                        <th>Price per Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each carros}}
+                    <tr>
+                        <td>{{this.marca}}</td>
+                        <td>{{this.modelo}}</td>
+                        <td>{{this.ano}}</td>
+                        <td>{{this.preco}},000€</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
   </main>
 
   <main id="accounts-section" class="hidden">
-      <div class="accounts">
-          <div class="account-overview">
-              <div class="header">
-                  <h2>Account Overview</h2>
-                  <button class="see-all" onclick="redirectToNewPage()">See all →</button>
-              </div>
-              <table>
-                  <thead>
-                      <tr>
-                          <th>Customer ID</th>
-                          <th>Name</th>
-                          <th>Email</th>
-                          <th>Action</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      
-                      {{#each clientes}}
-                      <tr>
-                          <td>{{this.id}}</td>
-                          <td>{{this.nome}}</td>
-                          <td>{{this.email}}</td>
-                          <td><button class="view-details" onclick="redirectToDetailsPage('001')">View Details</button></td>
-                      </tr>
-                      {{/each}}
-                  </tbody>
-              </table>
-          </div>
-      </div>
+        <div class="accounts">
+            <div class="account-overview">
+                <div class="header">
+                    <h2>Account Overview</h2>
+                    <button class="see-all" onclick="redirectToNewPage()">See all →</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {{#each clientes}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td>{{this.nome}}</td>
+                            <td>{{this.email}}</td>
+                            <td><button class="view-details" onclick="redirectToDetailsPage('001')">View Details</button></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
   </main>
   
   <main id="accounts-section" class="hidden">
@@ -622,50 +619,48 @@
 
     <script>
 
-      // Sidebar
+    // Sidebar
+    let btn = document.querySelector("#btn");
+    let sidebar = document.querySelector(".sidebar");
+    let searchBtn = document.querySelector(".bx-search-alt-2");
 
-      let btn = document.querySelector("#btn");
-      let sidebar = document.querySelector(".sidebar");
-      let searchBtn = document.querySelector(".bx-search-alt-2");
+    btn.onclick = function () {
+        sidebar.classList.toggle("active");
+    }
 
-      btn.onclick = function(){
-      sidebar.classList.toggle("active");
-      }
+    // Changing page
+    document.addEventListener("DOMContentLoaded", function () {
+        const sidebarLinks = document.querySelectorAll('.nav_list a');
+        const mainContentSections = document.querySelectorAll('main');
 
-      // Changing page
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
 
-      document.addEventListener("DOMContentLoaded", function () {
-            const sidebarLinks = document.querySelectorAll('.nav_list a');
-            const mainContentSections = document.querySelectorAll('.main-content > main');
+                // Remove active class from all links
+                sidebarLinks.forEach(link => link.classList.remove('expanded'));
 
-            sidebarLinks.forEach(link => {
-                link.addEventListener('click', function (event) {
-                    event.preventDefault();
+                // Add active class to the clicked link
+                this.classList.add('expanded');
 
-                    // Remove active class from all links
-                    sidebarLinks.forEach(link => link.classList.remove('expanded'));
+                // Hide all sections
+                mainContentSections.forEach(section => section.classList.add('hidden'));
 
-                    // Add active class to the clicked link
-                    this.classList.add('expanded');
+                // Get the target ID from the clicked link
+                const targetId = this.getAttribute('id') + '-section';
 
-                    // Hide all sections
-                    mainContentSections.forEach(section => section.classList.add('hidden'));
-
-                    // Get the target ID from the clicked link
-                    const targetId = this.getAttribute('id') + '-section';
-
-                    // Section Select
-                    const targetSection = document.querySelector(`#${targetId}`);
-                    if (targetSection) {
-                        targetSection.classList.remove('hidden');
-                    }
-                });
+                // Show the target section
+                const targetSection = document.querySelector(`#${targetId}`);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                }
             });
-
-            // Shows dashboard as initial active
-            document.querySelector('#dashboard').classList.add('expanded');
-            document.querySelector('#dashboard-section').classList.remove('hidden');
         });
+
+        // Shows dashboard as initial active
+        document.querySelector('#dashboard').classList.add('expanded');
+        document.querySelector('#dashboard-section').classList.remove('hidden');
+    });
 
     </script>
   </body>
