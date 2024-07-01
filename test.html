@@ -16,7 +16,7 @@
                 </ul>
             </nav>
             <div class="header-right">
-                
+
             </div>
         </div>
     </header>
@@ -40,20 +40,42 @@
                             <option value="10000">Up to £10,000</option>
                             <option value="20000">Up to £20,000</option>
                             <option value="30000">Up to £30,000</option>
+                            <option value="40000">Up to £40,000</option>
                         </select>
                     </div>
-                    <div class="filter-group">
+                    <div class="filter-group dropdown">
                         <label for="make">Make</label>
-                        <select id="make" name="make">
-                            <option value="all">All</option>
-                            <option value="Abarth">Abarth</option>
-                            <option value="Audi">Audi</option>
-                            <option value="BMW">BMW</option>
-                            <option value="Ford">Ford</option>
-                            <option value="Mercedes-Benz">Mercedes-Benz</option>
-                            <option value="Toyota">Toyota</option>
-                        </select>
-                    </div>
+                        <button type="button" id="dropdown-toggle">Select Make</button>
+                        <div class="dropdown-content" id="dropdown-content">
+                            <input type="text" placeholder="Search" id="search-make">
+                            <a class="reset-link" href="#">Reset</a>
+                            <div class="brand-item">
+                                <input type="radio" name="make" id="make-ford" value="Ford">
+                                <label for="make-ford">
+                                    <img src="images/ford-logo.png" alt="Ford" class="brand-logo"> 
+                                    <span class="brand-name">Ford</span>
+                                    <span class="brand-count">(5469)</span>
+                                </label>
+                            </div>
+                            <div class="brand-item">
+                                <input type="radio" name="make" id="make-bmw" value="BMW">
+                                <label for="make-bmw">
+                                    <img src="images/bmw-logo.png" alt="BMW" class="brand-logo"> 
+                                    <span class="brand-name">BMW</span>
+                                    <span class="brand-count">(3385)</span>
+                                </label>
+                            </div>
+                            <div class="brand-item">
+                                <input type="radio" name="make" id="make-audi" value="Audi">
+                                <label for="make-audi">
+                                    <img src="images/audi-logo.png" alt="Audi" class="brand-logo"> 
+                                    <span class="brand-name">Audi</span>
+                                    <span class="brand-count">(12678)</span>
+                                </label>
+                            </div>
+                            <!-- Add more brand items as needed -->
+                        </div>
+                    </div>                
                     <div class="filter-group">
                         <label for="model">Model</label>
                         <select id="model" name="model">
@@ -63,6 +85,7 @@
                             <option value="Mustang">Mustang</option>
                             <option value="C-Class">C-Class</option>
                             <option value="Corolla">Corolla</option>
+                            <option value="Civic">Civic</option>
                         </select>
                     </div>
                     <div class="filter-group">
@@ -75,11 +98,30 @@
                             <option value="Hybrid">Hybrid</option>
                         </select>
                     </div>
+                    <div class="filter-group">
+                        <label for="transmission">Transmission</label>
+                        <select id="transmission" name="transmission">
+                            <option value="all">All</option>
+                            <option value="Automatic">Automatic</option>
+                            <option value="Manual">Manual</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="year">Year</label>
+                        <select id="year" name="year">
+                            <option value="all">All</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                        </select>
+                    </div>
                     <button type="submit">Apply Filters</button>
                 </form>
             </div>
             <div class="car-listing-section">
-                <h2>Abarth 124 Spider cars for sale</h2>
+                <h2>Cars for sale</h2>
                 <div class="car-listing" id="car-listing">
                     <!-- Car cards will be dynamically inserted here -->
                 </div>
