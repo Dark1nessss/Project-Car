@@ -89,88 +89,14 @@ body {
     box-sizing: border-box;
 }
 
-/* Dropdown specific styling */
-.dropdown-content {
-    display: none;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    max-height: 400px;
-    overflow-y: auto;
-    margin-top: 10px;
+.accordion-button {
+    background-color: #f8f9fa;
 }
 
-.dropdown-content input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
+.accordion-button:not(.collapsed) {
+    background-color: #e9ecef;
 }
 
-.dropdown-content .reset-link {
-    display: block;
-    margin-bottom: 10px;
-    color: #007bff;
-    cursor: pointer;
-    text-align: right;
-    text-decoration: none;
-    font-size: 0.9em;
-}
-
-.dropdown-content .reset-link:hover {
-    text-decoration: underline;
-}
-
-.dropdown-content .brand-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px 0;
-}
-
-.dropdown-content .brand-item input[type="radio"] {
-    margin-right: 10px;
-}
-
-.dropdown-content .brand-item label {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    justify-content: space-between;
-}
-
-.dropdown-content .brand-logo {
-    width: 20px;
-    height: auto;
-    margin-right: 10px;
-}
-
-.dropdown-content .brand-name {
-    flex-grow: 1;
-}
-
-.dropdown-content .brand-count {
-    font-size: 0.9em;
-    color: #555;
-    white-space: nowrap;
-}
-
-/* Toggle Button */
-#dropdown-toggle {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    cursor: pointer;
-    text-align: left;
-    font-size: 1em;
-}
-
-/* Car listing section */
 .car-listing-section {
     flex: 1;
     padding: 20px;
@@ -248,4 +174,13 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #008bb0;
+}
+
+.scrollable-checkbox-list {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.scrollable-checkbox-list .form-check {
+    margin-bottom: 10px;
 }

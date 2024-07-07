@@ -4,123 +4,259 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Dealership</title>
-    <link rel="stylesheet" href="test2.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <h1>Carville</h1>
-            <nav>
-                <ul>
-
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <h1>Carville</h1>
+                </a>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Contact</a></li>
                 </ul>
-            </nav>
-            <div class="header-right">
-
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-light me-2">Login</button>
+                    <button type="button" class="btn btn-warning">Sign-up</button>
+                </div>
             </div>
         </div>
     </header>
-    <main>
-        <div class="content-container">
-            <div class="filter-section">
+    <main class="container my-4">
+        <div class="row">
+            <div class="col-md-3">
                 <h2>Filters</h2>
                 <form id="filter-form">
-                    <div class="filter-group">
-                        <label for="postcode">Postcode</label>
-                        <input type="text" id="postcode" name="postcode" placeholder="Enter postcode">
-                    </div>
-                    <div class="filter-group">
-                        <label for="distance">Distance (miles)</label>
-                        <input type="number" id="distance" name="distance" min="0" max="100" value="50">
-                    </div>
-                    <div class="filter-group">
-                        <label for="price">Price</label>
-                        <select id="price" name="price">
-                            <option value="all">All</option>
-                            <option value="10000">Up to £10,000</option>
-                            <option value="20000">Up to £20,000</option>
-                            <option value="30000">Up to £30,000</option>
-                            <option value="40000">Up to £40,000</option>
-                        </select>
-                    </div>
-                    <div class="filter-group dropdown">
-                        <label for="make">Make</label>
-                        <button type="button" id="dropdown-toggle">Select Make</button>
-                        <div class="dropdown-content" id="dropdown-content">
-                            <input type="text" placeholder="Search" id="search-make">
-                            <a class="reset-link" href="#">Reset</a>
-                            <div class="brand-item">
-                                <input type="radio" name="make" id="make-ford" value="Ford">
-                                <label for="make-ford">
-                                    <img src="images/ford-logo.png" alt="Ford" class="brand-logo"> 
-                                    <span class="brand-name">Ford</span>
-                                    <span class="brand-count">(5469)</span>
-                                </label>
+                    <div class="accordion" id="filterAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingPostcode">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePostcode" aria-expanded="true" aria-controls="collapsePostcode">
+                                    Postcode
+                                </button>
+                            </h2>
+                            <div id="collapsePostcode" class="accordion-collapse collapse show" aria-labelledby="headingPostcode" data-bs-parent="#filterAccordion">
+                                <div class="accordion-body">
+                                    <input type="text" id="postcode" name="postcode" class="form-control" placeholder="Enter postcode">
+                                </div>
                             </div>
-                            <div class="brand-item">
-                                <input type="radio" name="make" id="make-bmw" value="BMW">
-                                <label for="make-bmw">
-                                    <img src="images/bmw-logo.png" alt="BMW" class="brand-logo"> 
-                                    <span class="brand-name">BMW</span>
-                                    <span class="brand-count">(3385)</span>
-                                </label>
-                            </div>
-                            <div class="brand-item">
-                                <input type="radio" name="make" id="make-audi" value="Audi">
-                                <label for="make-audi">
-                                    <img src="images/audi-logo.png" alt="Audi" class="brand-logo"> 
-                                    <span class="brand-name">Audi</span>
-                                    <span class="brand-count">(12678)</span>
-                                </label>
-                            </div>
-                            <!-- Add more brand items as needed -->
                         </div>
-                    </div>                
-                    <div class="filter-group">
-                        <label for="model">Model</label>
-                        <select id="model" name="model">
-                            <option value="all">All</option>
-                            <option value="124 Spider">124 Spider</option>
-                            <option value="Fiesta">Fiesta</option>
-                            <option value="Mustang">Mustang</option>
-                            <option value="C-Class">C-Class</option>
-                            <option value="Corolla">Corolla</option>
-                            <option value="Civic">Civic</option>
-                        </select>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingDistance">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDistance" aria-expanded="false" aria-controls="collapseDistance">
+                                    Distance (miles)
+                                </button>
+                            </h2>
+                            <div id="collapseDistance" class="accordion-collapse collapse" aria-labelledby="headingDistance" data-bs-parent="#filterAccordion">
+                                <div class="accordion-body">
+                                    <input type="range" class="form-range" min="0" max="100" id="distance" name="distance">
+                                    <span id="distance-value">50 miles</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingPrice">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
+                                    Price
+                                </button>
+                            </h2>
+                            <div id="collapsePrice" class="accordion-collapse collapse" aria-labelledby="headingPrice" data-bs-parent="#filterAccordion">
+                                <div class="accordion-body">
+                                    <select id="price" name="price" class="form-select">
+                                        <option value="all">All</option>
+                                        <option value="10000">Up to £10,000</option>
+                                        <option value="20000">Up to £20,000</option>
+                                        <option value="30000">Up to £30,000</option>
+                                        <option value="40000">Up to £40,000</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingMake">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMake" aria-expanded="false" aria-controls="collapseMake">
+                                    Make
+                                </button>
+                            </h2>
+                            <div id="collapseMake" class="accordion-collapse collapse" aria-labelledby="headingMake" data-bs-parent="#filterAccordion">
+                                <div class="accordion-body">
+                                    <input type="text" class="form-control mb-2" id="search-make" placeholder="Search">
+                                    <div class="scrollable-checkbox-list">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="makeFord">
+                                            <label class="form-check-label" for="makeFord">
+                                                Ford
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="makeBMW">
+                                            <label class="form-check-label" for="makeBMW">
+                                                BMW
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="makeAudi">
+                                            <label class="form-check-label" for="makeAudi">
+                                                Audi
+                                            </label>
+                                        </div>
+                                        <!-- Add more options here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingModel">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseModel" aria-expanded="false" aria-controls="collapseModel">
+                                    Model
+                                </button>
+                            </h2>
+                            <div id="collapseModel" class="accordion-collapse collapse" aria-labelledby="headingModel" data-bs-parent="#filterAccordion">
+                                <div class="accordion-body">
+                                    <input type="text" class="form-control mb-2" id="search-model" placeholder="Search">
+                                    <div class="scrollable-checkbox-list">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="modelFiesta">
+                                            <label class="form-check-label" for="modelFiesta">
+                                                Fiesta
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="modelFocus">
+                                            <label class="form-check-label" for="modelFocus">
+                                                Focus
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="modelMustang">
+                                            <label class="form-check-label" for="modelMustang">
+                                                Mustang
+                                            </label>
+                                        </div>
+                                        <!-- Add more options here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFuelType">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFuelType" aria-expanded="false" aria-controls="collapseFuelType">
+                                    Fuel Type
+                                </button>
+                            </h2>
+                            <div id="collapseFuelType" class="accordion-collapse collapse" aria-labelledby="headingFuelType" data-bs-parent="#filterAccordion">
+                                <div class="accordion-body">
+                                    <input type="text" class="form-control mb-2" id="search-fuel-type" placeholder="Search">
+                                    <div class="scrollable-checkbox-list">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="fuelTypePetrol">
+                                            <label class="form-check-label" for="fuelTypePetrol">
+                                                Petrol
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="fuelTypeDiesel">
+                                            <label class="form-check-label" for="fuelTypeDiesel">
+                                                Diesel
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="fuelTypeElectric">
+                                            <label class="form-check-label" for="fuelTypeElectric">
+                                                Electric
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="fuelTypeHybrid">
+                                            <label class="form-check-label" for="fuelTypeHybrid">
+                                                Hybrid
+                                            </label>
+                                        </div>
+                                        <!-- Add more options here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTransmission">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTransmission" aria-expanded="false" aria-controls="collapseTransmission">
+                                    Transmission
+                                </button>
+                            </h2>
+                            <div id="collapseTransmission" class="accordion-collapse collapse" aria-labelledby="headingTransmission" data-bs-parent="#filterAccordion">
+                                <div class="accordion-body">
+                                    <input type="text" class="form-control mb-2" id="search-transmission" placeholder="Search">
+                                    <div class="scrollable-checkbox-list">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="transmissionAutomatic">
+                                            <label class="form-check-label" for="transmissionAutomatic">
+                                                Automatic
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="transmissionManual">
+                                            <label class="form-check-label" for="transmissionManual">
+                                                Manual
+                                            </label>
+                                        </div>
+                                        <!-- Add more options here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingYear">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseYear" aria-expanded="false" aria-controls="collapseYear">
+                                    Year
+                                </button>
+                            </h2>
+                            <div id="collapseYear" class="accordion-collapse collapse" aria-labelledby="headingYear" data-bs-parent="#filterAccordion">
+                                <div class="accordion-body">
+                                    <input type="text" class="form-control mb-2" id="search-year" placeholder="Search">
+                                    <div class="scrollable-checkbox-list">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="year2023">
+                                            <label class="form-check-label" for="year2023">
+                                                2023
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="year2022">
+                                            <label class="form-check-label" for="year2022">
+                                                2022
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="year2021">
+                                            <label class="form-check-label" for="year2021">
+                                                2021
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="year2020">
+                                            <label class="form-check-label" for="year2020">
+                                                2020
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="year2019">
+                                            <label class="form-check-label" for="year2019">
+                                                2019
+                                            </label>
+                                        </div>
+                                        <!-- Add more options here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="filter-group">
-                        <label for="fuel-type">Fuel Type</label>
-                        <select id="fuel-type" name="fuel-type">
-                            <option value="all">All</option>
-                            <option value="Petrol">Petrol</option>
-                            <option value="Diesel">Diesel</option>
-                            <option value="Electric">Electric</option>
-                            <option value="Hybrid">Hybrid</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="transmission">Transmission</label>
-                        <select id="transmission" name="transmission">
-                            <option value="all">All</option>
-                            <option value="Automatic">Automatic</option>
-                            <option value="Manual">Manual</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="year">Year</label>
-                        <select id="year" name="year">
-                            <option value="all">All</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                            <option value="2021">2021</option>
-                            <option value="2020">2020</option>
-                            <option value="2019">2019</option>
-                        </select>
-                    </div>
-                    <button type="submit">Apply Filters</button>
+                    <button type="submit" class="btn btn-primary mt-3">Apply Filters</button>
                 </form>
             </div>
-            <div class="car-listing-section">
+            <div class="col-md-9">
                 <h2>Cars for sale</h2>
                 <div class="car-listing" id="car-listing">
                     <!-- Car cards will be dynamically inserted here -->
@@ -128,6 +264,7 @@
             </div>
         </div>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

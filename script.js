@@ -1,36 +1,50 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const dropdownToggle = document.getElementById('dropdown-toggle');
-    const dropdownContent = document.getElementById('dropdown-content');
-    const searchMake = document.getElementById('search-make');
-    const resetLink = document.querySelector('.reset-link');
-    const brandItems = document.querySelectorAll('.brand-item');
+    const models = {
+        "Ford": ["Fiesta", "Focus", "Mustang"],
+        "BMW": ["320i", "X5", "Z4"],
+        "Audi": ["A4", "Q7", "R8"],
+        // Add more makes and their corresponding models here
+    };
 
-    dropdownToggle.addEventListener('click', function () {
-        if (dropdownContent.style.display === 'block') {
-            dropdownContent.style.display = 'none';
-        } else {
-            dropdownContent.style.display = 'block';
-        }
+    const fuelTypes = {
+        "Ford": ["Petrol", "Diesel"],
+        "BMW": ["Petrol", "Diesel", "Electric"],
+        "Audi": ["Petrol", "Diesel", "Hybrid"],
+        // Add more makes and their corresponding fuel types here
+    };
+
+    const transmissions = {
+        "Ford": ["Manual", "Automatic"],
+        "BMW": ["Manual", "Automatic"],
+        "Audi": ["Manual", "Automatic"],
+        // Add more makes and their corresponding transmissions here
+    };
+
+    const makeSelect = document.getElementById('make');
+    const modelSelect = document.getElementById('model');
+    const fuelTypeSelect = document.getElementById('fuel-type');
+    const transmissionSelect = document.getElementById('transmission');
+
+    makeSelect.addEventListener('change', function () {
+        const selectedMake = makeSelect.value;
+        updateOptions(modelSelect, models[selectedMake] || []);
+        updateOptions(fuelTypeSelect, fuelTypes[selectedMake] || []);
+        updateOptions(transmissionSelect, transmissions[selectedMake] || []);
+        modelSelect.disabled = selectedMake === 'all';
     });
 
-    searchMake.addEventListener('input', function () {
-        const searchText = searchMake.value.toLowerCase();
-        brandItems.forEach(function (item) {
-            const label = item.querySelector('label').textContent.toLowerCase();
-            if (label.includes(searchText)) {
-                item.style.display = 'flex';
-            } else {
-                item.style.display = 'none';
-            }
+    function updateOptions(selectElement, options) {
+        selectElement.innerHTML = '<option value="all">All</option>';
+        options.forEach(option => {
+            const optionElement = document.createElement('option');
+            optionElement.value = option;
+            optionElement.textContent = option;
+            selectElement.appendChild(optionElement);
         });
-    });
-
-    resetLink.addEventListener('click', function (event) {
-        event.preventDefault();
-        searchMake.value = '';
-        brandItems.forEach(function (item) {
-            item.style.display = 'flex';
-        });
+    }
+    
+    document.getElementById('distance').addEventListener('input', function() {
+        document.getElementById('distance-value').textContent = this.value + ' miles';
     });
 
     document.getElementById('filter-form').addEventListener('submit', function (event) {
@@ -42,93 +56,23 @@ document.addEventListener('DOMContentLoaded', function () {
         const postcode = document.getElementById('postcode').value;
         const distance = document.getElementById('distance').value;
         const price = document.getElementById('price').value;
-        const makeElement = document.querySelector('.brand-item input[type="radio"]:checked');
-        const make = makeElement ? makeElement.value : 'all';
-        const model = document.getElementById('model').value;
-        const fuelType = document.getElementById('fuel-type').value;
-        const transmission = document.getElementById('transmission').value;
+        const make = makeSelect.value;
+        const model = modelSelect.value;
+        const fuelType = fuelTypeSelect.value;
+        const transmission = transmissionSelect.value;
         const year = document.getElementById('year').value;
 
         console.log(`Applying filters: Postcode - ${postcode}, Distance - ${distance}, Price - ${price}, Make - ${make}, Model - ${model}, Fuel Type - ${fuelType}, Transmission - ${transmission}, Year - ${year}`);
 
-        const filteredCars = cars.filter(car => {
-            return (price === 'all' || car.price <= parseInt(price)) &&
-                (make === 'all' || car.make === make) &&
-                (model === 'all' || car.model === model) &&
-                (fuelType === 'all' || car.fuel === fuelType) &&
-                (transmission === 'all' || car.transmission === transmission) &&
-                (year === 'all' || car.year == year) &&
-                car.distance <= distance;
-        });
-
-        displayCars(filteredCars);
+        // Add logic to filter and display the cars
     }
 
-    const cars = [
-        {
-            id: 1,
-            image: 'car1.jpg',
-            name: 'Abarth 124 Spider',
-            model: '1.4 T MultiAir 2dr Auto',
-            year: 2018,
-            miles: 23521,
-            fuel: 'Petrol',
-            price: 19790,
-            distance: 30,
-            make: 'Abarth',
-            transmission: 'Automatic'
-        },
-        {
-            id: 2,
-            image: 'car2.jpg',
-            name: 'Abarth 124 Spider',
-            model: '1.4 T MultiAir 2dr',
-            year: 2016,
-            miles: 22757,
-            fuel: 'Petrol',
-            price: 17480,
-            distance: 20,
-            make: 'Abarth',
-            transmission: 'Manual'
-        },
-        {
-            id: 3,
-            image: 'car3.jpg',
-            name: 'Abarth 124 Spider',
-            model: '1.4 T MultiAir 2dr',
-            year: 2017,
-            miles: 14284,
-            fuel: 'Petrol',
-            price: 19250,
-            distance: 25,
-            make: 'Abarth',
-            transmission: 'Automatic'
-        },
-        // Add more car objects as needed
-    ];
-
-    function displayCars(cars) {
-        const carListing = document.getElementById('car-listing');
-        carListing.innerHTML = '';
-
-        cars.forEach(car => {
-            const carCard = document.createElement('div');
-            carCard.className = 'car-card';
-            carCard.innerHTML = `
-                <img src="${car.image}" alt="${car.name}">
-                <h3>${car.name}</h3>
-                <p>${car.model}</p>
-                <p>${car.year} | ${car.miles} miles | ${car.fuel}</p>
-                <p>£${car.price.toLocaleString()}</p>
-                <button onclick="viewDetails(${car.id})">View details</button>
-            `;
-            carListing.appendChild(carCard);
-        });
-    }
-
-    function viewDetails(carId) {
-        alert('View details for car ID: ' + carId);
-    }
-
-    displayCars(cars);
+    // Populate make dropdown
+    const makes = Object.keys(models);
+    makes.forEach(make => {
+        const optionElement = document.createElement('option');
+        optionElement.value = make;
+        optionElement.textContent = make;
+        makeSelect.appendChild(optionElement);
+    });
 });
