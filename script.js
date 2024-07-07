@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
             selectElement.appendChild(optionElement);
         });
     }
-    
+
     document.getElementById('distance').addEventListener('input', function() {
         document.getElementById('distance-value').textContent = this.value + ' miles';
     });
@@ -55,7 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function applyFilters() {
         const postcode = document.getElementById('postcode').value;
         const distance = document.getElementById('distance').value;
-        const price = document.getElementById('price').value;
+        const priceElements = document.querySelectorAll('input[name="price"]:checked');
+        const price = Array.from(priceElements).map(el => el.value);
         const make = makeSelect.value;
         const model = modelSelect.value;
         const fuelType = fuelTypeSelect.value;

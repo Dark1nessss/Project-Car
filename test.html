@@ -65,13 +65,34 @@
                             </h2>
                             <div id="collapsePrice" class="accordion-collapse collapse" aria-labelledby="headingPrice" data-bs-parent="#filterAccordion">
                                 <div class="accordion-body">
-                                    <select id="price" name="price" class="form-select">
-                                        <option value="all">All</option>
-                                        <option value="10000">Up to £10,000</option>
-                                        <option value="20000">Up to £20,000</option>
-                                        <option value="30000">Up to £30,000</option>
-                                        <option value="40000">Up to £40,000</option>
-                                    </select>
+                                    <input type="text" class="form-control mb-2" id="search-price" placeholder="Search">
+                                    <div class="scrollable-checkbox-list">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="10000" id="price10000">
+                                            <label class="form-check-label" for="price10000">
+                                                Up to £10,000
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="20000" id="price20000">
+                                            <label class="form-check-label" for="price20000">
+                                                Up to £20,000
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="30000" id="price30000">
+                                            <label class="form-check-label" for="price30000">
+                                                Up to £30,000
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="40000" id="price40000">
+                                            <label class="form-check-label" for="price40000">
+                                                Up to £40,000
+                                            </label>
+                                        </div>
+                                        <!-- Add more options here if needed -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
