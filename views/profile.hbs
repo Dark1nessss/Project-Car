@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-<html lang="=en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" conten="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Profile</title>
-        <!--CSS-->
-        <link rel="stylesheet" href="/assets/css/profile.css">
-        <!-- Responsive -->
-        <link rel="stylesheet" href="/assets/css/responsive.css">
-        <!--Icons-->
-        <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
-    </head>
-    
-    <body>
-        <!--Navbar-->
-        <header>
-            <div class="nav container">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="/assets/css/profile.css">
+    <!-- Responsive -->
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <!--Icons-->
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <!--Navbar-->
+    <header>
+        <div class="nav container">
+            <a href="/" class="logo">Car<span>Ville</span></a>
+        </div>
+    </header>
 
-                <i class="bx bx-menu" id="menu-icon"></i>
-
-                <a href="/" class="logo">Car<span>Ville</span></a>
-
-            </div>
-
-        </header>
-
-        <!-- Forms Section -->
+    <!-- Forms Section -->
     <section class="forms">
         <div class="forms-area container">
             <div class="profile-section">
@@ -35,51 +28,48 @@
                 {{else}}
                 <img src="/assets/images/base_profile.png" alt="Profile Photo" class="profile-photo">
                 {{/if}}
-                 <form action="/users/mudar_foto_perfil" method="post" enctype="multipart/form-data">
-                    <p>Mudar foto perfil</p>
-                    <input type="file" name="profile_picture">
-                    <input type="submit" class="btn btn-primary" value="Upload">
-                </form>
                 <div class="profile-name">{{nome_cliente}}</div>
+                <form action="/users/mudar_foto_perfil" method="post" enctype="multipart/form-data" class="profile-form">
+                    <p>Mudar foto perfil</p>
+                    <label for="file-upload" class="custom-file-upload">Escolher ficheiro</label>
+                    <input id="file-upload" type="file" name="profile_picture">
+                    <input type="submit" class="btn" value="Upload ficheiro">
+                </form>
             </div>
-                <form action="/users/editar_cliente/{{cliente_id}}" method="post" class="formu">
-    <h3>Personal Information</h3>
-    {{#if message.success}}
-        <p>{{message.success}}</p>
-    {{/if}}
-    <div class="form-group">
-        <label for="nome">Name:</label>
-        <input type="text" id="nome" name="nome" value="{{nome_cliente}}" required>
-    </div>
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="{{email_cliente}}" required>
-    </div>
-    <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
-    </div>
-    <div class="form-group">
-        <label for="morada">Address:</label>
-        <input type="text" id="morada" name="morada" value="{{morada_cliente}}">
-    </div>
-    <div class="form-group">
-        <label for="nif">NIF:</label>
-        <input type="text" id="nif" name="nif" value="{{nif_cliente}}">
-    </div>
-    <div class="form-group">
-        <label for="data_nascimento">Date of Birth:</label>
-        <input type="date" id="data_nascimento" name="data_nascimento" value="{{formatDate data_nascimento}}">
-    </div>
-    <div class="form-group">
-        <!-- Add your button here -->
-        <button type="submit" class="btn">Update All Camps</button>
-    </div>
-</form>
-
+            <form action="/users/editar_cliente/{{cliente_id}}" method="post" class="formu">
+                <h3>Personal Information</h3>
+                {{#if message.success}}
+                <p>{{message.success}}</p>
+                {{/if}}
+                <div class="form-group">
+                    <label for="nome">Name:</label>
+                    <input type="text" id="nome" name="nome" value="{{nome_cliente}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="{{email_cliente}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="morada">Address:</label>
+                    <input type="text" id="morada" name="morada" value="{{morada_cliente}}">
+                </div>
+                <div class="form-group">
+                    <label for="nif">NIF:</label>
+                    <input type="text" id="nif" name="nif" value="{{nif_cliente}}">
+                </div>
+                <div class="form-group">
+                    <label for="data_nascimento">Date of Birth:</label>
+                    <input type="date" id="data_nascimento" name="data_nascimento" value="{{formatDate data_nascimento}}">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Update All Camps</button>
+                </div>
+            </form>
         </div>
     </section>
-        
-    </body>
-
+</body>
 </html>
