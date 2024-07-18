@@ -65,7 +65,7 @@ body{
 .nav1.visible{
     top: 0;
     translate: 0;
-    background-color: #818181;
+    background-color: transparent;
 }
 
 header{
