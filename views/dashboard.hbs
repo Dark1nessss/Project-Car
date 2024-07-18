@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <link rel="stylesheet" href="/assets/css/dashboard_sections/Accounts.css">
+    <link rel="stylesheet" href="/assets/css/dashboard_sections/Reservations.css">
+    <link rel="stylesheet" href="/assets/css/dashboard_sections/Reviews.css">
+    <link rel="stylesheet" href="/assets/css/dashboard_sections/Settings.css">
+    <link rel="stylesheet" href="/assets/css/dashboard_sections/Stock.css">
+    <link rel="stylesheet" href="/assets/css/dashboard_sections/Support.css">
     <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
     <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -372,36 +378,121 @@
     </main>
 
     <main id="customer-support-section" class="hidden">
-        <div class="tickets">
-            <div class="ticket-item">
-                <div class="ticket-header">
-                    <h3>Issue with Payment</h3>
-                    <span class="ticket-status">Open</span>
+        <div class="ticket-header">
+            <div class="summary">
+                <div class="summary-item">
+                    <span class="summary-count">10</span>
+                    <span class="summary-label">New</span>
                 </div>
-                <p class="ticket-description">Customer is unable to complete payment process.</p>
-                <div class="ticket-footer">
-                    <span class="ticket-customer">
-                        <i class="bx bx-user"></i> Customer ID:
-                    </span>
-                    <span class="ticket-contact">
-                        <a href="#"><i class="bx bx-phone"></i></a>
-                    </span>
+                <div class="summary-item">
+                    <span class="summary-count">20</span>
+                    <span class="summary-label">Open</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-count">5</span>
+                    <span class="summary-label">Unassigned</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-count">15</span>
+                    <span class="summary-label">Closed</span>
                 </div>
             </div>
+            <button class="create-ticket">Create Ticket</button>
+        </div>
+        
+        <div class="ticket-controls">
+            <input type="text" id="search-tickets" placeholder="Search in tickets">
+            <div class="filters">
+                <select id="filter-status">
+                    <option value="">Filter by Status</option>
+                    <option value="open">Open</option>
+                    <option value="pending">Pending</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="closed">Closed</option>
+                </select>
+                <select id="filter-priority">
+                    <option value="">Filter by Priority</option>
+                    <option value="urgent">Urgent</option>
+                    <option value="important">Important</option>
+                    <option value="normal">Normal</option>
+                </select>
+                <select id="filter-assigned">
+                    <option value="">Filter by Assigned to</option>
+                    <option value="team1">Team 1</option>
+                    <option value="team2">Team 2</option>
+                </select>
+            </div>
+        </div>
+        
+        <table class="ticket-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Priority</th>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th>Assigned to</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr onclick="openTicketDetails('ticket-1')">
+                    <td>ID12345</td>
+                    <td>Products are not working, pls help</td>
+                    <td class="priority urgent">Urgent</td>
+                    <td>Product</td>
+                    <td>Issue</td>
+                    <td>Peeves</td>
+                    <td>In Progress</td>
+                    <td><button class="view-details" data-ticket-id="ticket-1">View Details</button></td>
+                </tr>
+                <tr onclick="openTicketDetails('ticket-2')">
+                    <td>ID12346</td>
+                    <td>Users cannot login their accounts</td>
+                    <td class="priority urgent">Urgent</td>
+                    <td>System</td>
+                    <td>Issue</td>
+                    <td>Not assigned</td>
+                    <td>In Progress</td>
+                    <td><button class="view-details" data-ticket-id="ticket-1">View Details</button></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
 
-            <div class="ticket-item">
-                <div class="ticket-header">
-                    <h3>Technical Support Needed</h3>
-                    <span class="ticket-status">Pending</span>
+        <!-- Ticket Details Sidebar -->
+        <div id="ticket-details-sidebar" class="ticket-sidebar hidden">
+            <div class="sidebar-content">
+                <span class="close-btn" onclick="closeTicketDetails()">&times;</span>
+                <h2 id="ticket-id">#ID12345</h2>
+                <h3 id="ticket-title">Configuration Security Failed</h3>
+                <p id="ticket-description">
+                    I followed the instructions for setting up AWS Security Hub and received an error similar to one of the following:
+                    <ul>
+                        <li>AWS Config is not enabled on all necessary regions.</li>
+                        <li>AWS Config is not enabled in all regions.</li>
+                        <li>An error has occurred with AWS Config. Contact AWS Support.</li>
+                    </ul>
+                </p>
+                <div class="attachments">
+                    <h4>Attachments</h4>
+                    <ul id="attachment-list">
+                        <li><a href="#">document.pdf</a></li>
+                        <li><a href="#">screenshot.png</a></li>
+                    </ul>
                 </div>
-                <p class="ticket-description">Customer reports issues with car navigation system.</p>
-                <div class="ticket-footer">
-                    <span class="ticket-customer">
-                        <i class="bx bx-user"></i> Customer ID:
-                    </span>
-                    <span class="ticket-contact">
-                        <a href="#"><i class="bx bx-phone"></i></a>
-                    </span>
+                <div class="chat">
+                    <h4>Chat</h4>
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message">Admin: Please provide more details.</div>
+                        <div class="message customer">Customer: I am seeing this error frequently.</div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="chat-input" placeholder="Type a message">
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -578,16 +669,12 @@
         <h2>Settings Section</h2>
     </main>
 
+    <script src="/assets/js/dashboard_js/sidebar.js"></script>
+    <script src="/assets/js/dashboard_js/support.js"></script>
     <script>
-    // Sidebar Toggle
-    let btn = document.querySelector("#btn");
-    let sidebar = document.querySelector(".sidebar");
-    btn.onclick = function () {
-        sidebar.classList.toggle("active");
-    }
 
     const ctxSales = document.getElementById('salesChart').getContext('2d');
-const salesChart = new Chart(ctxSales, {
+    const salesChart = new Chart(ctxSales, {
     type: 'line',
     data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -673,41 +760,6 @@ const demographicsChart = new Chart(ctxDemographics, {
         }
     }
 });
-
-    // Page Navigation
-    document.addEventListener("DOMContentLoaded", function () {
-        const sidebarLinks = document.querySelectorAll('.nav_list a');
-        const mainContentSections = document.querySelectorAll('main');
-
-        sidebarLinks.forEach(link => {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
-
-                // Remove active class from all links
-                sidebarLinks.forEach(link => link.classList.remove('expanded'));
-
-                // Add active class to the clicked link
-                this.classList.add('expanded');
-
-                // Hide all sections
-                mainContentSections.forEach(section => section.classList.add('hidden'));
-
-                // Get the target ID from the clicked link
-                const targetId = this.getAttribute('id') + '-section';
-
-                // Show the target section
-                const targetSection = document.querySelector(`#${targetId}`);
-                if (targetSection) {
-                    targetSection.classList.remove('hidden');
-                }
-            });
-        });
-
-        // Shows dashboard as initial active
-        document.querySelector('#dashboard').classList.add('expanded');
-        document.querySelector('#dashboard-section').classList.remove('hidden');
-    });
-    
 
     </script>
 </body>
