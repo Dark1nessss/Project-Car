@@ -30,16 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('Opening details for:', ticketId); // Debug log
         const ticket = ticketDetails[ticketId];
         if (ticket) {
-            document.getElementById('ticket-id').innerText = ticketId;
-            document.getElementById('ticket-title').innerText = ticket.description;
-            document.getElementById('customer-name').innerText = ticket.name;
-            document.getElementById('customer-email').innerText = ticket.email;
-            document.getElementById('customer-phone').innerText = ticket.phone;
-            document.getElementById('issue-description').innerText = ticket.description;
-            document.getElementById('vehicle').innerText = ticket.vehicle;
-            document.getElementById('additional-notes').innerText = ticket.notes;
+            document.getElementById('modal-ticket-id').innerText = ticketId;
+            document.getElementById('modal-ticket-title').innerText = ticket.description;
+            document.getElementById('modal-user-id').innerText = ticketId;
+            document.getElementById('modal-user-name').innerText = ticket.name;
+            document.getElementById('modal-incident-title').innerText = ticket.description;
+            document.getElementById('modal-incident-description').innerText = ticket.description;
+            document.getElementById('modal-incident-status').innerText = 'Open'; // Update status as needed
 
-            const chatMessages = document.querySelector('.chat-messages');
+            const chatMessages = document.getElementById('chat-messages');
             chatMessages.innerHTML = '';
             ticket.messages.forEach(message => {
                 const messageDiv = document.createElement('div');
@@ -51,20 +50,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 chatMessages.appendChild(messageDiv);
             });
 
-            document.querySelector('.ticket-sidebar').classList.add('active');
+            const modal = document.getElementById('ticket-details-modal');
+            modal.classList.remove('fadeOut');
+            modal.classList.add('fadeIn');
+            modal.style.display = 'block';
         }
     }
 
-    function closeTicketDetails() {
-        console.log('Closing details'); // Debug log
-        document.querySelector('.ticket-sidebar').classList.remove('active');
+    function closeTicketDetailsModal() {
+        const modal = document.getElementById('ticket-details-modal');
+        modal.classList.remove('fadeIn');
+        modal.classList.add('fadeOut');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300); // Match the duration of fadeOut animation
     }
 
     function sendMessage() {
         const input = document.getElementById('chat-input');
         const messageText = input.value.trim();
         if (messageText) {
-            const chatMessages = document.querySelector('.chat-messages');
+            const chatMessages = document.getElementById('chat-messages');
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', 'admin');
             const timestamp = new Date().toLocaleString();
@@ -75,13 +81,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    document.querySelector('.close-btn').addEventListener('click', closeTicketDetails);
+    document.querySelector('.close-btn').addEventListener('click', closeTicketDetailsModal);
     document.getElementById('send-message-btn').addEventListener('click', sendMessage);
 
-    document.querySelectorAll('.view-details').forEach(button => {
-        button.addEventListener('click', function () {
+    document.querySelectorAll('.ticket-table tbody tr').forEach(row => {
+        row.addEventListener('click', function () {
             const ticketId = this.getAttribute('data-ticket-id');
-            console.log('View details clicked for:', ticketId); // Debug log
+            console.log('Row clicked for:', ticketId); // Debug log
             openTicketDetails(ticketId);
         });
     });
@@ -96,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('search-tickets').addEventListener('input', function () {
         const searchValue = this.value.toLowerCase();
         document.querySelectorAll('.ticket-table tbody tr').forEach(row => {
-            const title = row.children[0].innerText.toLowerCase();
+            const title = row.children[1].innerText.toLowerCase();
             row.style.display = title.includes(searchValue) ? '' : 'none';
         });
     });
@@ -104,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('filter-status').addEventListener('change', function () {
         const filterValue = this.value.toLowerCase();
         document.querySelectorAll('.ticket-table tbody tr').forEach(row => {
-            const status = row.children[5].innerText.toLowerCase();
+            const status = row.children[6].innerText.toLowerCase();
             row.style.display = status.includes(filterValue) || filterValue === '' ? '' : 'none';
         });
     });
@@ -112,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('filter-priority').addEventListener('change', function () {
         const filterValue = this.value.toLowerCase();
         document.querySelectorAll('.ticket-table tbody tr').forEach(row => {
-            const priority = row.children[1].innerText.toLowerCase();
+            const priority = row.children[2].innerText.toLowerCase();
             row.style.display = priority.includes(filterValue) || filterValue === '' ? '' : 'none';
         });
     });
@@ -120,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('filter-assigned').addEventListener('change', function () {
         const filterValue = this.value.toLowerCase();
         document.querySelectorAll('.ticket-table tbody tr').forEach(row => {
-            const assigned = row.children[4].innerText.toLowerCase();
+            const assigned = row.children[5].innerText.toLowerCase();
             row.style.display = assigned.includes(filterValue) || filterValue === '' ? '' : 'none';
         });
     });

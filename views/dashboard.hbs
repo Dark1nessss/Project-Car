@@ -377,7 +377,7 @@
     </section>
     </main>
 
-    <main id="customer-support-section" class="hidden">
+    <main id="customer-support-section">
         <div class="ticket-header">
             <div class="summary">
                 <div class="summary-item">
@@ -434,11 +434,10 @@
                     <th>Type</th>
                     <th>Assigned to</th>
                     <th>Status</th>
-                    <th>Details</th>
                 </tr>
             </thead>
             <tbody>
-                <tr onclick="openTicketDetails('ticket-1')">
+                <tr data-ticket-id="ticket-1">
                     <td>ID12345</td>
                     <td>Products are not working, pls help</td>
                     <td class="priority urgent">Urgent</td>
@@ -446,9 +445,8 @@
                     <td>Issue</td>
                     <td>Peeves</td>
                     <td>In Progress</td>
-                    <td><button class="view-details" data-ticket-id="ticket-1">View Details</button></td>
                 </tr>
-                <tr onclick="openTicketDetails('ticket-2')">
+                <tr data-ticket-id="ticket-2">
                     <td>ID12346</td>
                     <td>Users cannot login their accounts</td>
                     <td class="priority urgent">Urgent</td>
@@ -456,47 +454,41 @@
                     <td>Issue</td>
                     <td>Not assigned</td>
                     <td>In Progress</td>
-                    <td><button class="view-details" data-ticket-id="ticket-1">View Details</button></td>
                 </tr>
                 <!-- Add more rows as needed -->
             </tbody>
         </table>
+    </main>
 
-        <!-- Ticket Details Sidebar -->
-        <div id="ticket-details-sidebar" class="ticket-sidebar hidden">
-            <div class="sidebar-content">
-                <span class="close-btn" onclick="closeTicketDetails()">&times;</span>
-                <h2 id="ticket-id">#ID12345</h2>
-                <h3 id="ticket-title">Configuration Security Failed</h3>
-                <p id="ticket-description">
-                    I followed the instructions for setting up AWS Security Hub and received an error similar to one of the following:
-                    <ul>
-                        <li>AWS Config is not enabled on all necessary regions.</li>
-                        <li>AWS Config is not enabled in all regions.</li>
-                        <li>An error has occurred with AWS Config. Contact AWS Support.</li>
-                    </ul>
-                </p>
-                <div class="attachments">
-                    <h4>Attachments</h4>
-                    <ul id="attachment-list">
-                        <li><a href="#">document.pdf</a></li>
-                        <li><a href="#">screenshot.png</a></li>
-                    </ul>
+    <!-- Ticket Details Modal -->
+    <div id="ticket-details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-header">
+                <h2 id="modal-ticket-title">Ticket Details</h2>
+            </div>
+            <div class="modal-body">
+                <div class="ticket-info">
+                    <h4>Ticket Information</h4>
+                    <p><strong>Ticket ID:</strong> <span id="modal-ticket-id"></span></p>
+                    <p><strong>User ID:</strong> <span id="modal-user-id"></span></p>
+                    <p><strong>Name:</strong> <span id="modal-user-name"></span></p>
+                    <p><strong>Incident Title:</strong> <span id="modal-incident-title"></span></p>
+                    <p><strong>Description:</strong> <span id="modal-incident-description"></span></p>
+                    <p><strong>Status:</strong> <span id="modal-incident-status"></span></p>
                 </div>
-                <div class="chat">
+                <div class="chat-section">
                     <h4>Chat</h4>
-                    <div class="chat-messages" id="chat-messages">
-                        <div class="message">Admin: Please provide more details.</div>
-                        <div class="message customer">Customer: I am seeing this error frequently.</div>
-                    </div>
+                    <div class="chat-messages" id="chat-messages"></div>
                     <div class="chat-input">
                         <input type="text" id="chat-input" placeholder="Type a message">
-                        <button onclick="sendMessage()">Send</button>
+                        <button id="send-message-btn">Send</button>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+
 
     <main id="reviews-section" class="hidden">
         <div class="reviews">
@@ -671,97 +663,6 @@
 
     <script src="/assets/js/dashboard_js/sidebar.js"></script>
     <script src="/assets/js/dashboard_js/support.js"></script>
-    <script>
-
-    const ctxSales = document.getElementById('salesChart').getContext('2d');
-    const salesChart = new Chart(ctxSales, {
-    type: 'line',
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-        datasets: [{
-            label: 'Sales',
-            data: [5000, 10000, 7500, 12500, 15000, 20000],
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 2,
-            fill: false,
-            pointBackgroundColor: 'rgba(75, 192, 192, 1)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(75, 192, 192, 1)',
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false, // Ensure the chart fits within the div
-        scales: {
-            x: {
-                display: true,
-                title: {
-                    display: true,
-                    text: 'Month'
-                }
-            },
-            y: {
-                display: true,
-                title: {
-                    display: true,
-                    text: 'Earnings (€)'
-                }
-            }
-        },
-        plugins: {
-            legend: {
-                display: true,
-                position: 'top'
-            },
-            tooltip: {
-                enabled: true
-            }
-        }
-    }
-});
-
-const ctxDemographics = document.getElementById('demographicsChart').getContext('2d');
-const demographicsChart = new Chart(ctxDemographics, {
-    type: 'pie',
-    data: {
-        labels: ['18-25', '26-35', '36-45', '46-60', '60+'],
-        datasets: [{
-            label: 'Customer Demographics',
-            data: [20, 30, 25, 15, 10],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false, // Ensure the chart fits within the div
-        plugins: {
-            legend: {
-                display: true,
-                position: 'top'
-            },
-            tooltip: {
-                enabled: true
-            }
-        }
-    }
-});
-
-    </script>
+    <script src="/assets/js/dashboard_js/graph.js"></script>
 </body>
-
 </html>
