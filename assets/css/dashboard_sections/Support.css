@@ -16,7 +16,7 @@
     padding: 10px 20px;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .summary-count {
@@ -40,7 +40,7 @@
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .create-ticket:hover {
@@ -62,7 +62,7 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .ticket-controls input {
@@ -85,7 +85,7 @@
 .ticket-table th {
     background-color: #f4f6f8;
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .ticket-table tbody tr:nth-child(even) {
@@ -112,6 +112,38 @@
     font-weight: bold;
 }
 
+.status-label {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.status-open {
+    background-color: #007bff;
+}
+
+.status-pending {
+    background-color: #ffc107;
+}
+
+.status-complete {
+    background-color: #28a745;
+}
+
+.status-in-progress {
+    background-color: #17a2b8;
+}
+
+.status-closed {
+    background-color: #dc3545;
+}
+
+.status-new {
+    background-color: #ffc107;
+}
+
 .view-details {
     padding: 6px 12px;
     background-color: #007bff;
@@ -120,7 +152,7 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .view-details:hover {
@@ -138,39 +170,44 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    animation: fadeIn 0.3s;
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    animation: fadeIn 0.3s ease-in-out;
 }
 
 @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes fadeOut {
-    from {opacity: 1;}
-    to {opacity: 0;}
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto;
+    margin:auto; /* Center horizontally */
+    margin-top: .5%; /* Move modal further up */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    max-width: 800px;
+    width: 75%; /* Slightly smaller width */
+    max-width: 750px; /* Slightly smaller max-width */
     border-radius: 8px;
-    animation: slideIn 0.3s;
+    animation: slideIn 0.3s ease-in-out;
 }
 
 @keyframes slideIn {
-    from {transform: translateY(-50px);}
-    to {transform: translateY(0);}
+    from { transform: translateY(-60px); } /* Adjusted for smoother effect */
+    to { transform: translateY(0); }
 }
 
 @keyframes slideOut {
-    from {transform: translateY(0);}
-    to {transform: translateY(-50px);}
+    from { transform: translateY(0); }
+    to { transform: translateY(-60px); } /* Adjusted for smoother effect */
+}
+
+.modal.fadeOut .modal-content {
+    animation: slideOut 0.3s ease-in-out forwards;
 }
 
 .close-btn {
@@ -203,7 +240,7 @@
     background-color: #f4f6f8;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .ticket-info h4, .chat-section h4 {
@@ -226,7 +263,7 @@
     padding: 10px;
     border-radius: 8px;
     background-color: #f4f6f8;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .message {
@@ -252,7 +289,7 @@
     border-radius: 4px;
     font-size: 16px;
     margin-right: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .chat-input button {
@@ -264,7 +301,7 @@
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .chat-input button:hover {

@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
             description: "Customer is unable to complete payment process.",
             vehicle: "Toyota Corolla",
             notes: "Customer prefers to pay via credit card.",
+            status: "open",
             messages: [
                 { sender: "admin", text: "How can I help you today?", timestamp: "2024-07-18 10:00" },
                 { sender: "customer", text: "I can't complete my payment.", timestamp: "2024-07-18 10:05" }
@@ -19,12 +20,41 @@ document.addEventListener("DOMContentLoaded", function () {
             description: "Customer reports issues with car navigation system.",
             vehicle: "Honda Civic",
             notes: "Customer requested a test drive before finalizing.",
+            status: "open",
             messages: [
                 { sender: "admin", text: "How can I assist you?", timestamp: "2024-07-17 09:00" },
                 { sender: "customer", text: "The navigation system is not working.", timestamp: "2024-07-17 09:05" }
             ]
         }
     };
+
+    function updateStatusLabel(status) {
+        const statusElement = document.getElementById('modal-incident-status');
+        statusElement.innerText = status.charAt(0).toUpperCase() + status.slice(1); // Capitalize first letter
+        statusElement.className = 'status-label'; // Reset class
+        switch (status.toLowerCase()) {
+            case 'open':
+                statusElement.classList.add('status-open');
+                break;
+            case 'in progress':
+                statusElement.classList.add('status-in-progress');
+                break;
+            case 'closed':
+                statusElement.classList.add('status-closed');
+                break;
+            case 'pending':
+                statusElement.classList.add('status-pending');
+                break;
+            case 'new':
+                statusElement.classList.add('status-new');
+                break;
+            case 'complete':
+                statusElement.classList.add('status-complete');
+                break;
+            default:
+                break;
+        }
+    }
 
     function openTicketDetails(ticketId) {
         console.log('Opening details for:', ticketId); // Debug log
@@ -36,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('modal-user-name').innerText = ticket.name;
             document.getElementById('modal-incident-title').innerText = ticket.description;
             document.getElementById('modal-incident-description').innerText = ticket.description;
-            document.getElementById('modal-incident-status').innerText = 'Open'; // Update status as needed
+            updateStatusLabel(ticket.status); // Set the status from ticket data
 
             const chatMessages = document.getElementById('chat-messages');
             chatMessages.innerHTML = '';
@@ -63,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.classList.add('fadeOut');
         setTimeout(() => {
             modal.style.display = 'none';
+            modal.classList.remove('fadeOut'); // Reset the animation class
         }, 300); // Match the duration of fadeOut animation
     }
 
@@ -96,6 +127,24 @@ document.addEventListener("DOMContentLoaded", function () {
         if (e.key === 'Enter') {
             sendMessage();
         }
+    });
+
+    document.getElementById('close-ticket-btn').addEventListener('click', function () {
+        const ticketId = document.getElementById('modal-ticket-id').innerText;
+        ticketDetails[ticketId].status = 'closed';
+        updateStatusLabel('closed');
+        document.querySelector(`[data-ticket-id="${ticketId}"] .status-label`).className = 'status-label status-closed';
+        document.querySelector(`[data-ticket-id="${ticketId}"] .status-label`).innerText = 'Closed';
+        closeTicketDetailsModal();
+    });
+
+    document.getElementById('refer-ticket-btn').addEventListener('click', function () {
+        const ticketId = document.getElementById('modal-ticket-id').innerText;
+        ticketDetails[ticketId].status = 'in progress';
+        updateStatusLabel('in progress');
+        document.querySelector(`[data-ticket-id="${ticketId}"] .status-label`).className = 'status-label status-in-progress';
+        document.querySelector(`[data-ticket-id="${ticketId}"] .status-label`).innerText = 'In Progress';
+        closeTicketDetailsModal();
     });
 
     // Filter functionality
