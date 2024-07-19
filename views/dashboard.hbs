@@ -23,8 +23,13 @@
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
-                <i class='bx bxl-c-plus-plus'></i>
-                <div class="logo_name">CarVille</div>
+                <a href="/"><i class='bx bxl-c-plus-plus'></i></a>
+                <a href="/">
+                <div class="logo_name">
+                    <span class="logo_car">Car</span>
+                    <span class="logo_ville">Ville</span>
+                </div>
+                </a>
             </div>
             <i class='bx bx-menu' id="toggle-btn"></i>
         </div>
@@ -87,12 +92,12 @@
         <div class="profile_content">
             <div class="profile">
                 <div class="profile_details">
-                    <img src="/uploads/{{foto_perfil}}" alt="Profile Picture">
+                    <a href="/profile"><img src="/uploads/{{foto_perfil}}" alt="Profile Picture"></a>
                     <div class="name_job">
                         <div class="name">{{nome_cliente}}</div>
                     </div>
                 </div>
-                <a href="#"><i class='bx bx-log-out' id="log_out"></i></a>
+                <i class='bx bx-log-out' id="log_out" onclick="confirmLogout()"></i>
             </div>
         </div>
     </div>
@@ -141,7 +146,7 @@
             <div class="recent-sales">
                 <div class="header">
                     <h2>Recent Sales</h2>
-                    <button class="see-all">See all →</button>
+                    <button class="see-all">See all</button>
                 </div>
                 <table>
                     <thead>
@@ -219,7 +224,7 @@
             <div class="new-customers">
                 <div class="header">
                     <h2>New Customers</h2>
-                    <button class="see-all">See all →</button>
+                    <button class="see-all" id="see-all-new-customers" data-target="accounts-section">See all</button>
                 </div>
                 <div class="customer-list">
                     <div class="customer-item">
@@ -310,7 +315,7 @@
     <section class="reserved-cars">
         <div class="header">
             <h2>Reserved Cars</h2>
-            <button class="see-all">See all →</button>
+            <button class="see-all">See all</button>
         </div>
         <div class="car-list">
             <div class="car-item">
@@ -337,7 +342,7 @@
     <section class="reservation-requests">
         <div class="header">
             <h2>Reservation Requests</h2>
-            <button class="see-all">See all →</button>
+            <button class="see-all">See all</button>
         </div>
         <div class="request-list">
             <div class="request-item">
@@ -378,7 +383,7 @@
     </section>
     </main>
 
-    <main id="customer-support-section">
+    <main id="customer-support-section" class="hidden">
         <div class="ticket-header">
             <div class="summary">
                 <div class="summary-item">
@@ -500,7 +505,7 @@
             <div class="recent-reviews">
                 <div class="header">
                     <h2>Recent Reviews</h2>
-                    <button class="see-all">See all →</button>
+                    <button class="see-all">See all</button>
                 </div>
                 <table>
                     <thead>
@@ -583,7 +588,7 @@
             <div class="stockpile">
                 <div class="header">
                     <h2>Stock Overview</h2>
-                    <button class="see-all">See all →</button>
+                    <button class="see-all">See all</button>
                 </div>
                 <table>
                     <thead>
@@ -614,7 +619,7 @@
             <div class="account-overview">
                 <div class="header">
                     <h2>Account Overview</h2>
-                    <button class="see-all" onclick="redirectToNewPage()">See all →</button>
+                    <button class="see-all" onclick="redirectToNewPage()">See all</button>
                 </div>
                 <table>
                     <thead>
@@ -669,6 +674,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/assets/js/dashboard_js/dashboard.js"></script>
     <script src="/assets/js/dashboard_js/sidebar.js"></script>
     <script src="/assets/js/dashboard_js/support.js"></script>
     <script src="/assets/js/dashboard_js/graph.js"></script>

@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+:root {
+    --main-color: #d90429; /* Define the main color here */
+    --bg-color: #ffffff;   /* Define the background color here */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -39,6 +44,12 @@ body {
     opacity: 0;
     pointer-events: none;
     transition: all 0.5s ease;
+    text-decoration: none;
+}
+
+.logo a, .logo a:hover, .logo a:focus, .logo a:active {
+    text-decoration: none;
+    color: inherit;
 }
 
 .sidebar.active .logo_content .logo {
@@ -49,6 +60,23 @@ body {
 .logo_content .logo i {
     font-size: 28px;
     margin-right: 5px;
+}
+
+.logo_name {
+    display: flex;
+}
+
+.logo_car {
+    color: white;
+}
+  
+.logo_ville {
+    color: var(--main-color);
+    font-weight: bold;
+}
+  
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
 }
 
 .logo_content .logo .logo_name {
@@ -67,6 +95,7 @@ body {
     text-align: center;
     line-height: 50px;
     transform: translateX(-50%);
+    cursor: pointer;
 }
 
 .sidebar.active #toggle-btn {
@@ -229,6 +258,7 @@ body {
     font-size: 20px;
     border-radius: 12px;
     text-align: center;
+    cursor: pointer;
 }
 
 .sidebar.active .profile #log_out {
@@ -361,6 +391,11 @@ main.active {
     background-color: #4CAF50;
 }
 
+.see-all:focus {
+    outline: none;
+    border: none;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -451,4 +486,10 @@ tr:nth-child(even) {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+}
+
+/* Custom styles for SweetAlert2 */
+.swal2-no-outline:focus {
+    outline: none;
+    border: none;
 }
