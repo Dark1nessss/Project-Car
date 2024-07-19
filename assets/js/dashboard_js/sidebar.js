@@ -1,9 +1,11 @@
 // Sidebar Toggle
-let btn = document.querySelector("#btn");
+let btn = document.querySelector("#toggle-btn");
 let sidebar = document.querySelector(".sidebar");
+
 btn.onclick = function () {
     sidebar.classList.toggle("active");
-}
+    document.querySelector("main").classList.toggle("active");
+};
 
 // Page Navigation
 document.addEventListener("DOMContentLoaded", function () {
@@ -15,26 +17,38 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
 
             // Remove active class from all links
-            sidebarLinks.forEach(link => link.classList.remove('expanded'));
+            sidebarLinks.forEach(link => link.classList.remove('expanded', 'active'));
 
             // Add active class to the clicked link
-            this.classList.add('expanded');
+            this.classList.add('expanded', 'active');
 
-            // Hide all sections
-            mainContentSections.forEach(section => section.classList.add('hidden'));
+            // Hide all sections with fade-out
+            mainContentSections.forEach(section => {
+                section.classList.add('fade-out');
+                setTimeout(() => {
+                    section.classList.add('hidden');
+                    section.classList.remove('fade-out');
+                }, 500);
+            });
 
             // Get the target ID from the clicked link
             const targetId = this.getAttribute('id') + '-section';
 
-            // Show the target section
+            // Show the target section with fade-in
             const targetSection = document.querySelector(`#${targetId}`);
             if (targetSection) {
-                targetSection.classList.remove('hidden');
+                setTimeout(() => {
+                    targetSection.classList.remove('hidden');
+                    targetSection.classList.add('fade-in');
+                }, 500);
+                setTimeout(() => {
+                    targetSection.classList.remove('fade-in');
+                }, 1000);
             }
         });
     });
 
     // Shows dashboard as initial active
-    document.querySelector('#dashboard').classList.add('expanded');
+    document.querySelector('#dashboard').classList.add('expanded', 'active');
     document.querySelector('#dashboard-section').classList.remove('hidden');
 });
