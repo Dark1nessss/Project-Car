@@ -588,24 +588,44 @@
             <div class="stockpile">
                 <div class="header">
                     <h2>Stock Overview</h2>
-                    <button class="see-all">See all</button>
+                    <div class="header-icons">
+                        <i class='bx bx-show' title="See all"></i>
+                        <i class='bx bx-car' title="Add Product"></i>
+                    </div>
                 </div>
                 <table>
                     <thead>
                         <tr>
+                            <th>Image</th>
                             <th>Car Brand</th>
                             <th>Model</th>
                             <th>Year</th>
-                            <th>Price per Unit</th>
+                            <th>Color</th>
+                            <th>HP</th>
+                            <th>Engine Type</th>
+                            <th>Transmission</th>
+                            <th>Fuel Type</th>
+                            <th>Price Range</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {{#each carros}}
                         <tr>
+                            <td><img src="{{this.image}}" alt="Car Image"></td>
                             <td>{{this.marca}}</td>
                             <td>{{this.modelo}}</td>
                             <td>{{this.ano}}</td>
-                            <td>{{this.preco}},000€</td>
+                            <td>{{this.cor}}</td>
+                            <td>{{this.hp}} HP</td>
+                            <td>{{this.tipo_motor}}</td>
+                            <td>{{this.transmissao}}</td>
+                            <td>{{this.combustivel}}</td>
+                            <td>{{this.preco_min}}k - {{this.preco_max}}k €</td>
+                            <td>
+                                <i class='bx bx-edit edit-product' title="Edit"></i>
+                                <i class='bx bx-trash delete-product' title="Delete"></i>
+                            </td>
                         </tr>
                         {{/each}}
                     </tbody>
@@ -703,6 +723,7 @@
     <script src="/assets/js/dashboard_js/sidebar.js"></script>
     <script src="/assets/js/dashboard_js/support.js"></script>
     <script src="/assets/js/dashboard_js/account.js"></script>
+    <script src="/assets/js/dashboard_js/stock.js"></script>
     <script src="/assets/js/dashboard_js/graph.js"></script>
 </body>
 </html>

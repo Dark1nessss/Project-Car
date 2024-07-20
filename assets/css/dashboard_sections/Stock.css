@@ -12,3 +12,112 @@
     padding: 20px;
     width: 100%;
 }
+
+.stockpile .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.stockpile .header h2 {
+    margin: 0;
+}
+
+.stockpile .header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.stockpile .header-buttons .see-all,
+.stockpile .header-buttons .add-product {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stockpile .header-buttons .see-all:hover,
+.stockpile .header-buttons .add-product:hover {
+    background-color: #c82333;
+}
+
+.stockpile .header-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.stockpile .header-icons i {
+    font-size: 30px;
+    color: var(--main-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+    background: #f4f6f8;
+}
+
+.stockpile .header-icons i:hover {
+    color: #c82333;
+    background: #e9ecef;
+}
+
+.stockpile table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.stockpile th,
+.stockpile td {
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.stockpile th {
+    background: #f4f6f8;
+}
+
+.stockpile tbody tr:nth-child(even) {
+    background: #f9fafc;
+}
+
+.stockpile tbody tr:hover {
+    background: #e9ecef;
+}
+
+.stockpile td img {
+    width: 100px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.stockpile .edit-product,
+.stockpile .delete-product {
+    font-size: 20px;
+    color: var(--main-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+    background: #f4f6f8;
+    margin-right: 5px;
+}
+
+.stockpile .edit-product:hover,
+.stockpile .delete-product:hover {
+    color: #c82333;
+    background: #e9ecef;
+}
+
+.stockpile .edit-product .bx,
+.stockpile .delete-product .bx {
+    font-size: 16px;
+}
