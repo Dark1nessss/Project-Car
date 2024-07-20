@@ -619,53 +619,77 @@
             <div class="account-overview">
                 <div class="header">
                     <h2>Account Overview</h2>
-                    <button class="see-all" onclick="redirectToNewPage()">See all</button>
+                    <div class="actions">
+                        <input type="search" placeholder="Search">
+                        <button class="move-to">Move to</button>
+                        <button class="sort-by">Sort by</button>
+                    </div>
                 </div>
                 <table>
                     <thead>
                         <tr>
-                            <th>Customer ID</th>
+                            <th><input type="checkbox"></th>
+                            <th>Profile</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>001</td>
-                            <td>John Doe</td>
+                        <tr class="customer-row" data-customer-id="001">
+                            <td><input type="checkbox"></td>
+                            <td><img src="profile1.jpg" alt="Profile Picture"></td>
+                            <td>
+                                <div class="customer-info">
+                                    <p>John Doe</p>
+                                    <span>johndoe@example.com</span>
+                                    <div class="social-icons">
+                                        <i class='bx bxl-facebook'></i>
+                                        <i class='bx bxl-twitter'></i>
+                                        <i class='bx bxl-google'></i>
+                                        <i class='bx bxl-linkedin'></i>
+                                        <i class='bx bxl-instagram'></i>
+                                    </div>
+                                </div>
+                            </td>
                             <td>johndoe@example.com</td>
-                            <td><button class="view-details" onclick="redirectToDetailsPage('001')">View Details</button></td>
                         </tr>
-                        <tr>
-                            <td>002</td>
-                            <td>Sarah Johnson</td>
-                            <td>sarah.j@example.com</td>
-                            <td><button class="view-details" onclick="redirectToDetailsPage('002')">View Details</button></td>
-                        </tr>
-                        <tr>
-                            <td>003</td>
-                            <td>Michael Smith</td>
-                            <td>m.smith@example.com</td>
-                            <td><button class="view-details" onclick="redirectToDetailsPage('003')">View Details</button></td>
-                        </tr>
-                        <tr>
-                            <td>004</td>
-                            <td>Emily Davis</td>
-                            <td>emily.d@example.com</td>
-                            <td><button class="view-details" onclick="redirectToDetailsPage('004')">View Details</button></td>
-                        </tr>
-                        <tr>
-                            <td>005</td>
-                            <td>David Goggins</td>
-                            <td>david.g@example.com</td>
-                            <td><button class="view-details" onclick="redirectToDetailsPage('005')">View Details</button></td>
-                        </tr>
+                        <!-- Add more rows as needed -->
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
+
+    <!-- Modal for Customer Details and Messaging -->
+    <div id="customer-details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-header">
+                <h2>Customer Details</h2>
+            </div>
+            <div class="modal-body">
+                <div class="customer-details">
+                    <p><strong>Name:</strong> <span id="customer-name"></span></p>
+                    <p><strong>Email:</strong> <span id="customer-email"></span></p>
+                    <div class="social-icons">
+                        <i class='bx bxl-facebook'></i>
+                        <i class='bx bxl-twitter'></i>
+                        <i class='bx bxl-google'></i>
+                        <i class='bx bxl-linkedin'></i>
+                        <i class='bx bxl-instagram'></i>
+                    </div>
+                </div>
+                <div class="messaging-system">
+                    <h4>Chat</h4>
+                    <div class="chat-messages" id="chat-messages"></div>
+                    <div class="chat-input">
+                        <input type="text" id="chat-input" placeholder="Type a message">
+                        <button id="send-message-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main id="settings-section" class="hidden">
         <h2>Settings Section</h2>
@@ -678,6 +702,7 @@
     <script src="/assets/js/dashboard_js/dashboard.js"></script>
     <script src="/assets/js/dashboard_js/sidebar.js"></script>
     <script src="/assets/js/dashboard_js/support.js"></script>
+    <script src="/assets/js/dashboard_js/account.js"></script>
     <script src="/assets/js/dashboard_js/graph.js"></script>
 </body>
 </html>
