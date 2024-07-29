@@ -35,11 +35,9 @@ router.get('/profile', function(req, res, next){
       foto_perfil: req.session.foto_perfil,
       data_nascimento: req.session.data_nascimento,
       success: req.flash("success")
-    })
-    console.log(data_nascimento)
+    });
   } else {
     res.redirect("/login");
   }
-  
-})
+});
 module.exports = router;
